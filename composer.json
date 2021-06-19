@@ -1,0 +1,14 @@
+{
+    "name": "scadaunity/framework",
+    "description": "Micro PHP Framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "scadaunity",
+            "email": "scadaunity@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
