@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/app.js',
@@ -14,7 +15,13 @@ module.exports = {
           exclude: /node_modules/
         }
       ]
-    }
+    },
+    plugins:[
+      new HtmlWebpackPlugin({
+        filename:'index.html',
+        template:'public/index.php'
+      })
+    ]
 
 
 }
