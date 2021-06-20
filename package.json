@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/scadaunity/framework/issues"
   },
-  "homepage": "https://github.com/scadaunity/framework#readme"
+  "homepage": "https://github.com/scadaunity/framework#readme",
+  "devDependencies": {
+    "webpack": "^5.39.1",
+    "webpack-cli": "^4.7.2"
+  }
 }
