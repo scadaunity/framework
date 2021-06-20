@@ -15,7 +15,7 @@
   \********************/
 /***/ (() => {
 
-eval("\n\n//# sourceURL=webpack://framework/./src/app.js?");
+eval("var name = 'Doug';\n\n//# sourceURL=webpack://framework/./src/app.js?");
 
 /***/ })
 

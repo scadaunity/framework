@@ -6,6 +6,15 @@ module.exports = {
     output: {
         filename: 'js.js',
         path: path.resolve(__dirname, 'src/assets')
+    },
+    module:{
+      rules:[
+        {
+          test:/\.js$/,
+          loader:'babel-loader',
+          exclude: /node_modules/
+        }
+      ]
     }
 
 
