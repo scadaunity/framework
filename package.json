@@ -5,8 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "start": "php -S localhost:8000 -t public",
-    "dev": "webpack --config webpack.config.js",
-    "prod": "webpack --config webpack.config.js"
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",
