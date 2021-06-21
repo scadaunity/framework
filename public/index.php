@@ -8,8 +8,10 @@
 <html lang="pt-br" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- Styles -->
+    <link rel="stylesheet" href="<?=$config['cssFile'] ?>">
     <title><?=$config['appTitle'] ?></title>
-  </head>
+  <script defer src="app.js"></script><script defer src="app.js"></script></head>
   <body>
     <h1>Index.php</h1>
   </body>

@@ -5,7 +5,7 @@ module.exports = {
     entry: './src/app.js',
     output: {
         filename: 'app.js',
-        path: path.resolve(__dirname, 'src/assets')
+        path: path.resolve(__dirname, 'public')
     },
     module:{
       rules:[
@@ -18,7 +18,7 @@ module.exports = {
     },
     plugins:[
       new HtmlWebpackPlugin({
-        filename:'index.html',
+        filename:'index.php',
         template:'public/index.php'
       })
     ]

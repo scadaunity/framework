@@ -8,7 +8,7 @@ return [
 
     /* Application title
     --------------------------------------------------------------------------*/
-    'cssFile' => 'Scada Unity',
+    'cssFile' => 'app.css',
 
 
 
