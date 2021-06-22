@@ -1,4 +1,4 @@
-import './bootstrap.js';
+import './assets/app.css';
 
 let name = 'Doug';
 
