@@ -2,6 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.bg-red-900{
-  background-color: #ffeedd;
+.doug{
+  color: #000000;
 }
