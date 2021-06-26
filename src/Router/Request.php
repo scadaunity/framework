@@ -5,13 +5,10 @@ namespace Scadaunity\Router;
 /**
  *
  */
-class Router
+class Request
 {
 
-
-
   static function get(){
-    return 'Router';
+    return 'Request';
   }
-
 }
