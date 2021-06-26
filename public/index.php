@@ -2,6 +2,7 @@
   require_once '../vendor/autoload.php';
 
   use App\Models\User;
-  use Router;
+  use Scadaunity\Router;
 
-  var_dump(Router);
+
+  var_dump(Router::get());

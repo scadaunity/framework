@@ -1,6 +1,6 @@
 <?php
 
-namespace Router\Router;
+namespace Scadaunity\Router;
 
 /**
  *
