@@ -1,0 +1,14 @@
+{
+    "name": "scadaunity/router",
+    "description": "PHP smal and powerfull http router",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "scadaunity",
+            "email": "scadaunity@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
