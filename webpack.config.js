@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/app.js',
+    entry: './resources/app.js',
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname, 'public')
@@ -16,7 +16,7 @@ module.exports = {
         },
         {
           test: /\.css$/i,
-          include: path.resolve(__dirname, 'src/assets/'),
+          include: path.resolve(__dirname, 'resouces/assets/'),
           use: ['style-loader', 'css-loader', 'postcss-loader'],
         },
       ]

@@ -2,6 +2,6 @@
   require_once '../vendor/autoload.php';
 
   use App\Models\User;
-  use Router\Router;
+  use Router;
 
-  var_dump('teste');
+  var_dump(Router);
