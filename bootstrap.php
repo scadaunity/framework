@@ -1,23 +1,30 @@
 <?php
 
+use Scadaunity\Router\Route;
+use Scadaunity\Router\Request;
+use Dotenv\Dotenv;
+
 error_reporting(E_ALL);
 ini_set('display_errors', true);
 
 require_once 'vendor/autoload.php';
 
-use Scadaunity\Router\Router;
-
 session_start();
 
-
 try {
+    $request = new Request;
+    $route = new Route;
+    $dotenv = Dotenv::createImmutable (__DIR__);
+    $dotenv->load();
 
-    $router = new Router;
+    echo "<pre>";
+    var_dump($dotenv);
 
-    echo "# LOADING ROUTE FILES.."."<br>";
-    require __DIR__ . '/app/config/routes/api.php';
-    require __DIR__ . '/app/config/routes/web.php';
-    require __DIR__ . '/app/config/routes/console.php';
+    require __DIR__ . '/app/routes/api.php';
+    require __DIR__ . '/app/routes/web.php';
+    require __DIR__ . '/app/routes/console.php';
+
+    $route->resolve($request);
 
 } catch(\Exception $e){
 
