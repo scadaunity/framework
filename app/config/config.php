@@ -1,2 +1,2 @@
 <?php
-  //echo"config carregado";
+  echo"config carregado";
