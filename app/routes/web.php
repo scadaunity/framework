@@ -1,11 +1,10 @@
 <?php
 
-use Scadaunity\Router\Route;
+use Core\Router\Router;
 
-  Route::get('/', function(){
-      echo "Página inicial";
-  });
+/** Home */
+Router::get('/','Home@index');
 
-  Route::get('/test', function(){
-      echo "teste";
-  });
+/** USER **/
+Router::get('/user/create','Usercontroller@create');
+Router::get('/user/[a-z0-9]+','Usercontroller@index');

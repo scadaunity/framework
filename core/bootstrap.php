@@ -1,34 +1,39 @@
 <?php
 
-use Scadaunity\Router\Route;
-use Scadaunity\Router\Request;
-use ScadaUnity\Components\Env;
+use Core\Router\Router;
 
+/** inicia uma sessão vazia */
+session_start();
+
+/** Carrega os arquivos do composer */
 require_once '../vendor/autoload.php';
 
-Env::load();
+/** Carrega as configurações */
+require_once '../app/config/app.php';
+require_once '../app/config/constants.php';
+require_once '../app/config/database.php';
+require_once '../app/config/debug.php';
+require_once '../app/config/router.php';
 
-/** LOAD ENVIRONMENT - LOCAL*/
-// if(getenv('APP_ENV' == 'local')){
-//   error_reporting(E_ALL);
-//   ini_set('display_errors', true);
-// }
+/** Load core services */
+require_once 'environment.php';
+require_once 'debug.php';
 
-// session_start();
-//
-//
-//
-// try {
-//     $request = new Request;
-//     $route = new Route;
-//
-//     require __DIR__ . '/app/routes/api.php';
-//     require __DIR__ . '/app/routes/web.php';
-//     require __DIR__ . '/app/routes/console.php';
-//
-//     Route::resolve($request);
-//
-// } catch(\Exception $e){
-//
-//     echo $e->getMessage();
-// }
+
+ try {
+      /** Instancia a classe router*/
+     $router = new Router(URL);
+     dd($router);
+     /** Carrega os arquivos de rotas */
+     require '../app/routes/api.php';
+     require '../app/routes/web.php';
+     require '../app/routes/console.php';
+
+     /** resolve a rota */
+     //$router->resolve();
+
+
+ } catch(\Exception $e){
+
+     echo $e->getMessage();
+}
