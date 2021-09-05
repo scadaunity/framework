@@ -5,7 +5,7 @@ namespace App\\Controllers;
 /**
  *
  */
-class UserController extends BaseController
+class HomeController extends BaseController
 {
 
   function __construct(argument)
@@ -14,6 +14,6 @@ class UserController extends BaseController
   }
 
   public function index(){
-    echo "Controller: User <br> Metodo: Index";
+
   }
 }

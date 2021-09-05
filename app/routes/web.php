@@ -2,9 +2,8 @@
 
 use Core\Router\Router;
 
-/** Home */
-Router::get('/','Home@index');
+Router::get('/', 'HomeController@index');
 
-/** USER **/
-Router::get('/user/create','Usercontroller@create');
-Router::get('/user/[a-z0-9]+','Usercontroller@index');
+Router::get('/user', 'UserController@index');
+Router::get('/user/[0-9]+', 'UserController@index');
+Router::get('/user/[0-9]+/name/[a-z]+', 'UserController@show');

@@ -18,19 +18,22 @@ require_once '../app/config/router.php';
 /** Load core services */
 require_once 'environment.php';
 require_once 'debug.php';
+require_once 'controller.php';
 
 
  try {
       /** Instancia a classe router*/
      $router = new Router(URL);
-     dd($router);
+
+
      /** Carrega os arquivos de rotas */
      require '../app/routes/api.php';
      require '../app/routes/web.php';
      require '../app/routes/console.php';
 
+
      /** resolve a rota */
-     //$router->resolve();
+     $router->run();
 
 
  } catch(\Exception $e){

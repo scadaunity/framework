@@ -6,7 +6,7 @@ use Core\Router\Request;
 use Core\Router\Response;
 
 /**
- * Router class map all request and resolve
+ * Classe responsavel por adicionar rotas e redirecionar todo o fluxo da aplicação
  */
 
 class Router
@@ -24,10 +24,16 @@ class Router
   private $prefix = '';
 
   /**
+    * Diretorio dos controllers
+    * @var string
+    */
+  private $controllers = '';
+
+  /**
     * Indice de rotas
     * @var array
     */
-  private $routes = [];
+  private static $routes;
 
   /**
     * Instancia de request
@@ -51,84 +57,202 @@ class Router
       $this->response = new Response;
       $this->request = new Request;
       $this->url = $url;
+      $this->controllers =$url .'/app/controllers';
+      $this->setPrefix();
   }
 
-    /** Criar rota do tipo GET
-    * @param string $uri nome da rota
-    * @param string $action controller e o metodo
+  /**
+    * Metodo responsavel por definir o prefixo das rotas
+    * @param string $url
     */
-    public static function get(string $uri, $action)
-    {
+  private function setPrefix()
+  {
+    $parseUrl = parse_url($this->url);
+    $this->prefix = $parseUrl['port'] ?? '';
+  }
 
-
-    }
-
-    /** Criar rota do tipo POST*/
-    public static function post(string $uri, $action)
-    {
-        self::$routes->add('post', $uri, $action);
-    }
-
-    /** Criar rota do tipo PUT*/
-    public static function put($uri, $action)
-    {
-        self::$routes->add('put', $uri, $action);
-    }
-
-    /** Criar rota do tipo DELETE*/
-    public static function delete($uri, $action)
-    {
-        self::$routes->add('delete', $uri, $action);
-    }
-
-    /** Dispacha a requisição ao cliente*/
-    protected static function dispach($route, $namespace = "App\\controllers"){
-      return self::$response->dispach($route->callback, $route->uri, $namespace);
-    }
-
-    /** Verifica se a uri existe no arquivo de rotas
-    *
-    * @param string $uri nome da rota
-    *
-    * @param string $routes array contendo as rotas
-    *
-    * @return array $route
+  /** Metodo responsavel por adicionar uma rota na classe
+    * @param string $method
+    * @param string $route
+    * @param string $action
     */
+  private static function addRoute($method, $route, $action)
+  {
+    self::$routes[$method][$route]=$action;
 
-    public static function matchUri($uri,$routes){
+  }
+
+  /** Metodo responsavel por criar uma rota do tipo GET
+    * @param string $route
+    * @param string $action
+    */
+  public static function get($route, $action)
+  {
+    self::addRoute('get', $route , $action);
+
+  }
+
+  /** Metodo responsavel por criar uma rota do tipo POST
+    * @param string $route
+    * @param string $action
+    */
+  public static function post($route, $action)
+  {
+    self::addRoute('post', $route , $action);
+
+  }
+
+  /** Metodo responsavel por criar uma rota do tipo PUT
+    * @param string $route
+    * @param string $action
+    */
+  public static function put($route, $action)
+  {
+
+    self::addRoute('put', $route , $action);
+
+  }
+
+  /** Metodo responsavel por criar uma rota do tipo DELETE
+    * @param string $route
+    * @param string $action
+    */
+  public static function delete($route, $action)
+  {
+
+    self::addRoute('DELETE', $route , $action);
+
+  }
+
+  /** Metodo responsavel por retornar as rotas
+    * @param string $method
+    * @return array
+    */
+  public function routes($method = '')
+  {
+    if (!empty($method)) {
+      switch($method)
+       {
+          case 'get':
+            return self::$routes[$method];
+            break;
+          case 'post':
+            return self::$routes[$method];
+            break;
+          case 'put':
+            return self::$routes[$method];
+            break;
+          case 'delete':
+            return self::$routes[$method];
+            break;
+          default:
+            throw new \Exception('Tipo de metodo não implementado [' . $method .']');
+       }
+    }
+    return self::$routes;
+
+  }
+
+    /** Metodo responsavel por localizar uma rota exata
+      * @param string $uri
+      * @param array $routes
+      * @return array $route
+      */
+
+    public function matchExactUri($uri,$routes){
       if(array_key_exists($uri, $routes)){
         return [$uri => $routes[$uri]];
       }
       return [];
     }
 
-    public static function checkUri($uri,$route){
-        echo "rota não encontrada";
+    /** Metodo responsavel por localizar uma rota dinamica
+      * @param string $uri
+      * @param array $routes
+      * @return array $route
+      */
+
+    public function matchDinamicUri($uri,$routes){
+      return array_filter(
+        $routes,
+        function($value) use($uri){
+          $pattern = str_replace('/', '\/', ltrim($value , '/'));
+          return preg_match("/^$pattern$/",ltrim($uri , '/'));
+          var_dump($pattern);
+        },
+        ARRAY_FILTER_USE_KEY
+      );
     }
 
-    public static function resolve(){
+    /** Metodo responsavel por recuperar os parametros da URI
+      *
+      * @param array $uri
+      * @param array $matchedUri
+      *
+      * @return array
+      */
+
+    public function params($uri, $matchedUri){
+      if (!empty($matchedUri)) {
+        $getParams = array_keys($matchedUri)[0];
+        return array_diff(
+          $uri,
+          explode('/',ltrim($getParams,'/')),
+        );
+      }
+      return [];
+    }
+
+    /** Metodo responsavel por formatar os parametros da URI
+      *
+      * @param array $uri
+      * @param array $params
+      *
+      * @return array $data
+      */
+
+    public function formatParams($uri, $params){
+
+      $data = [];
+      foreach ($params as $index => $param) {
+        $data[$uri[$index - 1]] = $param;
+      }
+
+      return $data;
+    }
+
+
+
+    public function run(){
         /** recupera a uri da requisição **/
-        $uri = self::$request->uri();
-        /** buscas as rotas pelo methodo da requisição*/
-        $routes = self::$routes::$routesList[self::$request->method()];
+        $uri = $this->request->uri();
+
+        /** recupera o metodo da requisição **/
+        $method = $this->request->method();
+
+        /** recupera as rotas atraves do metodo*/
+        $routes = self::$routes[$method];
+
+
 
         /** Procura por rota exata **/
-        //$matchedUri = self::matchUri($uri, $routes);
+        $matchedUri = self::matchExactUri($uri, $routes);
 
-        /** Verifica se a rota exata foi encontrada **/
-        /*if (!empty($matchedUri)) {
-          dd($matchedUri);
-        }*/
+        if (empty($matchedUri)) {
+          /** Procura a rota dinamica **/
+          $matchedUri = self::matchDinamicUri($uri, $routes);
+          $uri = explode('/',ltrim($uri,'/'));
+              /** recupera os parametros da uri **/
+              $params = $this->params($uri,$matchedUri);
+              $params = $this->formatParams($uri, $params);
+        }
 
-        array_filter(
-          $routes,
-          function($value){
-            $regex = str_replace('/', '\/', ltrim($value,'/' ));
-            var_dump($regex);
-          },
-          ARRAY_FILTER_USE_KEY
-        );
+        if(!empty($matchedUri)){
+          controller($matchedUri);
+          return;
+        }
 
-        echo"A rota não existe {" . $uri . "}";
+        throw new \Exception("Algo deu errado");
+
     }
 }
