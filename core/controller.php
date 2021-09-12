@@ -1,15 +1,22 @@
 <?php
 
-function controller($matchedUri){
+function controller($matchedUri, $params){
 
   /** Cria uma lista com o controller e o metodo*/
-  [$controller,$method] = explode('@', array_values($matchedUri)[0] ) ;
-  d($controller);
-  
-  if (class_exists("App\\Controllers\\".$controller)) {
-    echo "existe";
+  [$controller,$method] = explode('@', array_values($matchedUri)[0]);
+
+  $controllerWhitNamespace = CONTROLLERS_PATH.$controller;
+
+  if (!class_exists($controllerWhitNamespace)) {
+    throw new \Exception("Controller {$controller} não existe");
   }
-  else{
-    echo "Não existe";
+
+  $obController = new $controllerWhitNamespace();
+
+  if(!method_exists($obController, $method)){
+    throw new \Exception("O metodo {$method} não existe");
   }
+
+  $obController->$method($params);
+
 }

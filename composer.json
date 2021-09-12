@@ -11,17 +11,15 @@
     ],
     "minimum-stability": "dev",
     "require": {
-      "php": ">=8.0.7",
-        "symfony/dotenv": "6.0.x-dev"
+      "php": ">=8.0.7"
     },
     "autoload":{
       "psr-4":{
         "App\\":"app",
-        "Core\\":"core",
-        "Scadaunity\\":"scadaunity"
+        "Core\\":"core"
       },
       "files":[
-        "app/config/app.php"
+        
       ]
     }
 }
