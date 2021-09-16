@@ -31,7 +31,7 @@ class Database
    * Nome de usuario do banco de dados
    * @var string
    */
-  private $username = '';
+  private $user = '';
 
   /**
    * Senha do banco de dados
@@ -40,21 +40,20 @@ class Database
   private $password = '';
 
 
-  function __construct($driver,$host,$dbname,$username,$password)
+  function __construct()
   {
-    $this->driver = $driver;
-    $this->host = $host;
-    $this->dbname = $dbname;
-    $this->username = $username;
-    $this->password = $password;
-    //dd($this);
+    $this->driver = DB_DRIVER;
+    $this->host = DB_HOST;
+    $this->dbname = DB_NAME;
+    $this->user = DB_USER;
+    $this->password = DB_PASSWORD;
   }
 
   public function connect(){
 
     $str = "{$this->driver}:host={$this->host};dbname={$this->dbname}";
 
-    return new PDO("{$str}",$this->username,$this->password,[
+    return new PDO("{$str}",$this->user,$this->password,[
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
     ]);
   }

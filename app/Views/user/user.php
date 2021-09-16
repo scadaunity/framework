@@ -5,11 +5,13 @@
     <title></title>
   </head>
   <body>
-    <h1><?= $title ?></h1>
     <br>
     <ul>
-      <?php foreach ($users as $user): ?>
-        <li><?= $user ?></li>
+      <h2>Lista de Usuarios</h2>
+      <?php foreach ($users as $user => $field): ?>
+        <li>Id: <?= $field->id ?></li>
+        <li>Nome: <?= $field->name ?></li>
+        <hr>
       <?php endforeach ?>
 
   </body>

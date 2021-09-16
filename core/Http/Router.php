@@ -36,6 +36,19 @@ class Router
   private static $routes;
 
   /**
+    * Grupo de rotas
+    * @var array
+    */
+  private static $group;
+
+  /**
+    * Define o grupo e os metodos padroes no controlador
+    * index, create, store, show, edit, update, destroy
+    * @var array
+    */
+  private static $resource;
+
+  /**
     * Instancia de request
     * @var Request
     */

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Core\Database\QueryBuilder;
+
 /**
  *
  */
@@ -13,13 +15,34 @@ class UserController
     // code...
   }
 
+  /**
+   * Exibe a lista de todos os usuarios
+   * @param  array $params
+   * @return view
+   */
   public function index($params){
+    $db = new QueryBuilder();
     $data = [
       'title' => 'Usuarios',
-      'users' => ['doug','stella','sofia','victoria'],
+      'users' => $db->find('users'),
     ];
     return view('/user/user',$data);
   }
+
+  /**
+   * Exibe a lista de todos os usuarios
+   * @param  array $params
+   * @return view
+   */
+  public function index($params){
+    $db = new QueryBuilder();
+    $data = [
+      'title' => 'Usuarios',
+      'users' => $db->find('users'),
+    ];
+    return view('/user/user',$data);
+  }
+
 
   public function create($params){
     $data = [

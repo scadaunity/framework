@@ -3,6 +3,7 @@
 use Core\Http\Router;
 use Core\Assets\Css;
 use Core\Database\Database;
+use Core\Database\QueryBuilder;
 
 
 /** inicia uma sessão vazia */
@@ -23,32 +24,10 @@ require_once 'controller.php';
 require_once 'assets.php';
 require_once 'view.php';
 
-
-//$db = new Database('mysql','127.0.0.1','framework','root','1234');
-//dd($db);
-
-function all(){
-  try {
-    $db = new Database('mysql','127.0.0.1','framework','root','1234');
-
-    $connect = $db->connect();
-    
-    $query = $connect->query("select * from users");
-    return $query->fetchAll();
-  } catch (PDOException $e) {
-    dd($e->getMessage());
-  }
-
-}
-
-dd(all());
-
-
-exit;
-
  try {
       /** Instancia a classe router*/
      $router = new Router(URL);
+     $db = new QueryBuilder();
 
 
      /** Carrega os arquivos de rotas */
