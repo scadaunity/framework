@@ -26,9 +26,11 @@ class QueryBuilder
   public function find($table,$field = '*'){
     try {
       $query = "select {$field} from {$table}";
-      //verifica o tipo do primeiro parametro passado
-      if (is_numeric($table)) {
-        // code...
+      //dd($field);
+      if (is_numeric($field)) {
+        $query = "select * from {$table} where id={$field}";
+        return $this->db->connect()->query($query)->fetch();
+        exit;
       }
 
       return $this->db->connect()->query($query)->fetchAll();

@@ -14,7 +14,6 @@ class AuthController
   }
 
   public function index($params){
-      $data = extract($params) ?? [];
-      return view('home',$data);
+      echo "Login";
   }
 }

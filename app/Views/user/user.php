@@ -7,12 +7,12 @@
   <body>
     <br>
     <ul>
-      <h2>Lista de Usuarios</h2>
-      <?php foreach ($users as $user => $field): ?>
-        <li>Id: <?= $field->id ?></li>
-        <li>Nome: <?= $field->name ?></li>
+      <h2>Ver usuario</h2>
+
+        <li>Id: <?= $user->id ?></li>
+        <li>Nome: <?= $user->name ?></li>
         <hr>
-      <?php endforeach ?>
+
 
   </body>
 </html>

@@ -6,10 +6,10 @@
   {
 
     /**
-     * Instancia de database
-     * @var Database
+     * Nome da tabela
+     * @var string
      */
-    private $db;
+    protected $table;
 
     /**
      * Construtor da classe

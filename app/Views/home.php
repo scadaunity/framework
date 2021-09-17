@@ -8,7 +8,7 @@
   <body>
     <h1>Home :: VIEW </h1>
 
-    <form class="" action="user/create" method="post">
+    <form class="" action="users" method="post">
         <input type="text" name="email" value="">
         <input type="text" name="password" value="">
         <input type="submit" name="" value="Enviar">

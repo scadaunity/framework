@@ -1,5 +1,7 @@
 <?php
 
+use Core\Http\Request;
+
 function controller($matchedUri, $params){
 
   /** Cria uma lista com o controller e o metodo*/
@@ -17,6 +19,7 @@ function controller($matchedUri, $params){
     throw new \Exception("O metodo {$method} não existe");
   }
 
+  $request = new Request();
   $obController->$method($params);
 
 }

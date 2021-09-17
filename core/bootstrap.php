@@ -35,7 +35,7 @@ require_once 'view.php';
      require '../app/routes/web.php';
      require '../app/routes/console.php';
 
-
+     //dd($router->routes());
 
      /** resolve a rota */
      $router->run();

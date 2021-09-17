@@ -7,6 +7,7 @@ use Core\Http\Response;
 
 /**
  * Classe responsavel por adicionar rotas e redirecionar todo o fluxo da aplicação
+ * Ultima atualização 16/09/21
  */
 
 class Router
@@ -133,8 +134,33 @@ class Router
   public static function delete($route, $action)
   {
 
-    self::addRoute('DELETE', $route , $action);
+    self::addRoute('delete', $route , $action);
 
+  }
+
+  /** Metodo responsavel por criar um resource
+    * @param string $route
+    * @param string $action
+    */
+  public static function resource($route, $controller)
+  {
+    self::get($route , $controller.'@index');
+    self::get($route.'/create' , $controller.'@create');
+    self::post($route, $controller.'@store');
+    self::get($route.'/[0-9]+' , $controller.'@show');
+    self::get($route.'/[0-9]+/edit' , $controller.'@edit');
+    self::put($route.'/[0-9]+' , $controller.'@update');
+    self::delete($route.'/[0-9]+' , $controller.'@delete');
+  }
+
+  /** Metodo responsavel por criar varios resources
+    * @param array $routes
+    */
+  public static function resources($routes)
+  {
+    foreach ($routes as $route => $controller) {
+      self::resource($route,$controller);
+    }
   }
 
   /** Metodo responsavel por retornar as rotas
@@ -172,10 +198,7 @@ class Router
       * @return array $route
       */
     public function matchExactUri($uri,$routes){
-      if(array_key_exists($uri, $routes)){
-        return [$uri => $routes[$uri]];
-      }
-      return [];
+      return (array_key_exists($uri, $routes)) ? [$uri => $routes[$uri]] : [];
     }
 
     /** Metodo responsavel por localizar uma rota dinamica
@@ -190,7 +213,7 @@ class Router
         function($value) use($uri){
           $pattern = str_replace('/', '\/', ltrim($value , '/'));
           return preg_match("/^$pattern$/",ltrim($uri , '/'));
-          var_dump($pattern);
+          //var_dump($pattern);
         },
         ARRAY_FILTER_USE_KEY
       );
