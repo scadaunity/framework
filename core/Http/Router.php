@@ -163,6 +163,14 @@ class Router
     }
   }
 
+  /** Metodo responsavel por eliminar methodos
+    * @param string $url
+    */
+  public static function redirect($url)
+  {
+    return header('location:'.$url);
+  }
+
   /** Metodo responsavel por retornar as rotas
     * @param string $method
     * @return array
@@ -293,7 +301,7 @@ class Router
           return;
         }
 
-        throw new \Exception("Algo deu errado",500);
+        throw new \Exception("Não foi possivel resolver a rota",500);
 
     }
 }
