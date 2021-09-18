@@ -19,6 +19,10 @@ function view($view, $params = []){
       $data = extract($params) ?? [];
     }
 
+    /** Chama o cabeçalho */
+    require_once VIEWS.'template/header.php';
     /** Chama a view */
     require_once VIEWS.$view.'.php';
+    /** Chama o footer */
+    require_once VIEWS.'template/footer.php';
 }

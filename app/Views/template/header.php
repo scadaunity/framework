@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title><?= TITLE ?></title>
     <?php css();?>
   </head>
   <body>

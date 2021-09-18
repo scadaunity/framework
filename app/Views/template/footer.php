@@ -1,3 +1,3 @@
-
+    <?php js();?>
   </body>
 </html>

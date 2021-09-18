@@ -63,8 +63,18 @@ class UserController
    * @return view
    */
 
-  public function store(Request $request){
+  public function store(){
+    $request = new Request();
+    $db = new QueryBuilder();
 
+    /** Verifica se existe parametros da URI*/
+    d($request->post());
+
+      $data = extract($request->post()) ?? [];
+      d($data);
+
+
+    //dd($request->post());
   }
 
   /**
@@ -78,7 +88,7 @@ class UserController
    * @return view
    */
 
-  public function show(Request $request, $params){
+  public function show($params){
 
     $db = new QueryBuilder();
     $data = [

@@ -13,6 +13,7 @@ session_start();
 require_once '../vendor/autoload.php';
 
 /** Carrega as configurações */
+require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';

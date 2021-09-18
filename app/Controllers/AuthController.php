@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use Core\Http\Request;
+
 /**
  *
  */
@@ -13,7 +15,15 @@ class AuthController
     // code...
   }
 
-  public function index($params){
-      echo "Login";
+  public function login(){
+      $data = [
+
+      ];
+      view('auth/login');
+  }
+
+  public function autenticate(){
+    $request = new Request();
+    dd($request->post());
   }
 }

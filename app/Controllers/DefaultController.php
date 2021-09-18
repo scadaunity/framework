@@ -5,7 +5,7 @@ namespace App\Controllers;
 use Core\Http\Router;
 
 /**
- *
+ * Resource controller created by 
  */
 class DefaultController
 {
