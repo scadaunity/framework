@@ -1,5 +1,5 @@
 <?php
-  namespace App\Models;
+  namespace Core\Database;
 
 
   class Model
@@ -12,11 +12,28 @@
     protected $table;
 
     /**
+     * Instancia de Database
+     * @var Database
+     */
+    protected $db;
+
+    /**
+     * Instancia de QueryBuilder
+     * @var QueryBuilder
+     */
+    protected $query;
+
+    /**
      * Construtor da classe
      */
     function __construct()
     {
       $this->db = new Database();
+      $this->query = new QueryBuilder();
+    }
+
+    public function save(){
+
     }
 
   }

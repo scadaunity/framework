@@ -1,22 +1,60 @@
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto user-select-none">
-    <div class="card">
+<div class="container-fluid pt-4 mx-auto user-select-none">
+    <div class="card bg-transparent border-0">
         <div class="row d-flex">
-            <div class="col-lg-6">
-                <div class="row pb-5">
-                  <div class="col d-flex justify-content-center">
-                      <h1>Bem vindo</h1>
-                  </div>
-
-                    <div class="row justify-content-center"> <img src="assets/img/Logo.png" class="logo"> </div>
+            <!-- Box - Esquerdo - inicio -->
+            <div class="col-lg-5">
+                <div class="row pb-5 d-flex justify-content-center">
                     <div class="row px-3 justify-content-center mt-4 mb-5 border-line"> <img src="https://i.imgur.com/uNGdWHi.png" class="image"> </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <!-- Box - direito - inicio -->
+            <div class="col-lg-5">
                 <div class="card border-0 px-4 py-5">
+                  <div class="col d-flex justify-content-center">
+                      <h1>Login</h1>
+                  </div>
+
+                    <!-- Formulario de login - inicio -->
+                    <form class="" action="autenticate" method="post">
+                      <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control-lg" name="email">
+                      </div>
+                      <div class="mb-3">
+                        <label for="" class="form-label">Senha</label>
+                        <input type="password" class="form-control form-control-lg" name="password">
+                      </div>
+
+
+
+                      <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input mr-3" name="remember">
+                        <label class="form-check-label text-sm pt-1 ml-3" for="exampleCheck1">
+                          Lembrar
+                        </label>
+                      </div>
+                      <div class="row px-3 mb-4">
+                          <a href="#" class="ml-auto mb-0 text-sm">Não lembro a senha?</a>
+                      </div>
+                      <div class="row mb-3 mr-5">
+                        <button type="submit" class="btn btn-success text-center">Entrar</button>
+                      </div>
+                      <div class="row mb-4 px-3">
+                        <small class="font-weight-bold">Não tem conta??
+                          <a class="text-success"> Criar conta gratis</a>
+                        </small>
+                      </div>
+                    </form>
+                    <!-- Formulario de login - fim -->
+                    <div class="row px-3 mb-4">
+                        <div class="line"></div>
+                          <small class="or text-center">Ou</small>
+                        <div class="line"></div>
+                    </div>
+
                     <!-- Entra com conta existente - inicio -->
-                    <div class="row mb-4 px-3 text-center bg-blue rounded pb-5">
-                      <h6 class="mb-0 mr-4 mt-2 center">Entrar com uma conta existente</h6>
-                      <br><br>
+                    <div class="row mb-4 px-3 text-center bg-blue rounded pb-2 pt-2">
+
                       <div class="col d-flex justify-content-center">
                         <div class="facebook">
                             <div class="fa fa-facebook"></div>
@@ -35,44 +73,6 @@
                     </div>
                     <!-- Entra com conta existente - fim -->
 
-                    <div class="row px-3 mb-4">
-                        <div class="line"></div> <small class="or text-center">Ou</small>
-                        <div class="line"></div>
-                    </div>
-
-                    <!-- Formulario de login - inicio -->
-                    <form class="" action="autenticate" method="post">
-                      <div class="mb-3">
-                        <label for="" class="form-label">Email</label>
-                        <input type="email" class="form-control form-control-lg" id="floatingInput">
-                      </div>
-                      <div class="mb-3">
-                        <label for="" class="form-label">Senha</label>
-                        <input type="password" class="form-control form-control-lg" name="password">
-                      </div>
-
-
-
-                      <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input mr-3" id="exampleCheck1">
-                        <label class="form-check-label text-sm pt-1 ml-3" for="exampleCheck1">
-                          Manter conectado
-                        </label>
-                      </div>
-                      <div class="row px-3 mb-4">
-                          <a href="#" class="ml-auto mb-0 text-sm">Perdi minha senha?</a>
-                      </div>
-                      <div class="row mb-3 mr-5">
-                        <button type="submit" class="btn btn-success text-center">Entrar</button>
-                      </div>
-                      <div class="row mb-4 px-3">
-                        <small class="font-weight-bold">Não tem conta??
-                          <a class="text-success"> Criar conta gratis</a>
-                        </small>
-                      </div>
-                    </form>
-                    <!-- Formulario de login - fim -->
-
                 </div>
             </div>
         </div>
@@ -81,13 +81,11 @@
 
 <style media="screen">
 body {
-
+  background-color: #886ab5;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   height: 100%;
-
 }
-
 
 
 .logo {
@@ -98,8 +96,9 @@ body {
 }
 
 .image {
-  width: 520px;
-  height: 300px
+  padding-top: 50px;
+  width: 90%;
+  height: 90%
 }
 
 .border-line {
@@ -141,6 +140,7 @@ body {
   cursor: pointer
 }
 
+
 .line {
   height: 1px;
   width: 40%;
@@ -153,28 +153,6 @@ body {
   font-weight: bold
 }
 
-.text-sm {
-  font-size: 14px !important
-}
-
-::placeholder {
-  color: #BDBDBD;
-  opacity: 1;
-  font-weight: 300
-}
-
-:-ms-input-placeholder {
-  color: #BDBDBD;
-  font-weight: 300
-}
-
-::-ms-input-placeholder {
-  color: #BDBDBD;
-  font-weight: 300
-}
-
-
-
 .form-control:focus{
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
@@ -183,11 +161,8 @@ body {
   outline-width: 0
 }
 
-
-
-a {
-  color: inherit;
-  cursor: pointer
+a{
+  cursor: pointer;
 }
 
 </style>

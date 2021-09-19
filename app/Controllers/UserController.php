@@ -5,16 +5,30 @@ namespace App\Controllers;
 use Core\Database\QueryBuilder;
 use Core\Http\Request;
 use Core\Http\Response;
+use App\Models\UserModel;
+
 
 /**
  *
  */
 class UserController
 {
+  protected $model;
+  /**
+   * Email de acesso
+   * @var string
+   */
+  private $email = 'scadaunity@gmail.com';
+
+  /**
+   * Senha de acesso
+   * @var string
+   */
+  private $password = '123456';
 
   function __construct()
   {
-    // code...
+    $this->model = new UserModel();
   }
 
   /**
@@ -27,6 +41,9 @@ class UserController
    * @return view
    */
   public function index($params){
+    //$model = new UserModel();
+    //dd($model);
+
     $db = new QueryBuilder();
     $data = [
       'title' => 'Usuarios',

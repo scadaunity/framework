@@ -2,7 +2,7 @@
 
 use Core\Http\Router;
 
-Router::get('/', 'HomeController@index');
+Router::get('/', 'AuthController@login');
 
 /** -------------------- AUTH RESOURCE ----------------------- */
 Router::get('/login','AuthController@login');
