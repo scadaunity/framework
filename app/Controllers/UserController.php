@@ -14,17 +14,6 @@ use App\Models\UserModel;
 class UserController
 {
   protected $model;
-  /**
-   * Email de acesso
-   * @var string
-   */
-  private $email = 'scadaunity@gmail.com';
-
-  /**
-   * Senha de acesso
-   * @var string
-   */
-  private $password = '123456';
 
   function __construct()
   {

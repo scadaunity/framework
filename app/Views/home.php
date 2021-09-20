@@ -1,4 +1,1 @@
-
-    <h1>Home :: VIEW </h1>
-
-    
+<?php require 'template/navbar.php'; ?>

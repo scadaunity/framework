@@ -18,12 +18,15 @@ require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
 
-/** Load core services */
-require_once 'environment.php';
-require_once 'debug.php';
-require_once 'controller.php';
-require_once 'assets.php';
+/** carrega os helpers */
+require_once 'helpers/environment.php';
+require_once 'helpers/debug.php';
+require_once 'helpers/assets.php';
+require_once 'helpers/redirect.php';
+
+/** carrega libs do core */
 require_once 'view.php';
+require_once 'controller.php';
 
  try {
       /** Instancia a classe router*/

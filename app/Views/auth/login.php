@@ -18,11 +18,11 @@
                     <form class="" action="autenticate" method="post">
                       <div class="mb-3">
                         <label for="" class="form-label">Email</label>
-                        <input type="email" class="form-control form-control-lg" name="email">
+                        <input type="email" class="form-control form-control-lg" name="email" value="scadaunity@gmail.com">
                       </div>
                       <div class="mb-3">
                         <label for="" class="form-label">Senha</label>
-                        <input type="password" class="form-control form-control-lg" name="password">
+                        <input type="password" class="form-control form-control-lg" name="password" value="123456">
                       </div>
 
 

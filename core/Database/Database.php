@@ -40,6 +40,9 @@ class Database
   private $password = '';
 
 
+  /**
+   * Metodo construtor da classe
+   */
   function __construct()
   {
     $this->driver = DB_DRIVER;
@@ -49,12 +52,18 @@ class Database
     $this->password = DB_PASSWORD;
   }
 
+  /**
+   * Metodo responsavel por abrir uma conexão com o banco de dados
+   * @return PDO
+   */
   public function connect(){
-
     $str = "{$this->driver}:host={$this->host};dbname={$this->dbname}";
-
     return new PDO("{$str}",$this->user,$this->password,[
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
     ]);
+  }
+
+  public function insert($values){
+    
   }
 }
