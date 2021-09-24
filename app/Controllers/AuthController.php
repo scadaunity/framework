@@ -42,6 +42,7 @@ class AuthController
     if ($email == $this->email && $password == $this->password) {
       return redirect('home');
     } else{
+      setFlash('message','Login invalido, por favor tente novamente');
       return redirect('login');
     }
 

@@ -22,17 +22,20 @@ require_once '../app/config/debug.php';
 require_once 'helpers/environment.php';
 require_once 'helpers/debug.php';
 require_once 'helpers/assets.php';
+require_once 'helpers/flash.php';
 require_once 'helpers/redirect.php';
+require_once 'helpers/env.php';
+
 
 /** carrega libs do core */
 require_once 'view.php';
 require_once 'controller.php';
 
+
+
  try {
       /** Instancia a classe router*/
      $router = new Router(URL);
-     $db = new QueryBuilder();
-
 
      /** Carrega os arquivos de rotas */
      require '../app/routes/api.php';

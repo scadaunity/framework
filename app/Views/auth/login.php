@@ -13,7 +13,7 @@
                   <div class="col d-flex justify-content-center">
                       <h1>Login</h1>
                   </div>
-
+                    <?php echo getFlash('message'); ?>
                     <!-- Formulario de login - inicio -->
                     <form class="" action="autenticate" method="post">
                       <div class="mb-3">

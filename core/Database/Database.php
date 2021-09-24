@@ -5,7 +5,7 @@ namespace Core\Database;
 use PDO;
 
 /**
- *
+ * Classe responsavel po manipular o banco de dados
  */
 class Database
 {
@@ -62,8 +62,63 @@ class Database
       PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
     ]);
   }
+  /**
+   * Metodo responsavel por executar as queries dentro do banco de dados
+   * @param  string $query
+   * @param  array $params
+   * @return PDOStatement
+   */
+  public function execute($query, $params = []){
+    try {
+      $statement = $this->connect()->prepare($query);
+      $statement->execute($params);
+      return $statement;
+    } catch (PDOException $e) {
+      dd($e->getMessage());
+    }
 
-  public function insert($values){
-    
+  }
+
+  /**
+   * Metodo responsavel por inserir um registro no banco de dados
+   * @param  string $table
+   * @param  array $values [field => value]
+   * @return integer ID inserido
+   */
+  public function insert($table, $values){
+    // Dados da query
+    $fields = array_keys($values);
+    $binds = array_pad([], count($fields), '?');
+
+    // Monta a query
+    $query = 'INSERT INTO ' .$table. ' (' . implode(',',$fields).') VALUES ('. implode(',',$binds) .')';
+
+    // Executa a query
+    $this->execute($query,array_values($values));
+
+    //retorna o id inserido
+    return $this->connect()->lastInsertId();
+  }
+
+  public function select($table, $where = null, $order = null, $limit = null, $fields = '*'){
+    // Dados da query
+    $where = strlen($where) ? 'WHERE ' .$where : '';
+    $order = strlen($order) ? 'ORDER BY ' .$order : '';
+    $limit = strlen($limit) ? 'LIMIT ' .$limit : '';
+
+    // Monta a query
+    $query = 'SELECT ' .$fields. ' FROM '. $table. ' ' .$where. ' ' .$order. ' ' .$limit;
+
+    // Executa a Query
+    return $this->execute($query);
+  }
+
+  /**
+   * Metodo responsavel por excluir um registro do banco de dados
+   * @param  string $table
+   * @return [type]
+   */
+  public function delete($table){
+
   }
 }
