@@ -4,6 +4,7 @@ use Core\Http\Router;
 use Core\Assets\Css;
 use Core\Database\Database;
 use Core\Database\QueryBuilder;
+use Core\Env;
 
 
 /** inicia uma sessão vazia */
@@ -11,6 +12,10 @@ session_start();
 
 /** Carrega os arquivos do composer */
 require_once '../vendor/autoload.php';
+
+/** Carrega as variavei de ambiente do projeto */
+
+//\Core\Env::load(__DIR__);
 
 /** Carrega as configurações */
 require_once '../app/config/app.php';
@@ -30,6 +35,7 @@ require_once 'helpers/env.php';
 /** carrega libs do core */
 require_once 'view.php';
 require_once 'controller.php';
+
 
 
 

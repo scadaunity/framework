@@ -1,6 +1,5 @@
 <?php
 
-putenv("doug");
 
 function env($index = null , $value = null){
   // se nenhum parametro for passado retorna todas as variaveis
@@ -13,5 +12,3 @@ function env($index = null , $value = null){
     return getenv($index);
   }
 }
-
-dd(env());
