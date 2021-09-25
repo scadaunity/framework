@@ -3,7 +3,5 @@
  *---------------------------------------------------------------
  * Configurações da aplicação
  *---------------------------------------------------------------
- *
- * NOTE: AVALIABLE OPTIONS (develop,testing,production)
  */
-define("TITLE",'Scada Unity');
+define("APP_TITLE",'Scada Unity');
