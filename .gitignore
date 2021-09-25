@@ -1,4 +1,6 @@
 /vendor/
 /node_modules/
-/.env
+.env
 /docs/
+/app/Views/*
+/public/assets/*
