@@ -221,7 +221,6 @@ class Router
         function($value) use($uri){
           $pattern = str_replace('/', '\/', ltrim($value , '/'));
           return preg_match("/^$pattern$/",ltrim($uri , '/'));
-          //var_dump($pattern);
         },
         ARRAY_FILTER_USE_KEY
       );

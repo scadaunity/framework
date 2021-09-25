@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Env;
+namespace Core;
 
 /**
  *
@@ -12,8 +12,9 @@ class Env
    * Metodo responsavel por carregar o arquivo externo com as variaveis de ambiente
    * @param  string $dir
    */
-  private static function load($dir)
+  public static function load($dir = ROOT)
   {
+    //dd($dir);
     // VERIFICA SE O ARQUIVO EXISTE
     if (!file_exists($dir.'/.env')) {
       return false;
@@ -22,11 +23,17 @@ class Env
     //CARREGA AS VARIAVEIS DE AMBIENTE
     $lines = file($dir.'/.env');
 
-    dd($lines);
-  }
+    $variaveis = [];
 
-  function __construct()
-  {
-    // code...
+    // ITERA AS LINHAS DO ARQUIVO
+    foreach ($lines as $line) {
+      // CRIA UM ARRAY DE CHAVE E VALOR
+      $arrayLine = explode('=', $line);
+      if (count($arrayLine) == 2) {
+        putenv($arrayLine[0].'='.$arrayLine[1]);
+      }
+    }
+    
+
   }
 }

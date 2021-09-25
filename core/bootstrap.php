@@ -13,10 +13,6 @@ session_start();
 /** Carrega os arquivos do composer */
 require_once '../vendor/autoload.php';
 
-/** Carrega as variavei de ambiente do projeto */
-
-//\Core\Env::load(__DIR__);
-
 /** Carrega as configurações */
 require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
@@ -37,7 +33,8 @@ require_once 'view.php';
 require_once 'controller.php';
 
 
-
+/** Carrega as variavei de ambiente do projeto */
+Env::load();
 
  try {
       /** Instancia a classe router*/
