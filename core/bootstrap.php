@@ -25,7 +25,9 @@ require_once 'helpers/debug.php';
 require_once 'helpers/assets.php';
 require_once 'helpers/flash.php';
 require_once 'helpers/redirect.php';
+require_once 'helpers/sessions.php';
 require_once 'helpers/env.php';
+require_once 'helpers/token.php';
 
 
 /** carrega libs do core */
@@ -33,8 +35,9 @@ require_once 'view.php';
 require_once 'controller.php';
 
 
-/** Carrega as variavei de ambiente do projeto */
+/** Carrega as variaveis de ambiente do projeto */
 Env::load();
+
 
  try {
       /** Instancia a classe router*/
@@ -45,7 +48,12 @@ Env::load();
      require '../app/routes/web.php';
      require '../app/routes/console.php';
 
-     //dd($router->routes());
+     if (getenv('APP_ENV') == 'local') {
+       require 'routes/api.php';
+       require 'routes/web.php';
+       require 'routes/console.php';
+     }
+
 
      /** resolve a rota */
      $router->run();

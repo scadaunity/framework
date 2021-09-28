@@ -45,11 +45,11 @@ class Database
    */
   function __construct()
   {
-    $this->driver = DB_DRIVER;
-    $this->host = DB_HOST;
-    $this->dbname = DB_NAME;
-    $this->user = DB_USER;
-    $this->password = DB_PASSWORD;
+    $this->driver = getenv('DB_DRIVER');
+    $this->host = getenv('DB_HOST');
+    $this->dbname = getenv('DB_NAME');
+    $this->user = getenv('DB_USER');
+    $this->password = getenv('DB_PASSWORD');
   }
 
   /**

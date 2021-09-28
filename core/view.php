@@ -6,7 +6,7 @@
  * @param  array|null $data               [description]
  * @return [type]       [description]
  */
-function view($view, $params = []){
+function view($view, $params = [], $template = 'navbar'){
 
     /** Verifica se a view existe */
     if (!file_exists(VIEWS.$view.'.php')) {
@@ -19,10 +19,60 @@ function view($view, $params = []){
       $data = extract($params) ?? [];
     }
 
+
+    switch($template)
+     {
+        case 'none':
+          /** Chama a view */
+          require_once VIEWS.$view.'.php';
+          break;
+        case 'single':
+          /** Chama o cabeçalho */
+          require_once VIEWS.'template/header.php';
+          /** Chama a view */
+          require_once VIEWS.$view.'.php';
+          /** Chama o footer */
+          require_once VIEWS.'template/footer.php';
+          break;
+        case 'navbar':
+          /** Chama o cabeçalho */
+          require_once VIEWS.'template/header.php';
+          /** Chama a navbar */
+          require_once VIEWS.'template/navbar.php';
+          /** Chama a view */
+          require_once VIEWS.$view.'.php';
+          /** Chama o footer */
+          require_once VIEWS.'template/footer.php';
+
+          break;
+        case 'left-sidebar':
+
+          break;
+        case 'right-sidebar':
+
+          break;
+        case 'right-sidebar':
+
+          break;
+        default:
+          throw new \Exception('Template não implementado [' . $template .']',405);
+     }
+
     /** Chama o cabeçalho */
-    require_once VIEWS.'template/header.php';
+    //require_once VIEWS.'template/header.php';
+    /** Chama o cabeçalho */
+    //require_once VIEWS.'template/navbar.php';
     /** Chama a view */
-    require_once VIEWS.$view.'.php';
+    //require_once VIEWS.$view.'.php';
     /** Chama o footer */
-    require_once VIEWS.'template/footer.php';
+    //require_once VIEWS.'template/footer.php';
+}
+
+function single($view){
+  /** Chama o cabeçalho */
+  require_once VIEWS.'template/header.php';
+  /** Chama a view */
+  require_once VIEWS.$view.'.php';
+  /** Chama o footer */
+  require_once VIEWS.'template/footer.php';
 }

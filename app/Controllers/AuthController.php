@@ -3,50 +3,82 @@
 namespace App\Controllers;
 
 use Core\Http\Request;
+use Core\Database\Database;
+use App\Models\UserModel;
 
 /**
- *
+ * Classe responsavel pelo controle de acesso ao sistema
  */
 class AuthController
 {
-
-  public $email = 'scadaunity@gmail.com';
-
-  public $password = '123456';
-
+  /**
+   * Construtor da classe
+   */
   function __construct()
   {
-    // code...
+
   }
 
+  /**
+   * Metodo responsavel por retornar a tela de login
+   * @return view
+   */
   public function login(){
       $data = [
 
       ];
-      view('auth/login');
+      view('auth/login',$data,'none');
   }
 
   public function logout(){
-      $data = [
-
-      ];
-      return redirect('login');
+    unset($_SESSION[LOGGED]);
+    return redirect('/login');
   }
 
   public function autenticate(){
+    /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();
     $email = $request->post()['email'];
     $password = $request->post()['password'];
 
+    $errorMessage = 'Login invalido, por favor tente novamente';
 
-    if ($email == $this->email && $password == $this->password) {
-      return redirect('home');
-    } else{
-      setFlash('message','Login invalido, por favor tente novamente');
-      return redirect('login');
+    /** VERIFICA SE O EMAIL FOI PASSADO*/
+    if (empty($email)) {
+      setFlash('message',$errorMessage);
+      return redirect('/login');
     }
 
+    /** VERIFICA SE O PASSWORD FOI PASSADO*/
+    if (empty($password)) {
+      setFlash('message',$errorMessage);
+      return redirect('/login');
+    }
 
+    /** BUSCA OS USUARIOS NO BANCO */
+    $model = new UserModel();
+    $users = $model->all();
+
+    $validUser = null;
+
+    foreach ($users as $user) {
+      /** VERIFICA SE EMAIL E SENHA CONFEREM */
+      if ($user->email == $email && $user->password == $password) {
+          $validUser = $user;
+      }
+    }
+
+    /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
+    if (!$validUser) {
+      setFlash('message',$errorMessage);
+      return redirect('/login');
+    }
+
+    /** SALVA A SESSÃO DO USUARIO*/
+    $_SESSION[LOGGED] = $validUser;
+
+    /** REDIRECIONA PARA A HOME */
+    return redirect('home');
 
   }
 }

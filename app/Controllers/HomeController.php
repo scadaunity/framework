@@ -17,4 +17,8 @@ class HomeController
       $data = extract($params) ?? [];
       return view('home',$data);
   }
+
+  public function admin(){
+    echo "Admin";
+  }
 }

@@ -40,4 +40,22 @@ class QueryBuilder
     }
 
   }
+
+  public function findBy($table,$field = '*'){
+    try {
+      $query = "select {$field} from {$table}";
+      //dd($field);
+      if (is_numeric($field)) {
+        $query = "select * from {$table} where id={$field}";
+        return $this->db->connect()->query($query)->fetch();
+        exit;
+      }
+
+      return $this->db->connect()->query($query)->fetchAll();
+
+    } catch (PDOException $e) {
+      dd($e->getMessage());
+    }
+
+  }
 }

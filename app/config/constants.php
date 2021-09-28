@@ -21,3 +21,5 @@ define('VIEWS',ROOT.'/app/Views/');
 define('CSS_PATH',ROOT.'/public/assets/css/');
 
 define('JS_PATH',ROOT.'/public/assets/js/');
+
+define('LOGGED','LOGGED');

@@ -38,7 +38,7 @@ class UserController
       'title' => 'Usuarios',
       'users' => $db->find('users'),
     ];
-    return view('/user/users',$data);
+    return view('/user/users',$data,'navbar');
   }
 
   /**

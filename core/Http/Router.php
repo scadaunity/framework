@@ -277,26 +277,52 @@ class Router
 
         /** recupera as rotas atraves do metodo*/
         $routes = self::$routes[$method];
-        //dd($routes);
 
-
+        /** verifica se o metodo é do tipo get*/
+        if ($method == 'get') {
+          // Gera o token
+          setToken();
+        }
 
         /** Procura por rota exata **/
         $matchedUri = self::matchExactUri($uri, $routes);
 
         $params = [];
 
+        /** Procura a rota dinamica **/
         if (empty($matchedUri)) {
-          /** Procura a rota dinamica **/
+
           $matchedUri = self::matchDinamicUri($uri, $routes);
           $uri = explode('/',ltrim($uri,'/'));
-              /** recupera os parametros da uri **/
-              $params = $this->params($uri,$matchedUri);
-              $params = $this->formatParams($uri, $params);
+
+          /** recupera os parametros da uri **/
+          $params = $this->params($uri,$matchedUri);
+          $params = $this->formatParams($uri, $params);
         }
 
+        /** Verifica se o metodo é do tipo post */
+        if ($method == 'post') {
+
+          /** verifica se foi passado o csrf token*/
+          if (!isset($this->request->post()['_csrf'])) {
+            throw new \Exception("Pagina expirada",419);
+          }
+
+          /** verifica se o token é valido */
+          if (!$this->request->post()['_csrf'] == getToken()) {
+            throw new \Exception("Pagina expirada",419);
+          }
+
+          /** cria os parametros do post*/
+          $params = $this->request->post();
+        }
+
+        /** chama o controller e passa os parametros da rota*/
         if(!empty($matchedUri)){
+          // Chama o controller
           controller($matchedUri, $params);
+          //Gera um novo token
+          setToken();
           return;
         }
 

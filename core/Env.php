@@ -30,10 +30,11 @@ class Env
       // CRIA UM ARRAY DE CHAVE E VALOR
       $arrayLine = explode('=', $line);
       if (count($arrayLine) == 2) {
-        putenv($arrayLine[0].'='.$arrayLine[1]);
+        
+        putenv($arrayLine[0].'='.trim($arrayLine[1]));
       }
     }
-    
+
 
   }
 }

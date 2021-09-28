@@ -2,7 +2,7 @@
 
 use Core\Http\Router;
 
-Router::get('/', 'AuthController@login');
+Router::get('/', 'HomeController@index');
 
 Router::get('/home', 'HomeController@index');
 
@@ -15,3 +15,6 @@ Router::post('/autenticate','AuthController@autenticate');
 Router::resources([
   'users' => 'UserController',
 ]);
+
+Router::post('/token','TokenController@index');
+Router::put('/token','TokenController@index');
