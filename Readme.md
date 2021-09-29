@@ -6,6 +6,8 @@
 1. Instalação
   - Via composer (Recomendado).
   - Download zip.
+    - Definindo permissoes de arquivos e pastas;
+      - sudo chmod -R 755 framework-main/
 2. Criando meu primaeiro app
   - Criar uma rota
   - Criar um controller
