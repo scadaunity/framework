@@ -4,5 +4,13 @@
 
 ### Indice
 1. Instalação
-2. rotas
+  - Via composer (Recomendado).
+  - Download zip.
+2. Criando meu primaeiro app
+  - Criar uma rota
+  - Criar um controller
+  - Criar um template master
+  - Chamar uma view
+  - Configurando o banco de dados
+  - Criar um Model
 3. Definindo variaveis de ambiente
