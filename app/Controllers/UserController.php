@@ -7,17 +7,19 @@ use Core\Http\Request;
 use Core\Http\Response;
 use App\Models\UserModel;
 
-
 /**
- *
+ * Classe responsavel pelo usuarios
  */
 class UserController
 {
-  protected $model;
+  protected $userModel;
 
   function __construct()
   {
-    $this->model = new UserModel();
+    /** VERIFICA SE O USUARIO ESTA LOGADO */
+    if (!logged()) { return redirectWithFlash('/login','message','Conteudo apenas para usuarios logados;');}
+
+    $this->userModel = new UserModel();
   }
 
   /**
@@ -26,37 +28,29 @@ class UserController
    * URI: /users
    * Action: index
    * Name: users.index
-   * @param  array $params
    * @return view
    */
-  public function index($params){
-    //$model = new UserModel();
-    //dd($model);
-
-    $db = new QueryBuilder();
+  public function index(){
     $data = [
       'title' => 'Usuarios',
-      'users' => $db->find('users'),
+      'users' => $this->userModel->all()
     ];
     return view('/user/users',$data,'navbar');
   }
 
   /**
-   * Exibe o formulario para criar um novo registro no banco de dados
+   * Exibe a view para criar um novo registro no banco de dados
    * Verbo: GET
    * URI: /users/create
    * Action: create
    * Name: users.create
-   * @param  array $params
    * @return view
    */
-  public function create($params){
+  public function create(){
     $data = [
       'title' => 'Novo usuario',
-      'data' => $params,
     ];
     return view('/user/create',$data);
-
   }
 
   /**
@@ -96,11 +90,15 @@ class UserController
 
   public function show($params){
 
-    $db = new QueryBuilder();
     $data = [
       'title' => 'Usuarios',
-      'user' => $db->find('users',1),
+      'user' => $this->userModel->find($params['users']),
     ];
+
+    if ($data['user'] == null) {
+      echo 'registro não encontrado';
+      exit;
+    }
 
     return view('/user/user',$data);
   }

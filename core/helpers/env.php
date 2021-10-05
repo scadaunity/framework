@@ -1,9 +1,14 @@
 <?php
 
-
-function env($index = null , $value = null){
+/**
+ * Metodo responsavel por retornar variaveis de ambiente
+ * @param  [type] $index
+ * @param  [type] $value
+ * @return [type]
+ */
+function env($index = null){
   // se nenhum parametro for passado retorna todas as variaveis
-  if ($index == null && $value == null) {
+  if ($index == null) {
     return getenv( );
   }
 

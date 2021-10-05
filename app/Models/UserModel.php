@@ -6,12 +6,8 @@ use Core\Database\QueryBuilder;
 
 class UserModel extends Model
 {
+
     protected $table = 'users';
     protected $primaryId = 'id';
 
-    public function all(){
-      $db = new QueryBuilder;
-
-      return $db->find($this->table);
-    }
 }

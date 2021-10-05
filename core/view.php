@@ -2,7 +2,7 @@
 
 /**
  * Metodo responsavel por carregar a view
- * @param  string $view               [description]
+ * @param  string $view
  * @param  array|null $data               [description]
  * @return [type]       [description]
  */
@@ -58,21 +58,4 @@ function view($view, $params = [], $template = 'navbar'){
           throw new \Exception('Template não implementado [' . $template .']',405);
      }
 
-    /** Chama o cabeçalho */
-    //require_once VIEWS.'template/header.php';
-    /** Chama o cabeçalho */
-    //require_once VIEWS.'template/navbar.php';
-    /** Chama a view */
-    //require_once VIEWS.$view.'.php';
-    /** Chama o footer */
-    //require_once VIEWS.'template/footer.php';
-}
-
-function single($view){
-  /** Chama o cabeçalho */
-  require_once VIEWS.'template/header.php';
-  /** Chama a view */
-  require_once VIEWS.$view.'.php';
-  /** Chama o footer */
-  require_once VIEWS.'template/footer.php';
 }

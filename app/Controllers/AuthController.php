@@ -30,11 +30,44 @@ class AuthController
       view('auth/login',$data,'none');
   }
 
-  public function logout(){
-    unset($_SESSION[LOGGED]);
-    return redirect('/login');
+  /**
+   * Metodo responsavel por retornar a tela de registro
+   * @return view
+   */
+  public function register(){
+      $data = [
+
+      ];
+      view('auth/register',$data,'none');
   }
 
+  /**
+   * Metodo responsavel por retornar a tela de registro
+   * @return view
+   */
+  public function createAccount(){
+    /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
+    $request = new Request();
+    $email = $request->post()['email'];
+    $password = $request->post()['password'];
+
+    dd($request->post());
+  }
+
+  /**
+   * Metodo responsavel por destuir a seesão atual do usuario
+   * @return  view
+   */
+  public function destroy(){
+    unset($_SESSION[LOGGED]);
+
+    return redirect('/');
+  }
+
+  /**
+   * Metodo responsavel por autentica o usuario
+   * @return [type]
+   */
   public function autenticate(){
     /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();

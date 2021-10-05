@@ -1,11 +1,7 @@
 <?php
 
 use Core\Http\Router;
-use Core\Assets\Css;
-use Core\Database\Database;
-use Core\Database\QueryBuilder;
 use Core\Env;
-
 
 /** inicia uma sessão vazia */
 session_start();
@@ -18,6 +14,8 @@ require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
+require_once '../app/config/features.php';
+require_once '../app/config/models.php';
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';
@@ -25,6 +23,7 @@ require_once 'helpers/debug.php';
 require_once 'helpers/assets.php';
 require_once 'helpers/flash.php';
 require_once 'helpers/redirect.php';
+require_once 'helpers/routes.php';
 require_once 'helpers/sessions.php';
 require_once 'helpers/env.php';
 require_once 'helpers/token.php';
@@ -37,7 +36,6 @@ require_once 'controller.php';
 
 /** Carrega as variaveis de ambiente do projeto */
 Env::load();
-
 
  try {
       /** Instancia a classe router*/
@@ -57,8 +55,6 @@ Env::load();
 
      /** resolve a rota */
      $router->run();
-
-
 
  } catch(\Exception $e){
 

@@ -2,19 +2,19 @@
 
 use Core\Http\Router;
 
-Router::get('/', 'HomeController@index');
+/** -------------------- DEFAULT CONTROLLER ----------------------- */
+Router::get('/', 'WelcomeController@index');
 
 Router::get('/home', 'HomeController@index');
 
-/** -------------------- AUTH RESOURCE ----------------------- */
+/** ----------------------- AUTH RESOURCE ------------------------- */
 Router::get('/login','AuthController@login');
-Router::get('/logout','AuthController@logout');
+Router::get('/register','AuthController@register');
+Router::get('/logout','AuthController@destroy');
 Router::post('/autenticate','AuthController@autenticate');
+Router::post('/create/account','AuthController@createAccount');
 
 
 Router::resources([
   'users' => 'UserController',
 ]);
-
-Router::post('/token','TokenController@index');
-Router::put('/token','TokenController@index');

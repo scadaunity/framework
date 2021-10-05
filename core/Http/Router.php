@@ -326,7 +326,7 @@ class Router
           return;
         }
 
-        throw new \Exception("Não foi possivel resolver a rota",500);
+        throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);
 
     }
 }

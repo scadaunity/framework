@@ -2,6 +2,7 @@
 
 namespace Core\Database;
 
+use Core\Database\QueryBuilder;
 use PDO;
 
 /**
@@ -45,11 +46,12 @@ class Database
    */
   function __construct()
   {
-    $this->driver = getenv('DB_DRIVER');
-    $this->host = getenv('DB_HOST');
-    $this->dbname = getenv('DB_NAME');
-    $this->user = getenv('DB_USER');
+    $this->driver   = getenv('DB_DRIVER');
+    $this->host     = getenv('DB_HOST');
+    $this->dbname   = getenv('DB_NAME');
+    $this->user     = getenv('DB_USER');
     $this->password = getenv('DB_PASSWORD');
+
   }
 
   /**

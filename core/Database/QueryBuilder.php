@@ -23,15 +23,14 @@ class QueryBuilder
     $this->db = new Database();
   }
 
-  public function find($table,$field = '*'){
+  /**
+   * Metodo responsavel por buscar todos os registros da tabela
+   * @param  string $table
+   * @return Object,PDOException
+   */
+  public function all($table){
     try {
-      $query = "select {$field} from {$table}";
-      //dd($field);
-      if (is_numeric($field)) {
-        $query = "select * from {$table} where id={$field}";
-        return $this->db->connect()->query($query)->fetch();
-        exit;
-      }
+      $query = "select * from {$table}";
 
       return $this->db->connect()->query($query)->fetchAll();
 
@@ -41,17 +40,17 @@ class QueryBuilder
 
   }
 
-  public function findBy($table,$field = '*'){
+  /**
+   * Metodo responsavel por recuperar um registro pelo id
+   * @param  string $table
+   * @param  integer $id
+   * @return Object,PDOException
+   */
+  public function findById($table,$id){
     try {
-      $query = "select {$field} from {$table}";
-      //dd($field);
-      if (is_numeric($field)) {
-        $query = "select * from {$table} where id={$field}";
-        return $this->db->connect()->query($query)->fetch();
-        exit;
-      }
+      $query = "SELECT * FROM {$table} WHERE `id`='{$id}'";
 
-      return $this->db->connect()->query($query)->fetchAll();
+      return $this->db->connect()->query($query)->fetch();
 
     } catch (PDOException $e) {
       dd($e->getMessage());

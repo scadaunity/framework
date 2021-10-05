@@ -1,6 +1,9 @@
 <?php
   namespace Core\Database;
 
+  use Core\Database\Database;
+  use Core\Database\QueryBuilder;
+
 
   class Model
   {
@@ -21,7 +24,7 @@
      * Instancia de QueryBuilder
      * @var QueryBuilder
      */
-    protected $query;
+    protected $queryBuilder;
 
     /**
      * Construtor da classe
@@ -29,7 +32,15 @@
     function __construct()
     {
       $this->db = new Database();
-      $this->query = new QueryBuilder();
+      $this->queryBuilder = new QueryBuilder();
+    }
+
+    public function all(){
+      return $this->queryBuilder->all($this->table);
+    }
+
+    public function find($id){
+      return $this->queryBuilder->findById($this->table,$id);
     }
 
     public function save(){
