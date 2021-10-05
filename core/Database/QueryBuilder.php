@@ -57,4 +57,29 @@ class QueryBuilder
     }
 
   }
+
+  /**
+   * Metodo responsavel por inserir um registro na tabela
+   * @param  string $table
+   * @param  array $values
+   * @return $id
+   */
+  public function insert($table,$values){
+
+    try {
+      // Dados da query
+      $fields = array_keys($values);
+      $binds = array_pad([], count($fields), '?');
+
+      // Monta a query
+      $query = 'INSERT INTO ' .$table. ' (' . implode(',',$fields).') VALUES ('. implode(',',$binds) .')';
+
+      // Executa a query
+      return $this->db->execute($query,array_values($values));
+      
+    } catch (PDOException $e) {
+      dd($e->getMessage());
+    }
+  }
+
 }

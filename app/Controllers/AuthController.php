@@ -46,12 +46,31 @@ class AuthController
    * @return view
    */
   public function createAccount(){
+
+    $validate = validate([
+      'name' => 'required',
+      'email' => 'required',
+      'password' => 'required',
+    ]);
+
+    if ($validate == false) {
+      return redirect('/register');
+    }
+
+    //dd($validate);
     /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();
-    $email = $request->post()['email'];
-    $password = $request->post()['password'];
+    $userModel = new UserModel();
 
-    dd($request->post());
+    $data = [
+      'name'      => $request->post()['name'],
+      'email'     => $request->post()['email'],
+      'password'  => $request->post()['password']
+    ];
+
+    $user = $userModel->save($data);
+
+    dd($user);
   }
 
   /**

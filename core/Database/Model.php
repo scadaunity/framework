@@ -43,8 +43,8 @@
       return $this->queryBuilder->findById($this->table,$id);
     }
 
-    public function save(){
-
+    public function save($values){
+      return $this->queryBuilder->insert($this->table, $values);
     }
 
   }

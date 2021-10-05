@@ -27,6 +27,7 @@ require_once 'helpers/routes.php';
 require_once 'helpers/sessions.php';
 require_once 'helpers/env.php';
 require_once 'helpers/token.php';
+require_once 'helpers/validate.php';
 
 
 /** carrega libs do core */
