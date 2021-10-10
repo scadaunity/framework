@@ -64,17 +64,7 @@ class UserController
    */
 
   public function store(){
-    $request = new Request();
-    $db = new QueryBuilder();
-
-    /** Verifica se existe parametros da URI*/
-    d($request->post());
-
-      $data = extract($request->post()) ?? [];
-      d($data);
-
-
-    //dd($request->post());
+    
   }
 
   /**

@@ -3,6 +3,7 @@
 use Core\Http\Router;
 use Core\Env;
 
+
 /** inicia uma sessão vazia */
 session_start();
 
@@ -37,6 +38,8 @@ require_once 'controller.php';
 
 /** Carrega as variaveis de ambiente do projeto */
 Env::load();
+
+
 
  try {
       /** Instancia a classe router*/

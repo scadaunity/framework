@@ -59,10 +59,35 @@ class QueryBuilder
   }
 
   /**
+   * Metodo responsavel por recuperar registro no banco de dados
+   * @param  string $table
+   * @param  array $values
+   * @return Object,PDOException
+   */
+  public function findBy($table, $field, $value, $fields = '*'){
+    try {
+      // Monta a query
+      $query = "SELECT {$fields} FROM {$table} WHERE {$field} =:{$field}";
+
+      $connect = $this->db->connect();
+      $prepare = $connect->prepare($query);
+      $prepare->execute([
+        $field => $value
+      ]);
+
+      return $prepare->fetch();
+
+    } catch (PDOException $e) {
+      dd($e->getMessage());
+    }
+
+  }
+
+  /**
    * Metodo responsavel por inserir um registro na tabela
    * @param  string $table
    * @param  array $values
-   * @return $id
+   * @return
    */
   public function insert($table,$values){
 
@@ -76,7 +101,7 @@ class QueryBuilder
 
       // Executa a query
       return $this->db->execute($query,array_values($values));
-      
+
     } catch (PDOException $e) {
       dd($e->getMessage());
     }

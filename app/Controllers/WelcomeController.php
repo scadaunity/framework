@@ -15,7 +15,7 @@ class WelcomeController
 
   public function index($params){
       $data =[
-
+        'name' => 'teste',
       ];
       return view('welcome',$data,'navbar');
   }

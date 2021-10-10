@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use Core\Http\Request;
-use Core\Database\Database;
 use App\Models\UserModel;
 
 /**
@@ -49,11 +48,11 @@ class AuthController
 
     $validate = validate([
       'name' => 'required',
-      'email' => 'required',
+      'email' => 'required|email|unique:users',
       'password' => 'required',
     ]);
 
-    if ($validate == false) {
+    if (!$validate) {
       return redirect('/register');
     }
 
@@ -70,7 +69,9 @@ class AuthController
 
     $user = $userModel->save($data);
 
-    dd($user);
+    if ($user) {
+      redirect('/login');
+    }
   }
 
   /**
