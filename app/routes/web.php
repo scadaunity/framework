@@ -18,3 +18,7 @@ Router::post('/create/account','AuthController@createAccount');
 Router::resources([
   'users' => 'UserController',
 ]);
+
+
+/** ----------------------- ADMIN RESOURCE ------------------------- */
+Router::get('/admin','AdminController@users');

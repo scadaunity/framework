@@ -10,7 +10,7 @@ class HomeController
 
   function __construct()
   {
-    
+
   }
 
   public function index(){
@@ -18,10 +18,10 @@ class HomeController
         'name' => 'Doug funny',
         'email' => 'scadaunity@gmail.com'
       ];
-      return view('home',$data);
-  }
 
-  public function admin(){
-    echo "Admin";
+      echo view('template/header');
+      echo view('template/navbar');
+      echo view('home',$data);
+      echo view('template/footer');
   }
 }

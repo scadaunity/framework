@@ -1,93 +1,49 @@
 <?php
 
 /**
- * Metodo responsavel por carregar a view
+ * Metodo responsavel por renderizar a view
  * @param  string $view
- * @param  array|null $data               [description]
- * @return [type]       [description]
+ * @param  array $params
+ * @return string
  */
-function view($view, $params = [], $template = 'navbar'){
-    //Monta o arquivo de saida
-    $output =[];
+function view($view, $params = []){
+  // Conteudo da view
+  $contentView = getContentView($view);
 
-    // define variaveis fixas pra view
-    $params['user'] = user();
-    $params['appTitle'] = APP_TITLE;
+  $defaultVars = getGlobalVariables();
 
-    //cria as variaveis para a view
-    extract($params) ?? [];
+  $vars = array_merge($defaultVars,$params);
 
-    /** Verifica se a view existe */
-    if (!file_exists(VIEWS.$view.'.php')) {
-      throw new \Exception("Arquivo {$view}.php não encontrado", 1);
-    }
 
-    switch($template)
-     {
-        case 'none':
-          /** Chama a view */
-          require_once VIEWS.$view.'.php';
-          break;
-        case 'single':
-          /** Chama o cabeçalho */
-          require_once VIEWS.'template/header.php';
+  //chaves do array de variaveis
+  $keys = array_Keys($vars);
+  $keys = array_map(function($item){
+    return '{{'.$item.'}}';
+  },$keys);
 
-          /** Chama a view */
-          require_once VIEWS.$view.'.php';
-          /** Chama o footer */
-          require_once VIEWS.'template/footer.php';
-          break;
-        case 'navbar':
-          /** Chama o cabeçalho */
-          require_once VIEWS.'template/header.php';
-
-          //render('template/header',$params);
-          /** Chama a navbar */
-          require_once VIEWS.'template/navbar.php';
-          /** Chama a view */
-          require_once VIEWS.$view.'.php';
-          //echo str_replace(array_Keys($bind),array_values($bind),$content);
-          /** Chama o footer */
-          require_once VIEWS.'template/footer.php';
-
-          break;
-        case 'left-sidebar':
-
-          break;
-        case 'right-sidebar':
-
-          break;
-        case 'right-sidebar':
-
-          break;
-        default:
-          throw new \Exception('Template não implementado [' . $template .']',405);
-     }
-
+  return str_replace($keys,array_values($vars),$contentView);
 }
 
-function render($params,$view){
-
-  // Pega a view e converte em uma string
-  $viewString = file_get_contents(VIEWS.$view.'.php');
-  $temp = [];
-  // Percorre os parametros
-  foreach ($params as $param => $value) {
-    // procura por variaveis
-    if (strpos($viewString, '{{'.$param.'}}') !== false) {
-        $temp['{{'.$param.'}}'] = $value;
-    }
-  }
-  $output = str_replace(array_Keys($temp),array_values($temp),$viewString);
-
-  //pega as funções
-  $pattern = '/@css+(.*)/';
-
-  preg_match($pattern, $output,$matches);
-
-  return $output;
+/**
+ * Metodo responsavel por resgatar o conteudo da view
+ * @param  string $view
+ * @return string
+ */
+function getContentView($view){
+  $file = VIEWS.$view.'.php';
+  return file_exists($file) ? file_get_contents($file) : '';
 }
 
-function viewTemplate($view, $template){
-
+function getGlobalVariables(){
+  return [
+    'URL' => URL,
+    'APP_TITLE' => APP_TITLE,
+    'ENV' => ENVIRONMENT,
+    'ROOT' => ROOT,
+    'VIEWS' => VIEWS,
+    'CSS_PATH' => CSS_PATH,
+    'JS_PATH' => JS_PATH,
+    'IMG_PATH' =>IMG_PATH,
+    'LOGGED' => LOGGED,
+  ];
 }

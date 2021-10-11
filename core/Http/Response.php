@@ -74,7 +74,7 @@ class Response
   /**
    * Metodo responsavel por enviar a resposta ao usuario
    */
-  public function send(){
+  public function sendResponse(){
     $this->sendHeaders();
     switch ($this->contentType) {
       case 'text/html':

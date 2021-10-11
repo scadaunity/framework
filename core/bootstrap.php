@@ -1,6 +1,7 @@
 <?php
 
 use Core\Http\Router;
+use Core\Http\Response;
 use Core\Env;
 
 
