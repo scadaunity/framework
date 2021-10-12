@@ -9,13 +9,7 @@ use Core\Http\Router;
  */
 class AdminController
 {
-
-  function __construct()
-  {
-    // code...
-  }
-
   public function users(){
-    return view('home');
+    echo view('home');
   }
 }

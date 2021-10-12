@@ -16,8 +16,6 @@ require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
-require_once '../app/config/features.php';
-require_once '../app/config/models.php';
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';
@@ -31,16 +29,12 @@ require_once 'helpers/env.php';
 require_once 'helpers/token.php';
 require_once 'helpers/validate.php';
 
-
 /** carrega libs do core */
 require_once 'view.php';
 require_once 'controller.php';
 
-
 /** Carrega as variaveis de ambiente do projeto */
 Env::load();
-
-
 
  try {
       /** Instancia a classe router*/
@@ -56,7 +50,6 @@ Env::load();
        require 'routes/web.php';
        require 'routes/console.php';
      }
-
 
      /** resolve a rota */
      $router->run();

@@ -45,5 +45,6 @@ function getGlobalVariables(){
     'JS_PATH' => JS_PATH,
     'IMG_PATH' =>IMG_PATH,
     'LOGGED' => LOGGED,
+    'CSRF' =>csrf()
   ];
 }

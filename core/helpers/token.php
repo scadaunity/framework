@@ -4,7 +4,7 @@
  * Metodo responsavel por inserir um token dentro do formulario html
  */
 function csrf(){
-  echo "<input type='hidden' name='_csrf' value='".$_SESSION['token']."'>";
+  return "<input type='hidden' name='_csrf' value='".$_SESSION['token']."'>";
 }
 
 function getToken(){

@@ -17,6 +17,6 @@ class WelcomeController
       $data =[
         'name' => 'teste',
       ];
-      echo view('welcome',$data,'navbar');
+      echo view('welcome',$data);
   }
 }

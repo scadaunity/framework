@@ -11,37 +11,25 @@ use App\Models\UserModel;
 class AuthController
 {
   /**
-   * Construtor da classe
-   */
-  function __construct()
-  {
-
-  }
-
-  /**
    * Metodo responsavel por retornar a tela de login
-   * @return view
+   * @return string
    */
   public function login(){
-      $data = [
-
-      ];
-      view('auth/login',$data,'none');
+      $data = [];
+      echo view('auth/login',$data);
   }
 
   /**
    * Metodo responsavel por retornar a tela de registro
-   * @return view
+   * @return string
    */
   public function register(){
-      $data = [
 
-      ];
-      view('auth/register',$data,'none');
+    echo  view('auth/register');
   }
 
   /**
-   * Metodo responsavel por retornar a tela de registro
+   * Metodo responsavel criar uma conta
    * @return view
    */
   public function createAccount(){
