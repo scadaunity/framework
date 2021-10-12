@@ -21,6 +21,7 @@ function view($view, $params = []){
     return '{{'.$item.'}}';
   },$keys);
 
+//dd(user()->id);
   return str_replace($keys,array_values($vars),$contentView);
 }
 
@@ -35,7 +36,8 @@ function getContentView($view){
 }
 
 function getGlobalVariables(){
-  return [
+
+  $data = [
     'URL' => URL,
     'APP_TITLE' => APP_TITLE,
     'ENV' => ENVIRONMENT,
@@ -47,4 +49,13 @@ function getGlobalVariables(){
     'LOGGED' => LOGGED,
     'CSRF' =>csrf()
   ];
+
+  $user = user();
+  if ($user) {
+    $data['user.id']=$user->id;
+    $data['user.name']=$user->name;
+    $data['user.email']=$user->email;
+  }
+
+  return $data;
 }

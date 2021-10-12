@@ -1,0 +1,7 @@
+<?php
+
+echo "Bem vindo ao assitente do scada unity framework\n";
+
+function help(){
+  echo "Help";
+}
