@@ -13,3 +13,11 @@ function getFlash($index, $style = "color:red"){
     return "<span style='$style'>$flash</span>";
   }
 }
+
+function getAllFlash(){
+  if (isset($_SESSION['flash'])) {
+    $flash = $_SESSION['flash'];
+    unset($_SESSION['flash']);
+    return $flash;
+  }
+}

@@ -15,7 +15,9 @@ class AuthController
    * @return string
    */
   public function login(){
-      $data = [];
+      $data = [
+        'title' => 'Login'
+      ];
       echo view('auth/login',$data);
   }
 

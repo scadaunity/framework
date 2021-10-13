@@ -2,4 +2,4 @@
 
 use Core\Http\Router;
 
-Router::get('/api/user','ApiUser@index');
+Router::get('/api/routes','\\Core\Controllers\AxiosController@getRoutes');

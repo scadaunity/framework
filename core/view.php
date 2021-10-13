@@ -7,22 +7,29 @@
  * @return string
  */
 function view($view, $params = []){
-  // Conteudo da view
+  // pega o conteudo da view
   $contentView = getContentView($view);
 
+  // pega as variaveis globais
   $defaultVars = getGlobalVariables();
 
+  // junta as variaveis globais com as variaveis passadas no controller
   $vars = array_merge($defaultVars,$params);
 
-
-  //chaves do array de variaveis
+  //pega as chaves do array de variaveis
   $keys = array_Keys($vars);
+
+  // formata as variaveis
   $keys = array_map(function($item){
     return '{{'.$item.'}}';
   },$keys);
 
-//dd(user()->id);
-  return str_replace($keys,array_values($vars),$contentView);
+  //dd($keys);
+  //armazena a view com as variaveis passadas
+  $output = str_replace($keys,array_values($vars),$contentView);
+
+  // Faz o bind das variaveis na view
+  return $output;
 }
 
 /**
@@ -37,6 +44,8 @@ function getContentView($view){
 
 function getGlobalVariables(){
 
+
+  // Define os dados da view en todas as requisições
   $data = [
     'URL' => URL,
     'APP_TITLE' => APP_TITLE,
@@ -49,6 +58,18 @@ function getGlobalVariables(){
     'LOGGED' => LOGGED,
     'CSRF' =>csrf()
   ];
+
+  // Se houver flash message adiciona aos dados
+
+  setFlash('message','Mensagem encontrado com sucesso');
+
+  // adiciona as flash messages ao template
+  $flash = getAllFlash();
+  if (!$flash == null) {
+    foreach ($flash as $key => $value) {
+      $data['flash.'.$key]=$value;
+    }
+  }
 
   $user = user();
   if ($user) {
