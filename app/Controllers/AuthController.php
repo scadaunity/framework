@@ -15,6 +15,8 @@ class AuthController
    * @return string
    */
   public function login(){
+      $request = new Request();
+
       $data = [
         'title' => 'Login'
       ];
@@ -79,6 +81,7 @@ class AuthController
    * @return [type]
    */
   public function autenticate(){
+
     /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();
     $email = $request->post()['email'];
@@ -121,7 +124,7 @@ class AuthController
     $_SESSION[LOGGED] = $validUser;
 
     /** REDIRECIONA PARA A HOME */
-    return redirect('home');
+     echo view('home');
 
   }
 }

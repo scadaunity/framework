@@ -16,6 +16,7 @@ require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
+require_once '../app/config/template.php';
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';

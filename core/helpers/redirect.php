@@ -1,5 +1,7 @@
 <?php
 
+use Core\Http\Router;
+
 /** Metodo responsavel por redirecionar
   * @param string $url
   */
@@ -17,4 +19,8 @@ function redirectWithFlash($url,$bag,$message)
 {
   setFlash($bag,$message);
   return header('location:'.$url);
+}
+
+function redirectRoute($url){
+  
 }

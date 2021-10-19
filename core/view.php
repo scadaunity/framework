@@ -1,5 +1,8 @@
 <?php
 
+use Core\Http\Request;
+use Core\Http\Response;
+
 /**
  * Metodo responsavel por renderizar a view
  * @param  string $view
@@ -7,6 +10,9 @@
  * @return string
  */
 function view($view, $params = []){
+  // Instancia de request
+  $request = new Request();
+
   // pega o conteudo da view
   $contentView = getContentView($view);
 
@@ -24,26 +30,18 @@ function view($view, $params = []){
     return '{{'.$item.'}}';
   },$keys);
 
-  //dd($keys);
   //armazena a view com as variaveis passadas
   $output = str_replace($keys,array_values($vars),$contentView);
 
-  // Faz o bind das variaveis na view
   return $output;
+
 }
 
-/**
- * Metodo responsavel por resgatar o conteudo da view
- * @param  string $view
- * @return string
- */
 function getContentView($view){
-  $file = VIEWS.$view.'.php';
-  return file_exists($file) ? file_get_contents($file) : '';
+  return file_exists(VIEWS.$view.'.php') ? file_get_contents(VIEWS.$view.'.php') : '';
 }
 
 function getGlobalVariables(){
-
 
   // Define os dados da view en todas as requisições
   $data = [
@@ -58,10 +56,6 @@ function getGlobalVariables(){
     'LOGGED' => LOGGED,
     'CSRF' =>csrf()
   ];
-
-  // Se houver flash message adiciona aos dados
-
-  setFlash('message','Mensagem encontrado com sucesso');
 
   // adiciona as flash messages ao template
   $flash = getAllFlash();
