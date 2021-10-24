@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\Http\Request;
 use App\Models\UserModel;
+use Core\View\View;
 
 /**
  * Classe responsavel pelo controle de acesso ao sistema
@@ -15,12 +16,14 @@ class AuthController
    * @return string
    */
   public function login(){
-      $request = new Request();
 
       $data = [
         'title' => 'Login'
       ];
-      echo view('auth/login',$data);
+
+      render('template/header',$data);
+      render('auth/login',$data);
+      render('template/footer',$data);
   }
 
   /**
@@ -29,7 +32,7 @@ class AuthController
    */
   public function register(){
 
-    echo  view('auth/register');
+    render('auth/register');
   }
 
   /**
@@ -48,7 +51,6 @@ class AuthController
       return redirect('/register');
     }
 
-    //dd($validate);
     /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();
     $userModel = new UserModel();
@@ -124,7 +126,7 @@ class AuthController
     $_SESSION[LOGGED] = $validUser;
 
     /** REDIRECIONA PARA A HOME */
-     echo view('home');
+     return redirect('home');
 
   }
 }

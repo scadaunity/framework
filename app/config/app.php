@@ -27,3 +27,9 @@ define('URL','http://localhost:5000');
  * @var string
  */
 define("ENVIRONMENT",'development');
+
+/**
+ * [define description]
+ * @var [type]
+ */
+define('STACK','php');

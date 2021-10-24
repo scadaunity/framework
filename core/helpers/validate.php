@@ -82,6 +82,12 @@ function email($field){
   return filter_input(INPUT_POST,$field,FILTER_SANITIZE_STRING);
 }
 
+/**
+ * Metodo responsavel por validar se o valor é unico
+ * @param  string $field
+ * @param  string $param
+ * @return string $field
+ */
 function unique($field,$param){
   $value = filter_input(INPUT_POST,$field,FILTER_SANITIZE_STRING);
   $db = new QueryBuilder();

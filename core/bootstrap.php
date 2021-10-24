@@ -29,9 +29,9 @@ require_once 'helpers/sessions.php';
 require_once 'helpers/env.php';
 require_once 'helpers/token.php';
 require_once 'helpers/validate.php';
+require_once 'helpers/view.php';
 
 /** carrega libs do core */
-require_once 'view.php';
 require_once 'controller.php';
 
 /** Carrega as variaveis de ambiente do projeto */
