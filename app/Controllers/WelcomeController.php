@@ -12,9 +12,9 @@ class WelcomeController
       $data =[
         'name' => 'teste',
       ];
-      echo view('template/header');
-      echo view('template/navbar');
-      echo view('welcome',$data);
-      echo view('template/footer');
+      render('template/header');
+      render('template/navbar');
+      render('welcome',$data);
+      render('template/footer');
   }
 }

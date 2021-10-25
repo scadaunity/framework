@@ -5,10 +5,9 @@
       <script src="{{JS_PATH}}/axios.min.js"></script>
       <script src="{{JS_PATH}}/app.js"></script>
 
-      <script>
-          const routes = [
-            '/home'
-          ]
+      <script type="text/javascript">
+        const links = document.getElementsByClassName('a');
+        console.log(links);
       </script>
 
   </body>
