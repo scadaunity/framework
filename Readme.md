@@ -33,3 +33,7 @@
 ##XSS (Cross Site Scripting)
 1. limpar a entrada
 2. escapar a saida
+
+## HELPERS
+### JS
+1.Ajuda a carregar ativos javascript

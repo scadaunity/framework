@@ -46,6 +46,9 @@ class View
     // insere as variaveis ao conteudo da view
     $contentView = self::parseVariables($contentView, $vars, $keys);
 
+    // insere as variaveis ao conteudo da view
+    $contentView = self::parseIf($contentView, $vars, $keys);
+
     echo $contentView;
 
   }
@@ -68,6 +71,47 @@ class View
     $keys = array_map(function($item){
       return '{{'.$item.'}}';
     },$keys);
+
+    return str_replace($keys,array_values($vars),$contentView);
+  }
+
+  /**
+   * Metodo responsavel por substituir as condicionais no content da view
+   * @return string text/html
+   */
+  private static function parseIf($contentView, $vars, $keys){
+
+    //$contentView = '@if user == true @endif';
+    $pattern   = '/^@if (.*) (.*) (.*) (@endif)$/';
+
+    preg_match_all($pattern,$contentView,$matches);
+
+
+
+  
+
+    if ($matches[0] == null) {
+      return $contentView;
+    }
+
+
+    if (array_count_values($matches[0]) > 1) {
+      foreach ($matches[0] as $key => $value) {
+        echo $value."<br>";
+      }
+    }
+
+
+
+
+
+
+     //formata as variaveis
+
+    $keys = array_map(function($item){
+      return '{{'.$item.'}}';
+    },$keys);
+
 
     return str_replace($keys,array_values($vars),$contentView);
   }

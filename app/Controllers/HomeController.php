@@ -11,14 +11,13 @@ class HomeController
 
       $data = [
         'name' => 'Doug funny',
-        'email' => 'scadaunity@gmail.com'
+        'email' => 'scadaunity@gmail.com',
+        'user' => true,
       ];
 
-      render('template/header',$data);
-      render('template/navbar',$data);
-      render('home',$data);
-      render('template/footer',$data);
-
-
+      view('template/header',$data);
+      view('template/navbar',$data);
+      view('home',$data);
+      view('template/footer',$data);
   }
 }

@@ -11,11 +11,21 @@ function css($file){
 
 /**
  * Metodo responsavel por adicionar arquivos js
- * @param  string  $file
+ * @param  string|array  $file
  * @return Js
  */
-function js($file){
-  echo JS_PATH.$file.'.js';
+function js($files){
+
+  if (is_array($files)) {
+    foreach ($files as $file) {
+      echo '<script src="'.JS_PATH.'/'.$file.'.js"></script>';
+    }
+  } else{
+    echo '<script src="'.JS_PATH.'/'.$files.'.js"></script>';
+  }
+
+
+
 }
 
 /**

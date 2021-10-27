@@ -20,12 +20,12 @@
                     <!-- email -->
                     <div class="form-group mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control rounded-left" placeholder="Email" value="scadaunity@gmail.com">
+                        <input type="email" name="email" class="form-control rounded-left" placeholder="Email" value="scadaunity@gmail.com" autocomplete="username">
                     </div>
 
                     <!-- password -->
                     <div class="form-group mb-3">
-                        <input type="password" name="password"  class="form-control rounded-left" placeholder="Senha" value="123456">
+                        <input type="password" name="password"  class="form-control rounded-left" placeholder="Senha" value="123456" autocomplete="current-password">
                     </div>
 
                     <div class="form-group d-md-flex mb-3">
@@ -46,7 +46,10 @@
                 </form>
                 <div class="form-group d-md-flex mb-3">
                     <div class="w-50 text-md-right">
-                        <a href="#">Forgot Password</a>
+                        <a href="/forgot">Forgot Password</a>
+                    </div>
+                    <div class="w-50 text-md-right">
+                        <a href="/forgot">Forgot Password</a>
                     </div>
                 </div>
           </div>
