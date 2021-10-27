@@ -70,7 +70,7 @@ class Router
 
       $this->response = new Response(200,'ola mundo');
       $this->request = new Request();
-      $this->url = $url;
+      $this->url = URL;
       $this->controllers =$url .'/app/controllers';
       $this->setPrefix();
   }

@@ -21,9 +21,9 @@ class AuthController
         'title' => 'Login'
       ];
 
-      render('template/header',$data);
-      render('auth/login',$data);
-      render('template/footer',$data);
+      view('template/header',$data);
+      view('auth/login',$data);
+      view('template/footer',$data);
   }
 
   /**
@@ -32,7 +32,7 @@ class AuthController
    */
   public function register(){
 
-    render('auth/register');
+    view('auth/register');
   }
 
   /**

@@ -8,15 +8,15 @@
                 <div class="col-lg-6">
                     <h1 class="mt-3">Bem vindo
                       <?php if (logged()) : ?>
-                        {{user.name}}
+                        <?php echo user()->name ?>
                       <?php else : ?>
                         Visitante
 
                     </h1>
-                    <p>Faça o login ou crie uma conta é gratis</p>
+                    <p>Esta é a tela inicial</p>
                     <?php endif; ?>
-                    <p class="lead text-secondary my-5">Aproveite nossos pacotes</p>
-                    <button class="btn btn-outline-secondary btn-lg border" onclick="view('/home')">Começar</button>
+                    <p class="lead text-secondary my-5">Aproveite</p>
+                    
                 </div>
             </div>
         </div>

@@ -15,6 +15,8 @@ class View
    */
   public static function view($view, $params = []){
 
+    extract($params);
+
     if (!file_exists(VIEWS.$view.'.php')) {
       throw new \Exception("Arquivo não encontrado", 500);
     }
@@ -88,7 +90,7 @@ class View
 
 
 
-  
+
 
     if ($matches[0] == null) {
       return $contentView;

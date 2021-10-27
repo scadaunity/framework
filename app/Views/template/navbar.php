@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <!-- Logo e link pra home -->
     <a class="navbar-brand" href="/">
-      <img src="<?php echo IMG_PATH; ?>/Logo.png" alt="Brand logo" width="30" height="30">
-      <span>Scada</span>
+      <?php component('ApplicationMark') ?>
+      <span class="pt-1">Scada</span>
       <span>Unity</span>
     </a>
 

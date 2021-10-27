@@ -48,6 +48,13 @@ define('JS_PATH',URL.'/assets/js');
  */
 define('IMG_PATH',ASSETS_PATH.'/img');
 
+/**
+ * [PT_BR] Define o diretório padrão para os componentes
+ * (PHP 4, PHP 5, PHP 7, PHP 8)
+ * @var [type]
+ */
+define('COMPONENTS_PATH',VIEWS.'components/');
+
 
 
 define('LOGGED','LOGGED');

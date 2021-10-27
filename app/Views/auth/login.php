@@ -9,13 +9,13 @@
                     </div>
                 </div>
                 <!-- Page title -->
-                <h3 class="text-center mb-4">{{title}}</h3>
+                <h3 class="text-center mb-4"><?php echo $title ?></h3>
                 <!-- App title -->
-                <h6 class="text-center mb-4">{{APP_TITLE}}</h6>
+                <h6 class="text-center mb-4"><?php echo APP_TITLE ?></h6>
 
                 <!-- Form login -->
                 <form class="mb-3" action="/autenticate" method="post">
-                  {{CSRF}}
+                  <?php csrf() ?>
 
                     <!-- email -->
                     <div class="form-group mb-3">

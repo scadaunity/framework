@@ -46,7 +46,7 @@ Env::load();
      require '../app/routes/web.php';
      require '../app/routes/console.php';
 
-     if (getenv('APP_ENV') == 'local') {
+     if (ENVIRONMENT == 'development') {
        require 'routes/api.php';
        require 'routes/web.php';
        require 'routes/console.php';

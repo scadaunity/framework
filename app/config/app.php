@@ -20,6 +20,7 @@ define("APP_TITLE",'Scada Unity');
  */
 define('URL','http://localhost:5000');
 
+
 /**
  * [PT_BR] Define o tipo de ambiente de execução do seu aplicativo
  * (PHP 4, PHP 5, PHP 7, PHP 8)

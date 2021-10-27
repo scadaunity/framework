@@ -2,13 +2,9 @@
 
 
 function dd($var){
-  debugHeader();
-
-  debugNavbar();
-
-  //echo "<pre>";
-  //var_dump($var);
-  //die();
+  echo "<pre>";
+  var_dump($var);
+  die();
 }
 
 function d($var){
