@@ -1,8 +1,8 @@
 <?php
 
-namespace Core\Database;
+namespace ScadaUnity\Database;
 
-use Core\Database\Database;
+use ScadaUnity\Database\Database;
 
 /**
  *

@@ -1,6 +1,6 @@
 <?php
 
-use Core\Http\Router;
+use ScadaUnity\Http\Router;
 
 /** Metodo responsavel por redirecionar
   * @param string $url
@@ -22,5 +22,5 @@ function redirectWithFlash($url,$bag,$message)
 }
 
 function redirectRoute($url){
-  
+
 }

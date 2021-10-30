@@ -1,8 +1,8 @@
 <?php
 namespace App\Models;
 
-use Core\Database\Model;
-use Core\Database\QueryBuilder;
+use ScadaUnity\Database\Model;
+use ScadaUnity\Database\QueryBuilder;
 
 class UserModel extends Model
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Controllers;
+namespace ScadaUnity\Controllers;
 
 use Core\Http\Router;
 

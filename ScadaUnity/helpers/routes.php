@@ -1,8 +1,8 @@
 <?php
 
-use Core\Http\Request;
-use Core\Http\Response;
-use Core\Http\Router;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Http\Response;
+use ScadaUnity\Http\Router;
 
 function route(){
   $obroutes = new Request();

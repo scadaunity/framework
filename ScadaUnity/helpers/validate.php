@@ -1,6 +1,6 @@
 <?php
 
-use Core\Database\QueryBuilder;
+use ScadaUnity\Database\QueryBuilder;
 
 /**
  * Metodo responsavel por realizar ar validações

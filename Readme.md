@@ -38,3 +38,9 @@
 ### JS
 1.Ajuda a carregar ativos javascript
   - js('arquivo');
+
+# TODO
+## Criar uma gui para gerenciar o projeto
+1. Criar controller [create:controller]
+2. Criar model [create:model]
+3. Criar resource (Model, Controller, Rotas)

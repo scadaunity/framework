@@ -1,6 +1,6 @@
 <?php
 
-use Core\Http\Request;
+use ScadaUnity\Http\Request;
 
 function controller($matchedUri, $params){
 

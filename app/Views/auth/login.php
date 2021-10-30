@@ -44,7 +44,14 @@
                         <button type="submit" name="" value="Entrar" class="btn btn-primary rounded submit p-3 px-5">Entrar</button>
                     </div>
                 </form>
-                <div class="form-group flex mb-3">
-                    <a href="/forgot">Forgot Password</a>
+                <div class="form-group d-flex mb-3 text-right">
+                  <div class="w-50 text-right">
+                    <a href="/forgot">Recuperar senha</a>
+                  </div>
+                  <div class="w-50 text-right">
+                    <a href="/register">Criar conta</a>
+                  </div>
+
+
                 </div>
           </div>

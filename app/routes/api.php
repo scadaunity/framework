@@ -1,5 +1,5 @@
 <?php
 
-use Core\Http\Router;
+use ScadaUnity\Http\Router;
 
 Router::get('/api/user','ApiUser@index');

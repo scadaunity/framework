@@ -1,9 +1,10 @@
 <?php
 
-namespace Core\Http;
+namespace ScadaUnity\Http;
 
-use Core\Http\Request;
-use Core\Http\Response;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Http\Response;
+use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
 
 /**
  * Classe responsavel por adicionar rotas e redirecionar todo o fluxo da aplicação
@@ -65,14 +66,14 @@ class Router
     * Construtor da classe
     * @param string $url
     */
-  public function __construct($url = '')
+  public function __construct($url)
   {
 
-      $this->response = new Response(200,'ola mundo');
+      $this->response = new Response(200,'scada unity');
       $this->request = new Request();
-      $this->url = URL;
-      $this->controllers =$url .'/app/controllers';
+      $this->url = $url;
       $this->setPrefix();
+      $this->controllers =$url .'/app/controllers';
   }
 
   /**
@@ -81,8 +82,12 @@ class Router
     */
   private function setPrefix()
   {
+    // Informações da URL
     $parseUrl = parse_url($this->url);
-    $this->prefix = $parseUrl['port'] ?? '';
+    
+
+    $this->prefix = $parseUrl['path'] ?? '';
+
   }
 
   /** Metodo responsavel por adicionar uma rota na classe
@@ -318,12 +323,21 @@ class Router
         }
 
         /** chama o controller e passa os parametros da rota*/
+        //dd($matchedUri);
+/*
         if(!empty($matchedUri)){
           // Chama o controller
           controller($matchedUri, $params);
           //Gera um novo token
           setToken();
           return;
+        }
+        */
+       $middlewares = [
+
+       ];
+        if(!empty($matchedUri)){
+          return (new MiddlewareQueue($middlewares,$matchedUri,$params))->next($this->request);
         }
 
         throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);

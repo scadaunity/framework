@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use Core\Database\QueryBuilder;
-use Core\Http\Request;
-use Core\Http\Response;
+use ScadaUnity\Database\QueryBuilder;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Http\Response;
 use App\Models\UserModel;
 
 /**

@@ -1,8 +1,9 @@
 <?php
 
-use Core\Http\Router;
-use Core\Http\Response;
-use Core\Env;
+use ScadaUnity\Http\Router;
+use ScadaUnity\Http\Response;
+use ScadaUnity\Env;
+use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
 
 
 /** inicia uma sessão vazia */
@@ -16,6 +17,7 @@ require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
+require_once '../app/config/middlewares.php';
 require_once '../app/config/template.php';
 
 /** carrega os helpers */

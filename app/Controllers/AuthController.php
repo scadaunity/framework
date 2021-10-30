@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use Core\Http\Request;
+use ScadaUnity\Http\Request;
 use App\Models\UserModel;
-use Core\View\View;
+use ScadaUnity\View\View;
 
 /**
  * Classe responsavel pelo controle de acesso ao sistema
@@ -32,7 +32,13 @@ class AuthController
    */
   public function register(){
 
-    view('auth/register');
+    $data = [
+      'title' => 'Criar conta'
+    ];
+
+    view('template/header',$data);
+    view('auth/register',$data);
+    view('template/footer',$data);
   }
 
   /**

@@ -1,8 +1,8 @@
 <?php
 
-use Core\Http\Request;
-use Core\Http\Response;
-use Core\View\View;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Http\Response;
+use ScadaUnity\View\View;
 
 /**
  * Metodo responsavel por incluir arquivos da view
@@ -33,6 +33,6 @@ function render($view, $data = []){
  */
 function component($component, $data = []){
     $view = 'components/'.$component;
-    
+
     View::view($view,$data);
 }
