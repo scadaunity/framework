@@ -42,6 +42,21 @@ class AuthController
   }
 
   /**
+   * Metodo responsavel por retornar a tela de recuperação da conta
+   * @return string
+   */
+  public function forgot(){
+
+    $data = [
+      'title' => 'Recuperar conta'
+    ];
+
+    view('template/header',$data);
+    view('auth/forgot',$data);
+    view('template/footer',$data);
+  }
+
+  /**
    * Metodo responsavel criar uma conta
    * @return view
    */
@@ -134,5 +149,15 @@ class AuthController
     /** REDIRECIONA PARA A HOME */
      return redirect('home');
 
+  }
+
+  /**
+   * Metodo responsavel por exibir os termos do serviço
+   * @return view
+   */
+  public function therms(){
+    view('template/header');
+    view('auth/therms');
+    view('template/footer');
   }
 }

@@ -1,44 +1,30 @@
-
-        <div class="row justify-content-center">
-            <!-- card login -->
-            <div class="col-md-6 col-lg-4 border rounded mt-5 mb-5">
-                <!-- app logo -->
-                <div class="p-4 p-md-5">
-                    <div class="d-flex align-items-center justify-content-center">
-                        <img src="assets/img/Logo.png" width="100px" height="100px">
-                    </div>
-                </div>
-                <!-- Page title -->
-                <h3 class="text-center mb-4"><?php echo $title ?></h3>
-                <!-- App title -->
-                <h6 class="text-center mb-4"><?php echo APP_TITLE ?></h6>
-
-                <!-- Form login -->
-                <form class="mb-3" action="/create/account" method="post">
-                  <?php csrf() ?>
-
-                  <!-- nome -->
-                  <div class="form-group mb-3">
-                      <label for="name" class="form-label">Nome</label>
-                      <input type="text" name="name" class="form-control rounded-left" placeholder="Nome" value="scadaunity@gmail.com" autocomplete="username">
-                  </div>
-
-                    <!-- email -->
-                    <div class="form-group mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control rounded-left" placeholder="Email" value="scadaunity@gmail.com" autocomplete="username">
-                    </div>
-
-                    <!-- password -->
-                    <div class="form-group mb-3">
-                        <input type="password" name="password"  class="form-control rounded-left" placeholder="Senha" value="123456" autocomplete="current-password">
-                    </div>
-
-                    <div class="form-group d-flex align-items-center justify-content-center">
-                        <button type="submit" name="" value="Entrar" class="btn btn-primary rounded submit p-3 px-5">Prosseguir</button>
-                    </div>
-                </form>
-                <div class="form-group flex mb-3">
-                    <a href="/login">Fazer login</a>
-                </div>
-          </div>
+<div class="text-center">
+    <form class="" action="/create/account" method="post" style="width:320px;margin:auto">
+      <?php csrf() ?>
+        <img class="mt-5" src="assets/img/Logo.png" width="100px" height="100px">
+        <h1 class="h3 mt-4 mb-4 font-weight-normal">Criar minha conta</h1>
+        <div class="form-group mb-3">
+            <label for="email" class="sr-only">Email</label>
+            <input type="email" id="email" name="email" class="form-control" value="" placeholder="email" required>
+        </div>
+        <div class="form-group mb-3">
+            <label for="password" class="sr-only">Senha</label>
+            <input type="password" id="password" name="password" class="form-control rounded-3" value="" placeholder="Senha" required>
+        </div>
+        <div class="mb-3 form-check" style="text-align:left">
+            <input type="checkbox" class="form-check-input" id="ac" name="remember" required>
+            <label class="form-check-label" for="remember">Aceito os termos do serviço</label>
+        </div>
+        <div class="mt-3 mb-5 d-grid gap-2 col-12 mx-auto">
+            <button type="submit" name="button" class="btn btn-lg btn-success btn-block rounded-pill">Continuar</button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <a href="/login" class="link-secondary">Fazer login</a>
+            </div>
+            <div class="col">
+                <a href="/therms" class="link-secondary">Termos do serviço</a>
+            </div>
+        </div>
+    </form>
+</div>

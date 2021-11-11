@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark " id="navbar">
   <div class="container-fluid">
     <!-- Logo e link pra home -->
     <a class="navbar-brand" href="/">
@@ -30,7 +30,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-th" aria-hidden="true"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">Money</a></li>
               <li><a class="dropdown-item" href="#">GTD</a></li>
 
@@ -75,13 +75,17 @@
               <li><a class="dropdown-item" href="#">Meu perfil</a></li>
               <li><a class="dropdown-item" href="#">Configurações</a></li>
               <li><hr class="dropdown-divider"></li>
+              <li><h6 class="dropdown-header">Troca de conta</h6></li>
+              <li><a class="dropdown-item" href="#">Stella</a></li>
+              <li><a class="dropdown-item" href="#">Sofia</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/logout">Sair</a></li>
             </ul>
           </li>
         <?php else : ?>
           <div class="text-end">
-            <button class="btn btn-outline-light me-2" onclick="view('login')">Login</button>
-            <a href="/register" class="btn btn-warning">Cria conta</a>
+            <a href="/login" class="btn btn-outline-light me-2">Entrar</a>
+            <a href="/register" class="btn btn-warning">Criar conta</a>
           </div>
         <?php endif; ?>
         </ul>

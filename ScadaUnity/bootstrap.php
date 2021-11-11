@@ -3,20 +3,18 @@
 use ScadaUnity\Http\Router;
 use ScadaUnity\Http\Response;
 use ScadaUnity\Env;
-use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
-
+use ScadaUnity\Log\Logger;
 
 /** inicia uma sessão vazia */
+session_save_path ('../storage/sessions');
 session_start();
-
-/** Carrega os arquivos do composer */
-require_once '../vendor/autoload.php';
 
 /** Carrega as configurações */
 require_once '../app/config/app.php';
 require_once '../app/config/constants.php';
 require_once '../app/config/database.php';
 require_once '../app/config/debug.php';
+require_once '../app/config/logger.php';
 require_once '../app/config/middlewares.php';
 require_once '../app/config/template.php';
 
@@ -39,25 +37,15 @@ require_once 'controller.php';
 /** Carrega as variaveis de ambiente do projeto */
 Env::load();
 
- try {
-      /** Instancia a classe router*/
-     $router = new Router(URL);
+/** Carrega os arquivos de rotas */
+require '../app/routes/api.php';
+require '../app/routes/web.php';
+require '../app/routes/console.php';
 
-     /** Carrega os arquivos de rotas */
-     require '../app/routes/api.php';
-     require '../app/routes/web.php';
-     require '../app/routes/console.php';
-
-     if (ENVIRONMENT == 'development') {
-       require 'routes/api.php';
-       require 'routes/web.php';
-       require 'routes/console.php';
-     }
-
-     /** resolve a rota */
-     $router->run();
-
- } catch(\Exception $e){
-
-      dd($e->getMessage());
+if (ENVIRONMENT == 'development') {
+  require 'routes/api.php';
+  require 'routes/web.php';
+  require 'routes/console.php';
 }
+
+$router = new Router(URL);

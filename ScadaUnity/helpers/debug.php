@@ -4,12 +4,14 @@
 function dd($var){
   echo "<pre>";
   var_dump($var);
+  echo"</pre>";
   die();
 }
 
 function d($var){
   echo "<pre>";
   var_dump($var);
+  echo"</pre>";
 }
 
 function debugHeader(){

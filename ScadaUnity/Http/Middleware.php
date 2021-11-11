@@ -1,11 +1,11 @@
 <?php
 
-namespace ScadaUnity\Http\Middleware;
+namespace ScadaUnity\Http;
 
 /**
  *
  */
-class Queue
+class Middleware
 {
   /**
    * Mapeamento dos middlewares
@@ -82,7 +82,7 @@ class Queue
 
   /**
    * Metodo responsavel por definir o mapeamento de middlewares
-   * @param [type] $map
+   * @param array $map
    */
   public static function setMap($map){
     self::$map = $map;

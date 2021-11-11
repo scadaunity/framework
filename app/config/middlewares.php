@@ -1,13 +1,15 @@
 <?php
 
-use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
+use ScadaUnity\Http\Middleware;
 
 // Registra um middleware no mapeamento.
-MiddlewareQueue::setMap([
-  'maintenance' => \App\Middlewares\Maintenance::class
+Middleware::setMap([
+  'maintenance' => \App\Middlewares\Maintenance::class,
+  'auth' => \App\Middlewares\Auth::class,
 ]);
 
 // Define os middlewares padroes (Executados em todas as rotas)
-MiddlewareQueue::setDefault([
-  'maintenance'
+Middleware::setDefault([
+  'maintenance',
+  'auth'
 ]);

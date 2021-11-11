@@ -55,6 +55,13 @@ define('IMG_PATH',ASSETS_PATH.'/img');
  */
 define('COMPONENTS_PATH',VIEWS.'components/');
 
+/**
+ * [PT_BR] Define o caminho diretorio padrão da views
+ * (PHP 4, PHP 5, PHP 7, PHP 8)
+ * @var string
+ */
+define('LOGS_PATH',ROOT.'/storage/logs/');
+
 
 
 define('LOGGED','LOGGED');

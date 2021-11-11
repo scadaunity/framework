@@ -4,7 +4,7 @@ namespace ScadaUnity\Http;
 
 use ScadaUnity\Http\Request;
 use ScadaUnity\Http\Response;
-use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
+use ScadaUnity\Http\Middleware;
 
 /**
  * Classe responsavel por adicionar rotas e redirecionar todo o fluxo da aplicação
@@ -46,7 +46,7 @@ class Router
   /**
     * Define o grupo e os metodos padroes no controlador
     * index, create, store, show, edit, update, destroy
-    * @var array
+    * @var arrayregister
     */
   private static $resource;
 
@@ -84,7 +84,7 @@ class Router
   {
     // Informações da URL
     $parseUrl = parse_url($this->url);
-    
+
 
     $this->prefix = $parseUrl['path'] ?? '';
 
@@ -166,6 +166,17 @@ class Router
     foreach ($routes as $route => $controller) {
       self::resource($route,$controller);
     }
+  }
+
+  /** Metodo responsavel por criar grupo de rotas
+    * @param string
+    * @param array $routes
+    */
+  public static function group($prefix,$routes)
+  {
+    d($prefix);
+    d($routes);
+    die;
   }
 
   /** Metodo responsavel por eliminar methodos
@@ -337,7 +348,7 @@ class Router
 
        ];
         if(!empty($matchedUri)){
-          return (new MiddlewareQueue($middlewares,$matchedUri,$params))->next($this->request);
+          return (new Middleware($middlewares,$matchedUri,$params))->next($this->request);
         }
 
         throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);
