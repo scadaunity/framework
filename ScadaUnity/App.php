@@ -2,11 +2,6 @@
 
 namespace ScadaUnity;
 
-use ScadaUnity\Http\Router;
-use ScadaUnity\Http\Response;
-use ScadaUnity\Env;
-use ScadaUnity\Http\Middleware\Queue as MiddlewareQueue;
-
 /**
  *
  */
@@ -17,8 +12,6 @@ class App
    * @var string
    */
   public $version = '1.0.0';
-
-  public $config = [];
 
   public function __construct(){
 

@@ -1,1 +1,1 @@
-token|s:64:"6782ddcc10dacbd596474b1ebd584c930fda974631d7b6c8089670aac98aa758";
+token|s:64:"92a21201639af6fde5fb50046e8c5a391435646fab923db1d88b024c6ed5d814";flash|a:1:{s:7:"message";s:41:"Login invalido, por favor tente novamente";}LOGGED|O:8:"stdClass":4:{s:2:"id";s:1:"5";s:4:"name";s:11:"Scada unity";s:5:"email";s:20:"scadaunity@gmail.com";s:8:"password";s:6:"123456";}

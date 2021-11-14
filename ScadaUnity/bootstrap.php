@@ -1,22 +1,17 @@
 <?php
-
-use ScadaUnity\Http\Router;
-use ScadaUnity\Http\Response;
 use ScadaUnity\Env;
-use ScadaUnity\Log\Logger;
 
-/** inicia uma sessão vazia */
-session_save_path ('../storage/sessions');
-session_start();
+/** Carrega as variaveis de ambiente do projeto */
+Env::load(dirname(__FILE__,2));
 
 /** Carrega as configurações */
-require_once '../app/config/app.php';
-require_once '../app/config/constants.php';
-require_once '../app/config/database.php';
-require_once '../app/config/debug.php';
-require_once '../app/config/logger.php';
-require_once '../app/config/middlewares.php';
-require_once '../app/config/template.php';
+require_once dirname(__FILE__,2).'/app/config/app.php';
+require_once dirname(__FILE__,2).'/app/config/constants.php';
+require_once dirname(__FILE__,2).'/app/config/database.php';
+require_once dirname(__FILE__,2).'/app/config/debug.php';
+require_once dirname(__FILE__,2).'/app/config/logger.php';
+require_once dirname(__FILE__,2).'/app/config/middlewares.php';
+require_once dirname(__FILE__,2).'/app/config/template.php';
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';
@@ -34,18 +29,15 @@ require_once 'helpers/view.php';
 /** carrega libs do core */
 require_once 'controller.php';
 
-/** Carrega as variaveis de ambiente do projeto */
-Env::load();
+
 
 /** Carrega os arquivos de rotas */
-require '../app/routes/api.php';
-require '../app/routes/web.php';
-require '../app/routes/console.php';
+require dirname(__FILE__,2).'/app/routes/api.php';
+require dirname(__FILE__,2).'/app/routes/web.php';
+require dirname(__FILE__,2).'/app/routes/console.php';
 
 if (ENVIRONMENT == 'development') {
   require 'routes/api.php';
   require 'routes/web.php';
   require 'routes/console.php';
 }
-
-$router = new Router(URL);

@@ -75,7 +75,10 @@ class Response
    * Metodo responsavel por enviar a resposta ao usuario
    */
   public function sendResponse(){
+    // Envia os headers
     $this->sendHeaders();
+
+    // Imprime o conteudo
     switch ($this->contentType) {
       case 'text/html':
         echo $this->content;

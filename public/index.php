@@ -1,18 +1,17 @@
 <?php
-use ScadaUnity\App;
-use ScadaUnity\Log\Logger;
+
+use ScadaUnity\Http\Router;
 
 /** Carrega o autoload do composer */
 require_once '../vendor/autoload.php';
 
+/** inicia uma sessão vazia */
+session_save_path ('../storage/sessions');
+session_start();
+
 /* Carrega as configurações da aplicação */
 require_once '../ScadaUnity/bootstrap.php';
 
-
-
-
-try {
-  $router->run();
-} catch (\Exception $e) {
-  dd($e->getMessage());
-}
+/* Inicia a aplicação */
+$router = new Router(URL);
+$router->run();

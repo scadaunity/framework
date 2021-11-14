@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+<?php
+
+/** Carrega o autoload do composer */
+require __DIR__.'/vendor/autoload.php';
+
+/** Carrega o autoload do composer */
+require __DIR__.'/ScadaUnity/bootstrap.php';
+
+
+echo "Bem vindo ao assitente do scada unity framework". PHP_EOL;
+
+/** Carrega o autoload do composer */
+require __DIR__.'/ScadaUnity/Console/routes.php';

@@ -160,4 +160,14 @@ class AuthController
     view('auth/therms');
     view('template/footer');
   }
+
+  /**
+   * Metodo responsavel por exibir a politica de privacidade
+   * @return view
+   */
+  public function privacy(){
+    view('template/header');
+    view('auth/privacy');
+    view('template/footer');
+  }
 }

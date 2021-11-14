@@ -5,6 +5,7 @@ namespace ScadaUnity\Http;
 use ScadaUnity\Http\Request;
 use ScadaUnity\Http\Response;
 use ScadaUnity\Http\Middleware;
+use \Closure;
 
 /**
  * Classe responsavel por adicionar rotas e redirecionar todo o fluxo da aplicação
@@ -20,35 +21,10 @@ class Router
   private $url = '';
 
   /**
-    * Prefixo de todas as rotas
-    * @var string
-    */
-  private $prefix = '';
-
-  /**
-    * Diretorio dos controllers
-    * @var string
-    */
-  private $controllers = '';
-
-  /**
     * Indice de rotas
     * @var array
     */
-  private static $routes;
-
-  /**
-    * Grupo de rotas
-    * @var array
-    */
-  private static $group;
-
-  /**
-    * Define o grupo e os metodos padroes no controlador
-    * index, create, store, show, edit, update, destroy
-    * @var arrayregister
-    */
-  private static $resource;
+  public static $routes;
 
   /**
     * Instancia de request
@@ -67,27 +43,10 @@ class Router
     * @param string $url
     */
   public function __construct($url)
-  {
-
+{
       $this->response = new Response(200,'scada unity');
       $this->request = new Request();
       $this->url = $url;
-      $this->setPrefix();
-      $this->controllers =$url .'/app/controllers';
-  }
-
-  /**
-    * Metodo responsavel por definir o prefixo das rotas
-    * @param string $url
-    */
-  private function setPrefix()
-  {
-    // Informações da URL
-    $parseUrl = parse_url($this->url);
-
-
-    $this->prefix = $parseUrl['path'] ?? '';
-
   }
 
   /** Metodo responsavel por adicionar uma rota na classe
@@ -98,7 +57,6 @@ class Router
   private static function addRoute($method, $route, $action)
   {
     self::$routes[$method][$route]=$action;
-
   }
 
   /** Metodo responsavel por criar uma rota do tipo GET
@@ -108,7 +66,6 @@ class Router
   public static function get($route, $action)
   {
     self::addRoute('get', $route , $action);
-
   }
 
   /** Metodo responsavel por criar uma rota do tipo POST
@@ -118,7 +75,6 @@ class Router
   public static function post($route, $action)
   {
     self::addRoute('post', $route , $action);
-
   }
 
   /** Metodo responsavel por criar uma rota do tipo PUT
@@ -127,9 +83,7 @@ class Router
     */
   public static function put($route, $action)
   {
-
     self::addRoute('put', $route , $action);
-
   }
 
   /** Metodo responsavel por criar uma rota do tipo DELETE
@@ -138,9 +92,7 @@ class Router
     */
   public static function delete($route, $action)
   {
-
     self::addRoute('delete', $route , $action);
-
   }
 
   /** Metodo responsavel por criar um resource
@@ -168,18 +120,7 @@ class Router
     }
   }
 
-  /** Metodo responsavel por criar grupo de rotas
-    * @param string
-    * @param array $routes
-    */
-  public static function group($prefix,$routes)
-  {
-    d($prefix);
-    d($routes);
-    die;
-  }
-
-  /** Metodo responsavel por eliminar methodos
+  /** Metodo responsavel por redirecionar
     * @param string $url
     */
   public static function redirect($url)
@@ -213,7 +154,6 @@ class Router
        }
     }
     return self::$routes;
-
   }
 
     /** Metodo responsavel por localizar uma rota exata
@@ -240,6 +180,17 @@ class Router
         },
         ARRAY_FILTER_USE_KEY
       );
+    }
+
+    /** Metodo responsavel por localizar uma rota exata
+      * @param string $uri
+      * @param array $routes
+      * @return array $route
+      */
+    public function match($uri,$routes){
+
+
+      return (array_key_exists($uri, $routes)) ? [$uri => $routes[$uri]] : [];
     }
 
     /** Metodo responsavel por recuperar os parametros da URI
@@ -285,73 +236,64 @@ class Router
      * @return Response
      */
     public function run(){
-        /** recupera a uri da requisição **/
-        $uri = $this->request->uri();
+        try {
+          /** recupera a uri da requisição **/
+          $uri = $this->request->uri();
 
-        /** recupera o metodo da requisição **/
-        $method = $this->request->method();
+          /** recupera o metodo da requisição **/
+          $method = $this->request->method();
 
-        /** recupera as rotas atraves do metodo*/
-        $routes = self::$routes[$method];
+          /** variavel responsavel por armazenar parametros da rota*/
+          $params = [];
 
-        /** verifica se o metodo é do tipo get*/
-        if ($method == 'get') {
-          // Gera o token
-          setToken();
-        }
+          /** recupera as rotas atraves do metodo*/
+          $routes = self::$routes[$method];
 
-        /** Procura por rota exata **/
-        $matchedUri = self::matchExactUri($uri, $routes);
-
-        $params = [];
-
-        /** Procura a rota dinamica **/
-        if (empty($matchedUri)) {
-
-          $matchedUri = self::matchDinamicUri($uri, $routes);
-          $uri = explode('/',ltrim($uri,'/'));
-
-          /** recupera os parametros da uri **/
-          $params = $this->params($uri,$matchedUri);
-          $params = $this->formatParams($uri, $params);
-        }
-
-        /** Verifica se o metodo é do tipo post */
-        if ($method == 'post') {
-
-          /** verifica se foi passado o csrf token*/
-          if (!isset($this->request->post()['_csrf'])) {
-            throw new \Exception("Pagina expirada",419);
+          /** verifica se o metodo é do tipo get*/
+          if ($method == 'get') {
+            // Gera o token
+            setToken();
           }
 
-          /** verifica se o token é valido */
-          if (!$this->request->post()['_csrf'] == getToken()) {
-            throw new \Exception("Pagina expirada",419);
+          /** Procura por rota exata **/
+          $matchedUri = self::matchExactUri($uri, $routes);
+
+          /** Procura a rota dinamica **/
+          if (empty($matchedUri)) {
+
+            $matchedUri = self::matchDinamicUri($uri, $routes);
+            $uri = explode('/',ltrim($uri,'/'));
+
+            /** recupera os parametros da uri **/
+            $params = $this->params($uri,$matchedUri);
+            $params = $this->formatParams($uri, $params);
           }
 
-          /** cria os parametros do post*/
-          $params = $this->request->post();
+          /** Verifica se o metodo é do tipo post */
+          if ($method == 'post') {
+
+            /** verifica se foi passado o csrf token*/
+            if (!isset($this->request->post()['_csrf'])) {
+              throw new \Exception("Pagina expirada",419);
+            }
+
+            /** verifica se o token é valido */
+            if (!$this->request->post()['_csrf'] == getToken()) {
+              throw new \Exception("Pagina expirada",419);
+            }
+
+            /** cria os parametros do post*/
+            $params = $this->request->post();
+          }
+
+          /** Executa os middlewares */
+          if(!empty($matchedUri)){
+            return (new Middleware([],$matchedUri,$params))->next($this->request);
+          }
+
+          throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);
+        } catch (\Exception $e) {
+          dd($e->getMessage());
         }
-
-        /** chama o controller e passa os parametros da rota*/
-        //dd($matchedUri);
-/*
-        if(!empty($matchedUri)){
-          // Chama o controller
-          controller($matchedUri, $params);
-          //Gera um novo token
-          setToken();
-          return;
-        }
-        */
-       $middlewares = [
-
-       ];
-        if(!empty($matchedUri)){
-          return (new Middleware($middlewares,$matchedUri,$params))->next($this->request);
-        }
-
-        throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);
-
     }
 }

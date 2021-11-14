@@ -25,6 +25,9 @@ class View
 
   }
 
+  public static function share(){
+  }
+
   /**
    * Metodo responsavel por renderizar a view
    * @param  string $view
@@ -88,25 +91,15 @@ class View
 
     preg_match_all($pattern,$contentView,$matches);
 
-
-
-
-
     if ($matches[0] == null) {
       return $contentView;
     }
-
 
     if (array_count_values($matches[0]) > 1) {
       foreach ($matches[0] as $key => $value) {
         echo $value."<br>";
       }
     }
-
-
-
-
-
 
      //formata as variaveis
 
