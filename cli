@@ -11,4 +11,6 @@ require __DIR__.'/ScadaUnity/bootstrap.php';
 echo "Bem vindo ao assitente do scada unity framework". PHP_EOL;
 
 /** Carrega o autoload do composer */
-require __DIR__.'/ScadaUnity/Console/routes.php';
+require __DIR__.'/ScadaUnity/Console/commands/routes.php';
+require __DIR__.'/ScadaUnity/Console/commands/list.php';
+require __DIR__.'/ScadaUnity/Console/commands/middleware.php';

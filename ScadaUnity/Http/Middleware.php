@@ -11,7 +11,7 @@ class Middleware
    * Mapeamento dos middlewares
    * @var array
    */
-  private static $map = [];
+  public static $map = [];
 
   /**
    * Mapeamento de middlewares que serão carregados em todas as rotas
