@@ -24,6 +24,8 @@
             console.log('\home')
           console.groupEnd('routes');
       console.groupEnd('<?php echo APP_TITLE ?>');
+      
+
       </script>
 
   </body>

@@ -15,16 +15,40 @@ use \Closure;
 class Router
 {
   /**
+    * Variavel responsavel por armazenar o indice das rotas
+    * @var array
+    */
+  public static $routes;
+
+  /**
     * URL completa do projeto (raiz)
     * @var string
     */
   private $url = '';
 
   /**
-    * Indice de rotas
+    * URI da rota atual
+    * @var string
+    */
+  private $uri = '';
+
+  /**
+    * Prefixo da uri
+    * @var string
+    */
+  private $prefix = '';
+
+  /**
+    * Metodo da requisição atual da rota atual
+    * @var string
+    */
+  private $method = '';
+
+  /**
+    * Parametros da rota atual
     * @var array
     */
-  public static $routes;
+  public $params = [];
 
   /**
     * Instancia de request
@@ -46,7 +70,31 @@ class Router
 {
       $this->response = new Response(200,'scada unity');
       $this->request = new Request();
+      $this->uri = $this->request->uri();
+      $this->method = $this->request->method();
       $this->url = $url;
+      $this->setPrefix();
+      $this->segments = explode('/',ltrim($this->getUri(),'/'));
+
+
+  }
+
+  private function getUri(){
+    // pega a requisição atual
+    $uri = $this->request->uri();
+
+    // fatia a uri e remove o prefixo da rota
+    $xUri = strlen($this->prefix) ? explode($this->prefix,$uri) : [$uri];
+
+    // retorna a ultima posição do array da rota atual sem o prefixo
+    return end($xUri);
+
+  }
+
+  private function setPrefix(){
+      // Informações da Url atual
+      $parseUrl = parse_url($this->url);
+      $this->prefix = $parseUrl['path'] ?? '';
   }
 
   /** Metodo responsavel por adicionar uma rota na classe
@@ -156,22 +204,19 @@ class Router
     return self::$routes;
   }
 
-    /** Metodo responsavel por localizar uma rota exata
+    /** Metodo responsavel por localizar a rota
       * @param string $uri
       * @param array $routes
       * @return array $route
       */
-    public function matchExactUri($uri,$routes){
-      return (array_key_exists($uri, $routes)) ? [$uri => $routes[$uri]] : [];
-    }
+    public function match($uri,$routes){
 
-    /** Metodo responsavel por localizar uma rota dinamica
-      * @param string $uri
-      * @param array $routes
-      * @return array $route
-      */
+      // Verifica se é uma rota exata
+      if (array_key_exists($uri, $routes)) {
+        return [$uri => $routes[$uri]];
+      }
 
-    public function matchDinamicUri($uri,$routes){
+      // Verifica se é uma rota dinamica
       return array_filter(
         $routes,
         function($value) use($uri){
@@ -182,17 +227,6 @@ class Router
       );
     }
 
-    /** Metodo responsavel por localizar uma rota exata
-      * @param string $uri
-      * @param array $routes
-      * @return array $route
-      */
-    public function match($uri,$routes){
-
-
-      return (array_key_exists($uri, $routes)) ? [$uri => $routes[$uri]] : [];
-    }
-
     /** Metodo responsavel por recuperar os parametros da URI
       *
       * @param array $uri
@@ -201,35 +235,20 @@ class Router
       * @return array
       */
 
-    public function params($uri, $matchedUri){
+    public function params($matchedUri){
+
       if (!empty($matchedUri)) {
         $getParams = array_keys($matchedUri)[0];
-        return array_diff(
-          $uri,
-          explode('/',ltrim($getParams,'/')),
-        );
-      }
-      return [];
-    }
-
-    /** Metodo responsavel por formatar os parametros da URI
-      *
-      * @param array $uri
-      * @param array $params
-      *
-      * @return array $data
-      */
-
-    public function formatParams($uri, $params){
-
-      $data = [];
-      foreach ($params as $index => $param) {
-        $data[$uri[$index - 1]] = $param;
+        $this->params = array_diff($this->segments,explode('/',ltrim($getParams,'/')),);
       }
 
-      return $data;
+      if (!$this->params == []) {
+        foreach ($this->params as $index => $param) {
+          $this->params[$this->request->segments()[$index - 1]] = $param;
+        }
+      }
+      return $this->params;
     }
-
 
     /**
      * Metodo responsavel por executar a rota atual
@@ -237,40 +256,21 @@ class Router
      */
     public function run(){
         try {
-          /** recupera a uri da requisição **/
-          $uri = $this->request->uri();
 
-          /** recupera o metodo da requisição **/
-          $method = $this->request->method();
 
-          /** variavel responsavel por armazenar parametros da rota*/
-          $params = [];
-
-          /** recupera as rotas atraves do metodo*/
-          $routes = self::$routes[$method];
-
-          /** verifica se o metodo é do tipo get*/
-          if ($method == 'get') {
-            // Gera o token
+          /** Gera o token se o metodo for do tipo GET*/
+          /*if ($this->request->method() == 'get') {
             setToken();
-          }
+          }*/
 
-          /** Procura por rota exata **/
-          $matchedUri = self::matchExactUri($uri, $routes);
+          /** Procura a rota **/
+          $match = self::match($this->getUri(), self::$routes[$this->method]);
 
-          /** Procura a rota dinamica **/
-          if (empty($matchedUri)) {
-
-            $matchedUri = self::matchDinamicUri($uri, $routes);
-            $uri = explode('/',ltrim($uri,'/'));
-
-            /** recupera os parametros da uri **/
-            $params = $this->params($uri,$matchedUri);
-            $params = $this->formatParams($uri, $params);
-          }
+          /** recupera os parametros da uri **/
+          $this->params = $this->params($match);
 
           /** Verifica se o metodo é do tipo post */
-          if ($method == 'post') {
+          if ($this->method == 'post') {
 
             /** verifica se foi passado o csrf token*/
             if (!isset($this->request->post()['_csrf'])) {
@@ -279,16 +279,16 @@ class Router
 
             /** verifica se o token é valido */
             if (!$this->request->post()['_csrf'] == getToken()) {
-              throw new \Exception("Pagina expirada",419);
+              //throw new \Exception("Pagina expirada",419);
             }
 
             /** cria os parametros do post*/
-            $params = $this->request->post();
+            $this->params = $this->request->post();
           }
 
           /** Executa os middlewares */
-          if(!empty($matchedUri)){
-            return (new Middleware([],$matchedUri,$params))->next($this->request);
+          if(!empty($match)){
+            return (new Middleware([],$match,$this->params))->next($this->request);
           }
 
           throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);

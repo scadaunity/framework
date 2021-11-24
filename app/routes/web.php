@@ -22,6 +22,7 @@ Router::post('/create/account','AuthController@createAccount');
 
 Router::resources([
   'users' => 'UserController',
+  'account' => 'AccountController'
 ]);
 
 

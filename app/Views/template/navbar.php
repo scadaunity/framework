@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark " id="navbar">
   <div class="container-fluid">
     <!-- Logo e link pra home -->
-    <a class="navbar-brand" href="/">
+    <a class="navbar-brand" href="<?php baseUrl('/') ?>">
       <?php component('ApplicationMark') ?>
       <span class="pt-1">Scada</span>
       <span>Unity</span>
@@ -79,13 +79,13 @@
               <li><a class="dropdown-item" href="#">Stella</a></li>
               <li><a class="dropdown-item" href="#">Sofia</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="/logout">Sair</a></li>
+              <li><a class="dropdown-item" href="<?= baseUrl('/logout') ?>">Sair</a></li>
             </ul>
           </li>
         <?php else : ?>
           <div class="text-end">
-            <a href="/login" class="btn btn-outline-light me-2">Entrar</a>
-            <a href="/register" class="btn btn-warning">Criar conta</a>
+            <a href="<?= baseUrl('/login') ?>" class="btn btn-outline-light me-2">Entrar</a>
+            <a href="<?= baseUrl('/register') ?>" class="btn btn-warning">Criar conta</a>
           </div>
         <?php endif; ?>
         </ul>

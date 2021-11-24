@@ -3,4 +3,4 @@
 .env
 /docs/
 /public/assets/*
-/resources/
+/storage/

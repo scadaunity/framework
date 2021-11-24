@@ -21,6 +21,6 @@ function redirectWithFlash($url,$bag,$message)
   return header('location:'.$url);
 }
 
-function redirectRoute($url){
-
+function route($route){
+    return header('location:'.URL.$url);
 }

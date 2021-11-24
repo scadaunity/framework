@@ -30,7 +30,8 @@ class UserController
    * Name: users.index
    * @return view
    */
-  public function index(){
+  public function index()
+  {
     $data = [
       'title' => 'Usuarios',
       'users' => $this->userModel->all()

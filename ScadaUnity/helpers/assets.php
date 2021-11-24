@@ -24,8 +24,6 @@ function js($files){
     echo '<script src="'.JS_PATH.'/'.$files.'.js"></script>';
   }
 
-
-
 }
 
 /**
@@ -35,4 +33,8 @@ function js($files){
  */
 function img($file){
   echo IMG_PATH.$file;
+}
+
+function baseUrl($path){
+  return URL.$path;
 }

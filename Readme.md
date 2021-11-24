@@ -44,3 +44,11 @@
 1. Criar controller [create:controller]
 2. Criar model [create:model]
 3. Criar resource (Model, Controller, Rotas)
+
+# Htaccess
+## Flags
+### NC - No Case [permite maiusculas e minusculas];
+### R - Redirecionar
+#### [R=301] - redirect permanente
+#### [R=302] - redirect temporario
+### QSA - Query String Params [ permite passar parametros na barra]

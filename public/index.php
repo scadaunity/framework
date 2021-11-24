@@ -9,8 +9,11 @@ require_once '../vendor/autoload.php';
 session_save_path ('../storage/sessions');
 session_start();
 
+
 /* Carrega as configurações da aplicação */
 require_once '../ScadaUnity/bootstrap.php';
+
+setToken();
 
 /* Inicia a aplicação */
 $router = new Router(URL);

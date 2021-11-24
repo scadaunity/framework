@@ -19,7 +19,6 @@ require_once 'helpers/debug.php';
 require_once 'helpers/assets.php';
 require_once 'helpers/flash.php';
 require_once 'helpers/redirect.php';
-require_once 'helpers/routes.php';
 require_once 'helpers/sessions.php';
 require_once 'helpers/env.php';
 require_once 'helpers/token.php';

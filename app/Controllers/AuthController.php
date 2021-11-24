@@ -96,7 +96,7 @@ class AuthController
   public function destroy(){
     unset($_SESSION[LOGGED]);
 
-    return redirect('/');
+    return route('/');
   }
 
   /**

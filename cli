@@ -14,3 +14,4 @@ echo "Bem vindo ao assitente do scada unity framework". PHP_EOL;
 require __DIR__.'/ScadaUnity/Console/commands/routes.php';
 require __DIR__.'/ScadaUnity/Console/commands/list.php';
 require __DIR__.'/ScadaUnity/Console/commands/middleware.php';
+require __DIR__.'/ScadaUnity/Console/commands/create.php';

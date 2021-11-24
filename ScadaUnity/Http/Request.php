@@ -7,12 +7,6 @@ namespace ScadaUnity\Http;
  */
  class Request
  {
-    /**
-    * Current version of Request
-    *
-    * @var string
-    */
-    const VERSION = '1.8.1';
 
     /**
     * Metodo http da requisição
@@ -27,6 +21,13 @@ namespace ScadaUnity\Http;
      * @var string
      */
      private $uri;
+
+     /**
+     * Segmento da uri atual
+     *
+     * @var array
+     */
+     private $segments = [];
 
      /**
      * Parametros da URL ($_GET)
@@ -59,6 +60,7 @@ namespace ScadaUnity\Http;
         $this->headers = getallheaders() ?? '';
         $this->uri  = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '';
         $this->method = strtolower($_SERVER['REQUEST_METHOD']) ?? '';
+        $this->segments = explode('/',ltrim($this->uri,'/'));
      }
 
      /**
@@ -67,6 +69,14 @@ namespace ScadaUnity\Http;
      */
      public function uri(){
          return $this->uri;
+     }
+
+     /**
+     * Metodo responsavel por retornar os segmentos da URI
+     * @return array
+     */
+     public function segments(){
+         return $this->segments;
      }
 
      /**
