@@ -7,6 +7,27 @@ namespace ScadaUnity\View;
  */
 class View
 {
+  public static $defaultVariables = [
+    'URL' => URL,
+    'APP_TITLE' => APP_TITLE,
+    'ENV' => ENVIRONMENT,
+    'ROOT' => ROOT,
+    'VIEWS' => VIEWS,
+    'CSS_PATH' => CSS_PATH,
+    'JS_PATH' => JS_PATH,
+    'IMG_PATH' =>IMG_PATH,
+    'LOGGED' => LOGGED,
+    'LANG' => LANG,
+    'CHARSET' => CHARSET
+  ];
+
+  /**
+   * Construtor da classe
+   */
+  public function __construct(){
+
+  }
+
   /**
    * Metodo responsavel por renderizar a view
    * @param  string $view
@@ -14,18 +35,16 @@ class View
    * @return string
    */
   public static function view($view, $params = []){
-
+    // Criar as variaveis para a view
     extract($params);
 
+    // Verifica se o arquivo existe
     if (!file_exists(VIEWS.$view.'.php')) {
       throw new \Exception("Arquivo não encontrado", 500);
     }
 
+    // Carrega a view
     require VIEWS.$view.'.php';
-
-  }
-
-  public static function share(){
   }
 
   /**
@@ -36,25 +55,25 @@ class View
    */
   public static function render($view, $params = []){
 
-    // pega o conteudo da view
+    // Pega o conteudo da view
     $contentView = self::getContentView($view);
 
-    // pega as variaveis globais
-    $defaultVars = self::getGlobalVariables();
+    // Junta as variaveis globais com as variaveis passadas no controller
+    $vars = array_merge(self::$defaultVariables,$params);
 
-    // junta as variaveis globais com as variaveis passadas no controller
-    $vars = array_merge($defaultVars,$params);
-
-    //pega as chaves do array de variaveis
+    // Pega as chaves do array de variaveis
     $keys = array_Keys($vars);
 
-    // insere as variaveis ao conteudo da view
-    $contentView = self::parseVariables($contentView, $vars, $keys);
+    // Insere os componentes ao conteudo da view
+    $contentView = self::parseComponents($contentView, $vars, $keys);
 
-    // insere as variaveis ao conteudo da view
+    // Insere as variaveis ao conteudo da view
     $contentView = self::parseIf($contentView, $vars, $keys);
 
-    echo $contentView;
+    // Insere as variaveis ao conteudo da view
+    $contentView = self::parseVariables($contentView, $vars, $keys);
+
+    return $contentView;
 
   }
 
@@ -76,6 +95,31 @@ class View
     $keys = array_map(function($item){
       return '{{'.$item.'}}';
     },$keys);
+
+    return str_replace($keys,array_values($vars),$contentView);
+  }
+
+  /**
+   * Metodo responsavel por adicionar os components ao content da view
+   * @return string text/html
+   */
+  private static function parseComponents($contentView, $vars, $keys){
+
+    // Cria o padrão da regex
+    $pattern   = '/@component\((\w*?)\)/';
+
+    //Captura os valor no contentview
+    preg_match_all($pattern,$contentView,$matches);
+
+    // Armazena as chaves
+    $keys = $matches[0];
+    $components = $matches[1];
+
+    $vars = [];
+    foreach ($components as $component) {
+
+      array_push($vars,file_get_contents(COMPONENTS_PATH.$component.'.php'));
+    }
 
     return str_replace($keys,array_values($vars),$contentView);
   }
@@ -117,20 +161,6 @@ class View
    */
   private static function getGlobalVariables(){
 
-    // Define os dados da view en todas as requisições
-    $data = [
-      'URL' => URL,
-      'APP_TITLE' => APP_TITLE,
-      'ENV' => ENVIRONMENT,
-      'ROOT' => ROOT,
-      'VIEWS' => VIEWS,
-      'CSS_PATH' => CSS_PATH,
-      'JS_PATH' => JS_PATH,
-      'IMG_PATH' =>IMG_PATH,
-      'LOGGED' => LOGGED,
-      'CSRF' =>csrf()
-    ];
-
     // adiciona as flash messages ao template
     $flash = getAllFlash();
     if (!$flash == null) {
@@ -148,5 +178,9 @@ class View
     }
 
     return $data;
+  }
+
+  public static function setDefaultVariables(){
+
   }
 }

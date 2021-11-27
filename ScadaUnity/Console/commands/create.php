@@ -7,7 +7,7 @@ if ($argv[1] == 'create:controller') {
   if (!isset($argv[2])) {
     die('Não foi passado o nome do controller no segundo parametro.'.PHP_EOL);
   }
-  
+
   // Verifica se foi passado o nome do controller
   $name = explode('Controller',$argv[2])[0];
 
@@ -95,6 +95,9 @@ if ($argv[1] == 'create:controller') {
   fwrite($arquivo, "   * @return \ScadaUnity\Http\Response".PHP_EOL);
   fwrite($arquivo, "   */".PHP_EOL);
   fwrite($arquivo, "  public function destroy($name"." $". strtolower($name).")".PHP_EOL);
+  fwrite($arquivo, "  {".PHP_EOL);
+  fwrite($arquivo, "    //".PHP_EOL);
+  fwrite($arquivo, "  }".PHP_EOL);
   /** Fim da classe */
   fwrite($arquivo, "}".PHP_EOL);
   /** Fecha o arquivo */
