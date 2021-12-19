@@ -6,37 +6,25 @@
  */
 
 /**
- * [PT_BR] Define o titulo da aplicação na barra do navegador
- * (PHP 4, PHP 5, PHP 7, PHP 8)
- * Tambem será utilizado para o remetente de mensagens enviadas por email.
+ * [PT_BR] Define o titulo da aplicação na barra do navegador, Remetente de e-mail e manifest.
  * @var string
  */
 define("APP_TITLE",'Scada Unity');
 
 /**
- * [PT_BR] Define a url completa do projeto.
- * (PHP 4, PHP 5, PHP 7, PHP 8)
- * @var string
- */
-define('URL','http://localhost/framework/public');
-
-/**
  * [PT_BR] Define a linguagem da aplicação
- * (PHP 4, PHP 5, PHP 7, PHP 8)
  * @var string
  */
 define("LANG",'pt-br');
 
 /**
  * [PT_BR] Define o padrão de codificação dos caracteres
- * (PHP 4, PHP 5, PHP 7, PHP 8)
  * @var string
  */
 define("CHARSET",'UTF-8');
 
 /**
  * [PT_BR] Define o tipo de ambiente de execução do seu aplicativo
- * (PHP 4, PHP 5, PHP 7, PHP 8)
  * tipos disponiveis (development,testing,production)
  * @var string
  */
@@ -45,7 +33,7 @@ define("ENVIRONMENT",'development');
 /**
  * Define o modo de parse das views
  * modos disponiveis (php)
- * modos a implementar (spa,vue,react)
+ * modos a implementar (bulma, bootstrap)
  * @var [type]
  */
-define('STACK','php');
+define('STACK','bootstrap');

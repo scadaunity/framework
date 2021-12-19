@@ -1,5 +1,7 @@
+<?php header("Content-type: manifest"); ?>
 {
     "name": "Scada Unity",
+    "id": "Framework",
     "short_name": "ScadaUnity",
     "description": "PHP - Framework",
     "theme_color": "#000000",

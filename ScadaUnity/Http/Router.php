@@ -75,8 +75,6 @@ class Router
       $this->url = $url;
       $this->setPrefix();
       $this->segments = explode('/',ltrim($this->getUri(),'/'));
-
-
   }
 
   private function getUri(){

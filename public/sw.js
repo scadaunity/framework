@@ -1,32 +1,31 @@
 // This is the service worker with the Cache-first network
 
-const CACHE = "pwabuilder-precache";
+const cacheName = "ScadaUnityFramework";
 const precacheFiles = [
-  /* Add an array of files to precache for your app */
+  /* Crie um array com os arquivos offline que serão carregados */
+
 ];
 
 self.addEventListener("install", function (event) {
-  console.log("[PWA Builder] Install Event processing");
-
-  console.log("[PWA Builder] Skip waiting on install");
-  self.skipWaiting();
-
-  event.waitUntil(
-    caches.open(CACHE).then(function (cache) {
-      console.log("[PWA Builder] Caching pages during install");
-      return cache.addAll(precacheFiles);
-    })
-  );
+    event.waitUntil(
+        caches.open(cacheName).then(function (cache) {
+            return cache.addAll(precacheFiles);
+        })
+    )
+    return self.skipWaiting()
 });
 
-// Allow sw to control of current page
+// Ativa o cache
 self.addEventListener("activate", function (event) {
-  console.log("[PWA Builder] Claiming clients for current page");
-  event.waitUntil(self.clients.claim());
+  self.clients.claim()
 });
 
 // If any fetch fails, it will look for the request in the cache and serve it from there first
 self.addEventListener("fetch", function (event) {
+  const request = event.request
+  const url = new URL(request.url)
+
+  console.log(event)
   if (event.request.method !== "GET") return;
 
   event.respondWith(
@@ -65,7 +64,7 @@ function fromCache(request) {
   // Check to see if you have it in the cache
   // Return response
   // If not in the cache, then return
-  return caches.open(CACHE).then(function (cache) {
+  return caches.open(cacheName).then(function (cache) {
     return cache.match(request).then(function (matching) {
       if (!matching || matching.status === 404) {
         return Promise.reject("no-match");
@@ -77,7 +76,7 @@ function fromCache(request) {
 }
 
 function updateCache(request, response) {
-  return caches.open(CACHE).then(function (cache) {
+  return caches.open(cacheName).then(function (cache) {
     return cache.put(request, response);
   });
 }

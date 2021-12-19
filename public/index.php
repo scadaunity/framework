@@ -17,4 +17,5 @@ setToken();
 
 /* Inicia a aplicação */
 $router = new Router(URL);
+//dd($router);
 $router->run();

@@ -1,8 +1,13 @@
 <?php
 
 /**
+ * [PT_BR] Define a url completa do projeto.
+ * @var string
+ */
+define('URL','http://localhost/framework/public');
+
+/**
  * [PT_BR] Define o namespace do diretorio padrao para a pasta controllers;
- * (PHP 4, PHP 5, PHP 7, PHP 8)
  * @var string
  */
 define('CONTROLLERS_PATH','\App\\Controllers\\');
@@ -54,6 +59,13 @@ define('IMG_PATH',ASSETS_PATH.'/img');
  * @var [type]
  */
 define('COMPONENTS_PATH',VIEWS.'components/');
+
+/**
+ * [PT_BR] Define o diretório padrão para os componentes
+ * (PHP 4, PHP 5, PHP 7, PHP 8)
+ * @var [type]
+ */
+define('TEMPLATES_PATH',VIEWS.'template/');
 
 /**
  * [PT_BR] Define o caminho diretorio padrão da views

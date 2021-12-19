@@ -3,10 +3,11 @@
       <?php js([
           'popper.min',
           'bootstrap.min',
-          'axios.min',
           'app'
         ]);
       ?>
+      <script src="https://use.fontawesome.com/ea7172f3c7.js"></script>
+
       <script src="js.php" charset="utf-8"></script>
 
       <script>
@@ -24,7 +25,7 @@
             console.log('\home')
           console.groupEnd('routes');
       console.groupEnd('<?php echo APP_TITLE ?>');
-      
+
 
       </script>
 

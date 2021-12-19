@@ -2,4 +2,4 @@
 
 use ScadaUnity\Http\Router;
 
-Router::get('/admin','\Core\Controllers\AdminController@index');
+Router::get('/admin','\ScadaUnity\Controllers\AdminController@index');

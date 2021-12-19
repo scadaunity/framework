@@ -7,6 +7,10 @@ namespace ScadaUnity\View;
  */
 class View
 {
+  private $patterns = [
+    '/(^@component\(( ?[\w]+ ?)\))/gm' // @component(component)
+  ];
+
   public static $defaultVariables = [
     'URL' => URL,
     'APP_TITLE' => APP_TITLE,
@@ -67,6 +71,12 @@ class View
     // Insere os componentes ao conteudo da view
     $contentView = self::parseComponents($contentView, $vars, $keys);
 
+    // Insere os componentes ao conteudo da view
+    $contentView = self::parseRoutes($contentView, $vars, $keys);
+
+    // Insere os componentes ao conteudo da view
+    $contentView = self::parseTemplates($contentView, $vars, $keys);
+
     // Insere as variaveis ao conteudo da view
     $contentView = self::parseIf($contentView, $vars, $keys);
 
@@ -106,10 +116,12 @@ class View
   private static function parseComponents($contentView, $vars, $keys){
 
     // Cria o padrão da regex
-    $pattern   = '/@component\((\w*?)\)/';
+    $pattern   = '/^@component\(( *?[\w]+ *?)\)$/m';
 
     //Captura os valor no contentview
     preg_match_all($pattern,$contentView,$matches);
+
+    dd($matches);
 
     // Armazena as chaves
     $keys = $matches[0];
@@ -119,6 +131,55 @@ class View
     foreach ($components as $component) {
 
       array_push($vars,file_get_contents(COMPONENTS_PATH.$component.'.php'));
+    }
+
+    return str_replace($keys,array_values($vars),$contentView);
+  }
+
+  /**
+   * Metodo responsavel por adicionar os components ao content da view
+   * @return string text/html
+   */
+  private static function parseRoutes($contentView, $vars, $keys){
+
+    // Cria o padrão da regex
+    $pattern   = '/@route\((\w*?)\)/';
+
+    //Captura os valor no contentview
+    preg_match_all($pattern,$contentView,$matches);
+
+    // Armazena as chaves
+    $keys = $matches[0];
+    $routes = $matches[1];
+
+    $vars = [];
+    foreach ($routes as $route) {
+      array_push($vars,URL.'/'.$route);
+    }
+
+    return str_replace($keys,array_values($vars),$contentView);
+  }
+
+  /**
+   * Metodo responsavel por adicionar os components ao content da view
+   * @return string text/html
+   */
+  private static function parseTemplates($contentView, $vars, $keys){
+
+    // Cria o padrão da regex
+    $pattern   = '/@template\((\w*?)\)/';
+
+    //Captura os valor no contentview
+    preg_match_all($pattern,$contentView,$matches);
+
+    // Armazena as chaves
+    $keys = $matches[0];
+    $templates = $matches[1];
+
+    $vars = [];
+    foreach ($templates as $template) {
+
+      array_push($vars,file_get_contents(TEMPLATES_PATH.$template.'.php'));
     }
 
     return str_replace($keys,array_values($vars),$contentView);
