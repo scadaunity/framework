@@ -1,6 +1,7 @@
 <?php
 
-use ScadaUnity\Http\Router;
+
+use ScadaUnity\Framework\Http\Router;
 
 /** Carrega o autoload do composer */
 require_once '../vendor/autoload.php';
@@ -11,7 +12,7 @@ session_start();
 
 
 /* Carrega as configurações da aplicação */
-require_once '../ScadaUnity/bootstrap.php';
+require_once '../scadaunity/framework/bootstrap.php';
 
 setToken();
 

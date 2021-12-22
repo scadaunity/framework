@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Http\Router;
+use ScadaUnity\Framework\Http\Router;
 
 /** -------------------- DEFAULT CONTROLLER ----------------------- */
 Router::get('/', 'WelcomeController@index');

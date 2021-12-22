@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Http\Request;
+use ScadaUnity\Framework\Http\Request;
 use App\Models\UserModel;
-use ScadaUnity\View\View;
+use ScadaUnity\Framework\View\View;
 
 /**
  * Classe responsavel pelo controle de acesso ao sistema
@@ -140,7 +140,7 @@ class AuthController
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
       setFlash('message',$errorMessage);
-      return redirect('/login');
+      return route('/login');
     }
 
     /** SALVA A SESSÃO DO USUARIO*/

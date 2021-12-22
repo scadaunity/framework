@@ -17,7 +17,7 @@
     "autoload":{
       "psr-4":{
         "App\\":"app",
-        "ScadaUnity\\":"ScadaUnity"
+        "ScadaUnity\\Framework\\":"scadaunity/framework"
       },
       "files":[
 

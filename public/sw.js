@@ -25,7 +25,7 @@ self.addEventListener("fetch", function (event) {
   const request = event.request
   const url = new URL(request.url)
 
-  console.log(event)
+  
   if (event.request.method !== "GET") return;
 
   event.respondWith(

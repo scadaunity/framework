@@ -1,8 +1,8 @@
 <?php
 
-use ScadaUnity\Log\Logger;
+use ScadaUnity\Framework\Log\Logger;
 
 // Registra um logger no mapeamento.
 Logger::setMap([
-  'file' => \ScadaUnity\Log\FileHandler::class,
+  'file' => \ScadaUnity\Framework\Log\FileHandler::class,
 ]);

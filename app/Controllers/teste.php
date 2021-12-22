@@ -2,10 +2,9 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
-use ScadaUnity\Framework\View\View;
+use ScadaUnity\Http\Request;
 
-class TesteController
+class teste
 {
   /**
    * Metodo responsavel por listar todos os registros.
@@ -14,10 +13,7 @@ class TesteController
    */
   public function index()
   {
-    $data = [
-      'title' => 'TesteController@index do doug',
-    ];
-    echo View::render('teste/index',$data);
+    //
   }
 
   /**
@@ -34,10 +30,10 @@ class TesteController
    * Metodo responsavel por inserir um novo registro no banco de dados.
    *
    * @param \ScadaUnity\Http\Request $request
-   * @param \App\Models\Teste $teste
+   * @param \App\Models\teste $teste
    * @return \ScadaUnity\Http\Response
    */
-  public function store(Request $request, Teste $teste)
+  public function store(Request $request, teste $teste)
   {
     //
   }
@@ -45,20 +41,20 @@ class TesteController
   /**
    * Metodo responsavel por exibir um registro especifico.
    *
-   * @param \App\Models\Teste
+   * @param \App\Models\teste
    * @return \ScadaUnity\Http\Response
    */
-  public function show(Teste $teste)
+  public function show(teste $teste)
   {
     //
   }
   /**
    * Metodo responsavel por exibir o formulario de edição de um registro.
    *
-   * @param \App\Models\Teste
+   * @param \App\Models\teste
    * @return \ScadaUnity\Http\Response
    */
-  public function edit(Teste $teste)
+  public function edit(teste $teste)
   {
     //
   }
@@ -66,20 +62,20 @@ class TesteController
    * Metodo responsavel por alterar um registro.
    *
    * @param \ScadaUnity\Http\Request $request
-   * @param \App\Models\Teste $teste
+   * @param \App\Models\teste $teste
    * @return \ScadaUnity\Http\Response
    */
-  public function update(Request $request, Teste $teste)
+  public function update(Request $request, teste $teste)
   {
     //
   }
   /**
    * Metodo responsavel por excluir um registro.
    *
-   * @param \App\Models\Teste
+   * @param \App\Models\teste
    * @return \ScadaUnity\Http\Response
    */
-  public function destroy(Teste $teste)
+  public function destroy(teste $teste)
   {
     //
   }
