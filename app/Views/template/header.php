@@ -12,6 +12,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> <?= APP_TITLE; ?> </title>
         <link rel="stylesheet" href="<?= baseUrl('/css.php') ?>">
-      </head>
+    </head>
 
-      <body class="bg-dark text-light">
+    <body>

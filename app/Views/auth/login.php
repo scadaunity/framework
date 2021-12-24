@@ -1,4 +1,40 @@
+<section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <img class="mt-5" src="<?= baseUrl('/assets/img/Logo.png') ?>" width="100px" height="100px" alt="ScadaUnity - Logo">
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-black">Iniciar sessão.</p>
+                    <div class="box">
+                        <form>
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="email" placeholder="Email" autofocus="">
+                                </div>
+                            </div>
 
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" placeholder="Senha">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    Lembrar
+                                </label>
+                            </div>
+                            <button class="button is-block is-success is-large is-fullwidth">Continuar</button>
+                        </form>
+                    </div>
+                    <p class="has-text-grey">
+                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 <div class="text-center mt-5">
     <form class="" action="<?= baseUrl('/autenticate')  ?>" method="post" style="width:320px;margin:auto">
         <?php csrf() ?>
