@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row row align-items-center">
                 <div class="col-lg-5 offset-lg-1 order-lg-1">
-                    <img src="https://www.markuptag.com/images/web-development-vector.png" class="img-fluid" alt="Web Development">
+                    <img src="https://www.markuptag.com/images/web-development-vector.png" width="200" height="200" class="img-fluid" alt="Web Development">
                 </div>
                 <div class="col-lg-6">
 

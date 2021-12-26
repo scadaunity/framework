@@ -13,7 +13,7 @@ class WelcomeController
         'name' => 'teste',
       ];
       view('template/header');
-      view('template/navbar');
+      view('components/Navbar');
       view('welcome',$data);
       view('template/footer');
   }

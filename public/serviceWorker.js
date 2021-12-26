@@ -1,9 +1,23 @@
-// This is the service worker with the Cache-first network
 
-const cacheName = "ScadaUnityFramework";
+/**
+ * Defini a prioridade do cache
+ * options:[network,cache,none]
+ * @type {String}
+ */
+const firstRender = 'network'
+
+/**
+ * Define um nome ao cache
+ * @type {String}
+ */
+const cacheName = "ScadaUnity"
+
+/**
+ * [precacheFiles description]
+ * @type {Array}
+ */
 const precacheFiles = [
-  /* Crie um array com os arquivos offline que serão carregados */
-
+  
 ];
 
 self.addEventListener("install", function (event) {
@@ -25,7 +39,7 @@ self.addEventListener("fetch", function (event) {
   const request = event.request
   const url = new URL(request.url)
 
-  
+
   if (event.request.method !== "GET") return;
 
   event.respondWith(

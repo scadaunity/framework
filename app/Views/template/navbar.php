@@ -1,140 +1,65 @@
-<nav class="navbar navbar-expand-lg navbar-dark " id="navbar">
-  <div class="container-fluid">
-    
-    <!-- Barra de navegação -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<nav class="navbar" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<!-- Home button -->
+		<a class="navbar-item" href="<?php baseUrl('/') ?>">
+			<?php component('ApplicationMark') ?>
+			<span>Scada</span>
+			<span>Unity</span>
+		</a>
+		<!-- Hamburger button menu -->
+		<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</a>
+	 </div>
 
-        <!-- Barra de navegação esquerda -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 position-relative start-0">
+	 <div class="navbar-menu">
+		 <div class="navbar-start">
 
+			</div>
 
-        </ul>
+		  <div class="navbar-end">
+		    <div class="navbar-item">
+		      <div class="buttons">
+		        <a class="button is-primary">
+		          <strong>Criar contra</strong>
+		        </a>
+		        <a class="button is-light">
+		          Log in
+		        </a>
+		      </div>
+		    </div>
+				<div class="navbar-item has-dropdown is-hoverable">
+ 				 <a class="navbar-link">
+					 	<span class="icon">
+   			 			<i class="fa fa-user"></i>
+ 						</span>
+ 				 </a>
+ 				 		<div class="navbar-dropdown is-right">
+ 								<a class="navbar-item">About</a>
+ 								<a class="navbar-item">Jobs</a>
+ 		          	<a class="navbar-item">Contact</a>
+ 		          	<hr class="navbar-divider">
+ 		          	<a class="navbar-item">Sair</a>
+ 						</div>
+ 				</div>
+		  </div>
+		</div>
+	</nav>
 
-      <!-- Barra de navegação direita -->
-      <ul class="navbar-nav position-relative end-0">
-        <?php if (logged()) : ?>
+<script type="text/javascript">
 
-          <!-- apps -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-th" aria-hidden="true"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end " aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Money</a></li>
-              <li><a class="dropdown-item" href="#">GTD</a></li>
+</script>
 
-            </ul>
-          </li>
-
-          <!-- notificações -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-bell animate__bounce" aria-hidden="true"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" style="width: 300px;" aria-labelledby="navbarDropdown">
-              <li><h6 class="dropdown-header">Notificações</h6></li>
-              <li>
-                <div class="container">
-                  <div class="row align-items-start">
-                    <div class="col">
-                      One
-                    </div>
-                    <div class="col">
-                      two
-                    </div>
-                    <div class="col">
-                      three
-                    </div>
-                  </div>
-                </div>
-                </li>
-
-              <li><a class="dropdown-item" href="#">Configurações</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item text-center" href="/notificações">Ver todas</a></li>
-            </ul>
-          </li>
-
-          <!-- Usuario -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-user-circle" aria-hidden="true"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end text-small shadow" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Meu perfil</a></li>
-              <li><a class="dropdown-item" href="#">Configurações</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><h6 class="dropdown-header">Troca de conta</h6></li>
-              <li><a class="dropdown-item" href="#">Stella</a></li>
-              <li><a class="dropdown-item" href="#">Sofia</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="<?= baseUrl('/logout') ?>">Sair</a></li>
-            </ul>
-          </li>
-        <?php else : ?>
-          <div class="text-end">
-            <a href="<?= baseUrl('/login') ?>" class="btn btn-outline-light me-2">Entrar</a>
-            <a href="<?= baseUrl('/register') ?>" class="btn btn-warning">Criar conta</a>
-          </div>
-        <?php endif; ?>
-        </ul>
-    </div>
-  </div>
-</nav>
-
-<header id="top-navbar">
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="<?php baseUrl('/') ?>">
-        <?php component('ApplicationMark') ?>
-        <span>Scada</span>
-        <span>Unity</span>
-      </a>
-
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About
-            </a>
-            <a class="navbar-item">
-              Jobs
-            </a>
-            <a class="navbar-item">
-              Contact
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
+<style media="screen">
+	.navbar {
+		left: 0;
+		top: 0;
+		z-index: 2;
+		background-color: white;
+		justify-content: space-around;
+		width: 100%;
+		border-bottom: 1px solid lightgray;
+	}
+</style>
