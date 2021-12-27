@@ -1,7 +1,7 @@
 <?php
 
-use ScadaUnity\Http\Router;
-use ScadaUnity\Console\CliTable;
+use ScadaUnity\Framework\Http\Router;
+use ScadaUnity\Framework\Console\CliTable;
 
 if ($argv[1] == 'routes') {
 

@@ -1,4 +1,4 @@
-<svg width="40" height="40" viewBox="0 0 68.658012 57.796444" version="1.1">
+<svg width="40" height="40" viewBox="0 0 68.658012 57.796444" version="1.1" >
    <g transform="translate(-63.666144,-52.314747)">
       <ellipse
          style="fill:#00d1b2;fill-opacity:1;stroke-width:0.29277784"

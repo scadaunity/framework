@@ -22,7 +22,7 @@ class AuthController
       ];
 
       view('template/header',$data);
-      view('auth/login',$data);
+      view('pages/auth/login',$data);
       view('template/footer',$data);
   }
 

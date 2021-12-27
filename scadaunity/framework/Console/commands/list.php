@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Console\CliTable;
+use ScadaUnity\Framework\Console\CliTable;
 
 $data = [
   ['command'=>'list', 'description'=>'List all avaliables commands for cli.'],

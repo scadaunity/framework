@@ -12,9 +12,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> <?= APP_TITLE; ?> </title>
         <link href="<?= baseUrl('/app.css') ?>" rel="stylesheet">
-        <link rel="stylesheet" href="<?= baseUrl('/css.php') ?>">
+        
 
     </head>
 
     <body>
-      
+      <div id="app" class="container">

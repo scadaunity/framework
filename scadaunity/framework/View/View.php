@@ -42,9 +42,11 @@ class View
     // Criar as variaveis para a view
     extract($params);
 
+    $file = VIEWS.$view.'.php';
+
     // Verifica se o arquivo existe
-    if (!file_exists(VIEWS.$view.'.php')) {
-      throw new \Exception("Arquivo não encontrado", 500);
+    if (!file_exists($file)) {
+      throw new \Exception("Arquivo não encontrado ".$file, 500);
     }
 
     // Carrega a view
@@ -120,8 +122,6 @@ class View
 
     //Captura os valor no contentview
     preg_match_all($pattern,$contentView,$matches);
-
-    dd($matches);
 
     // Armazena as chaves
     $keys = $matches[0];

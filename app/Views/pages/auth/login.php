@@ -1,71 +1,30 @@
-<section class="hero is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-4 is-offset-4">
-                    <img class="mt-5" src="<?= baseUrl('/assets/img/Logo.png') ?>" width="100px" height="100px" alt="ScadaUnity - Logo">
-                    <hr class="login-hr">
-                    <p class="subtitle has-text-black">Iniciar sessão.</p>
-                    <div class="box">
-                        <form>
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="email" placeholder="Email" autofocus="">
-                                </div>
-                            </div>
-
-                            <div class="field">
-                                <div class="control">
-                                    <input class="input is-large" type="password" placeholder="Senha">
-                                </div>
-                            </div>
-                            <div class="field">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    Lembrar
-                                </label>
-                            </div>
-                            <button class="button is-block is-success is-large is-fullwidth">Continuar</button>
-                        </form>
-                    </div>
-                    <p class="has-text-grey">
-                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
-                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-<div class="text-center mt-5">
-    <form class="" action="<?= baseUrl('/autenticate')  ?>" method="post" style="width:320px;margin:auto">
-        <?php csrf() ?>
-        <img class="mt-5" src="<?= baseUrl('/assets/img/Logo.png') ?>" width="100px" height="100px" alt="ScadaUnity - Logo">
-        <h1 class="h3 mt-4 mb-4 font-weight-normal">Iniciar sessão</h1>
-
-        <div class="input-group mb-3">
-            <label for="email" class="sr-only">Email</label>
-            <span class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></span>
-            <input type="email" id="email" name="email" class="form-control" value="" autocomplete="email">
-        </div>
-
-        <div class="input-group mb-3">
-            <label for="password" class="sr-only">Password</label>
-            <span class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></span>
-            <input type="password" id="password" name="password" class="form-control" value="" autocomplete="current-password">
-        </div>
-        <div class="mb-3 form-check" style="text-align:left">
-            <input type="checkbox" class="form-check-input" id="remember" name="remember">
-            <label class="form-check-label" for="remember">Lembrar</label>
-        </div>
-        <div class="mt-3 mb-5 d-grid gap-2 col-12 mx-auto">
-            <button type="submit" name="button" class="btn btn-lg btn-success btn-block rounded-pill">Continuar</button>
-        </div>
-        <div class="row">
-            <div class="col">
-                <a href="<?= baseUrl('/forgot')  ?>" class="link-light">Não lembro a senha</a>
-            </div>
-            <div class="col">
-                <a href="<?= baseUrl('/register')  ?>" class="link-light">Criar conta</a>
-            </div>
-        </div>
+<!-- component -->
+<div class="h-screen flex">
+  <div class="flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center">
+    <div>
+      <h1 class="text-white font-bold text-4xl font-sans">Scada Unity</h1>
+      <p class="text-white mt-1">Simples, mas elegante...</p>
+      <button type="submit" class="block w-38 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2">Documentação</button>
+    </div>
+  </div>
+  <div class="flex w-1/2 justify-center items-center bg-white">
+    <form class="bg-white">
+      <h1 class="text-gray-800 font-bold text-2xl mb-1">Bem vindo!</h1>
+      <p class="text-sm font-normal text-gray-600 mb-7">Acessar sua conta</p>
+      <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+        </svg>
+        <input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Email" />
+      </div>
+      <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+        </svg>
+        <input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Senha" />
+      </div>
+      <button type="submit" class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">Entrar</button>
+      <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">Não lembro minha senha ?</span>
     </form>
+  </div>
 </div>
