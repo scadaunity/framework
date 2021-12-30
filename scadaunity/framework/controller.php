@@ -20,6 +20,8 @@ function controller($matchedUri, $params){
     throw new \Exception("Controller {$controller} não existe");
   }
 
+  $obController = new ReflectionClass($controllerWhitNamespace);
+
   /** Cria a instancia do controller */
   $obController = new $controllerWhitNamespace();
 

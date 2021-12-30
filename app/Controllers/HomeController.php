@@ -16,7 +16,7 @@ class HomeController
       ];
 
       view('template/header',$data);
-      view('template/navbar',$data);
+      view('components/Navbar',$data);
       view('home',$data);
       view('template/footer',$data);
   }

@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "require": {
       "php": ">=8.0.7",
-        "psr/log": "3.x-dev"
+        "psr/log": "3.x-dev",
+        "phpmailer/phpmailer": "dev-master"
     },
     "autoload":{
       "psr-4":{

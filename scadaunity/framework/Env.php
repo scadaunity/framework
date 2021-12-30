@@ -12,9 +12,9 @@ class Env
    * Metodo responsavel por carregar o arquivo externo com as variaveis de ambiente
    * @param  string $dir
    */
-  public static function load($dir = ROOT)
+  public static function load($dir)
   {
-    //dd($dir);
+    
     // VERIFICA SE O ARQUIVO EXISTE
     if (!file_exists($dir.'/.env')) {
       return false;

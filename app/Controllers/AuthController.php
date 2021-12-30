@@ -3,11 +3,14 @@
 namespace App\Controllers;
 
 use ScadaUnity\Framework\Http\Request;
-use App\Models\UserModel;
 use ScadaUnity\Framework\View\View;
+use ScadaUnity\Framework\Communication\Email;
+
+use App\Models\UserModel;
 
 /**
  * Classe responsavel pelo controle de acesso ao sistema
+ *
  */
 class AuthController
 {
@@ -37,7 +40,7 @@ class AuthController
     ];
 
     view('template/header',$data);
-    view('auth/register',$data);
+    view('pages/auth/register',$data);
     view('template/footer',$data);
   }
 
@@ -52,8 +55,56 @@ class AuthController
     ];
 
     view('template/header',$data);
-    view('auth/forgot',$data);
+    view('pages/auth/forgot',$data);
     view('template/footer',$data);
+  }
+
+  /**
+   * Metodo responsavel por enviar o e-mail de recuperação de senha
+   * @return string
+   */
+  public function sendResetPasswordByEmail(){
+
+    // RECUPERA OS PARAMETROS DO POST
+    $request = new Request();
+
+    $data = [
+      'email'     => $request->post()['email'],
+    ];
+
+    /** BUSCA OS USUARIOS NO BANCO */
+    $model = new UserModel();
+    $users = $model->all();
+    $validUser = null;
+
+    foreach ($users as $user) {
+      /** VERIFICA SE EXISTE EMAIL CADASTRO */
+      if ($user->email == $data['email']) {
+          $validUser = $user;
+      }
+    }
+
+    /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
+    if (!$validUser) {
+      setFlash('message',$errorMessage);
+      return route('/login');
+    }
+
+    $email = new Email();
+
+    $email->add(
+        'Recuperação de senha',
+        '<h1>Olá, '.$validUser->name.'</h1><br><h3>Voce solicitou a recuperação da sua senha de acesso ao '.APP_TITLE.'</h3><br><br><a href="#">Recuperar minhs senha</a>',
+        $validUser->name,
+        $validUser->email
+    )->send(APP_TITLE,'scadaunity@gmail.com');
+
+    if(!$email->error()){
+      route('/login');
+    }else{
+      echo $email->error()->getMessage();
+    }
+
   }
 
   /**

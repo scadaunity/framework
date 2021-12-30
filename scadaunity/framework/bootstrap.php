@@ -2,13 +2,14 @@
 use ScadaUnity\Framework\Env;
 
 /** Carrega as variaveis de ambiente do projeto */
-Env::load(dirname(__FILE__,2));
+Env::load(dirname(__FILE__,3));
 
 /** Carrega as configurações */
 require_once dirname(__FILE__,2).'../../app/config/app.php';
 require_once dirname(__FILE__,2).'../../app/config/paths.php';
 require_once dirname(__FILE__,2).'../../app/config/database.php';
 require_once dirname(__FILE__,2).'../../app/config/logger.php';
+require_once dirname(__FILE__,2).'../../app/config/mail.php';
 require_once dirname(__FILE__,2).'../../app/config/middlewares.php';
 
 /** carrega os helpers */

@@ -1,4 +1,4 @@
-<svg width="80" height="80" viewBox="0 0 68.658012 57.796444" version="1.1">
+<svg width="100" height="100" viewBox="0 0 68.658012 57.796444" version="1.1">
    <g transform="translate(-63.666144,-52.314747)">
       <ellipse
          style="fill:#00a74f;fill-opacity:1;stroke-width:0.29277784"
@@ -70,3 +70,5 @@
       />
    </g>
 </svg>
+
+<p class="text-xl ml-2">Scada<strong>Unity</strong></p>
