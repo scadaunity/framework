@@ -71,4 +71,4 @@
    </g>
 </svg>
 
-<p class="text-xl ml-2">Scada<strong>Unity</strong></p>
+<p class="text-2xl ml-2 text-dark dark:text-white">Scada<strong class="text-green-600">Unity</strong></p>

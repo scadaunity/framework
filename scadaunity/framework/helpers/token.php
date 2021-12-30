@@ -17,6 +17,6 @@ function setToken(){
   $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
-function checkToken(){
+function generateTokenForgot(){
 
 }

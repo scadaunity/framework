@@ -1,6 +1,6 @@
 <?php
 
-namespace ScadaUnity\Framework\Communication;
+namespace ScadaUnity\Framework\Notification;
 
 use Exception;
 use stdClass;

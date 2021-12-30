@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use ScadaUnity\Framework\Http\Request;
 use ScadaUnity\Framework\View\View;
-use ScadaUnity\Framework\Communication\Email;
+use ScadaUnity\Framework\Notification\Email;
 
 use App\Models\UserModel;
 
@@ -87,7 +87,7 @@ class AuthController
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
       setFlash('message',$errorMessage);
-      return route('/login');
+      return redirect('/login');
     }
 
     $email = new Email();
@@ -100,7 +100,7 @@ class AuthController
     )->send(APP_TITLE,'scadaunity@gmail.com');
 
     if(!$email->error()){
-      route('/login');
+      to('/login');
     }else{
       echo $email->error()->getMessage();
     }
@@ -147,7 +147,7 @@ class AuthController
   public function destroy(){
     unset($_SESSION[LOGGED]);
 
-    return route('/');
+    to('/');
   }
 
   /**
