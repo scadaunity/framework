@@ -17,7 +17,7 @@ const cacheName = "ScadaUnity"
  * @type {Array}
  */
 const precacheFiles = [
-  
+
 ];
 
 self.addEventListener("install", function (event) {
@@ -38,7 +38,6 @@ self.addEventListener("activate", function (event) {
 self.addEventListener("fetch", function (event) {
   const request = event.request
   const url = new URL(request.url)
-
 
   if (event.request.method !== "GET") return;
 

@@ -1,7 +1,7 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <nav class="relative bg-white dark:bg-gray-900">
   <div class="max-full mx-auto px-4 sm:px-6 border-b-2 border-gray-100 dark:border-gray-600 dark:border-b">
-    <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
+    <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
         <!-- Navbar brand -->
         <a href="<?php route('/') ?>" class="flex items-center text-gray-800 dark:text-gray-200">
             <?php component('ApplicationMark') ?>
@@ -19,16 +19,20 @@
         </div>
 
         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-          <?php component('darkMode') ?>
+          <?php component('ThemeToggle') ?>
           <?php if(!user()) : ?>
             <!-- Visitante # Habilita o botao entrar e registrar -->
-              <a href="<?php route('/login') ?>" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">Entrar</a>
+              <a href="<?php route('/login') ?>" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5">Entrar</a>
               <a href="<?php route('/register') ?>" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Inscrever-se</a>
           <?php else : ?>
             <!-- Usuario logado # habilita o botão sair-->
-              <a href="<?php route('/logout') ?>" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-blue-900">Sair</a>
+              <?php component('NavbarUserIcons') ?>
+              <?php component('NavbarDropdownUser') ?>
+
           <?php endif; ?>
         </div>
+
+
     </div>
   </div>
 </nav>

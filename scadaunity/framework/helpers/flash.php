@@ -6,11 +6,11 @@ function setFlash($index, $message){
   }
 }
 
-function getFlash($index, $style = "color:red"){
+function getFlash($index, $class = "text-red-500 text-xs italic"){
   if (isset($_SESSION['flash'][$index])) {
     $flash = $_SESSION['flash'][$index];
     unset($_SESSION['flash'][$index]);
-    return "<span style='$style'>$flash</span>";
+    echo "<p class='$class'>$flash.</p>";
   }
 }
 

@@ -165,14 +165,16 @@ class AuthController
 
     /** VERIFICA SE O EMAIL FOI PASSADO*/
     if (empty($email)) {
-      setFlash('message',$errorMessage);
-      return redirect('/login');
+      $errorMessage = '*Campo email obrigatorio';
+      setFlash('email',$errorMessage);
+      return to('/login');
     }
 
     /** VERIFICA SE O PASSWORD FOI PASSADO*/
     if (empty($password)) {
-      setFlash('message',$errorMessage);
-      return redirect('/login');
+      $errorMessage = '*Campo senha obrigatorio';
+      setFlash('password',$errorMessage);
+      return to('/login');
     }
 
     /** BUSCA OS USUARIOS NO BANCO */
@@ -190,8 +192,8 @@ class AuthController
 
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
-      setFlash('message',$errorMessage);
-      return route('/login');
+      setFlash('invalidLogin',$errorMessage);
+      return to('/login');
     }
 
     /** SALVA A SESSÃO DO USUARIO*/
