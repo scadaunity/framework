@@ -2,11 +2,22 @@
 
 namespace ScadaUnity\Framework\View;
 
+use ScadaUnity\Framework\View\TemplateEngine;
+
 /**
- *
+ * Classe responsavel por exibir o html formatado ao navegador
  */
-class View
+class View extends TemplateEngine
 {
+  /**
+   * Armazena os dados que serão compartilhados pelas views
+   * @var array
+   */
+  private static $share;
+  /**
+   * Define o mapa de regex possiveis para localizar no template
+   * @var array
+   */
   private $patterns = [
     '/(^@component\(( ?[\w]+ ?)\))/gm' // @component(component)
   ];
@@ -33,33 +44,31 @@ class View
   }
 
   /**
-   * Metodo responsavel por renderizar a view
+   * METODO RESPONSAVEL POR RENDERIZAR A VIEW
    * @param  string $view
    * @param  array $params
    * @return string
    */
-  public static function view($view, $params = []){
+  public static function view(string $view, array $params = [])
+  {
     // Criar as variaveis para a view
     extract($params);
-
+    // Adiciona o caminho completo do arquivo da view
     $file = VIEWS.$view.'.php';
-
     // Verifica se o arquivo existe
-    if (!file_exists($file)) {
-      throw new \Exception("Arquivo não encontrado ".$file, 500);
-    }
-
-    // Carrega a view
-    require VIEWS.$view.'.php';
+    if (!file_exists($file)) { throw new \Exception("Arquivo não encontrado ".$file, 500);}
+      // Carrega a view
+    require $file;
   }
 
   /**
-   * Metodo responsavel por renderizar a view
+   * METODO RESPONSAVEL POR RENDERIZAR O TEMPLATE
    * @param  string $view
    * @param  array $params
    * @return string
    */
-  public static function render($view, $params = []){
+  public static function render(string $view, array $params = []):string
+  {
 
     // Pega o conteudo da view
     $contentView = self::getContentView($view);
@@ -90,12 +99,20 @@ class View
   }
 
   /**
-   * Metodo responsavel por pegar o conteudo da view
+   * METODO RESPONSAVEL POR PEAGAR O CONTEUDO DA VIEW
    * @param  string path
    * @return string text/html
    */
   private static function getContentView($view){
     return file_exists(VIEWS.$view.'.php') ? file_get_contents(VIEWS.$view.'.php') : '';
+  }
+
+  /**
+   * METODO RESPONSAVEL POR ADICIONAR
+   * @return array
+   */
+  public static function share($data){
+    self::$share = $data;
   }
 
   /**
@@ -241,7 +258,28 @@ class View
     return $data;
   }
 
-  public static function setDefaultVariables(){
+  /**
+   * Metodo responsavel por adicionar os components ao content da view
+   * @return string text/html
+   */
+  private static function parseTemplate($contentView, $vars, $keys){
 
+    // Cria o padrão da regex
+    $pattern   = '/^@component\(( *?[\w]+ *?)\)$/m';
+
+    //Captura os valor no contentview
+    preg_match_all($pattern,$contentView,$matches);
+
+    // Armazena as chaves
+    $keys = $matches[0];
+    $components = $matches[1];
+
+    $vars = [];
+    foreach ($components as $component) {
+
+      array_push($vars,file_get_contents(COMPONENTS_PATH.$component.'.php'));
+    }
+
+    return str_replace($keys,array_values($vars),$contentView);
   }
 }

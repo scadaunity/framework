@@ -16,6 +16,17 @@ function view($view, $data = []){
 }
 
 /**
+ * Metodo responsavel por incluir arquivos da view
+ * @param  string $view
+ * @param  array $data
+ * @return string
+ */
+function view2($view, $data = []){
+
+    View::view2($view,$data);
+}
+
+/**
  * Metodo responsavel por renderizar a view arquivos da view
  * @param  string $view
  * @param  array $data

@@ -32,6 +32,4 @@ Router::resources([
 Router::get('/admin','AdminController@users');
 
 
-Router::get('/doug', function(){
-    return 'teste';
-});
+Router::get('/component','Component@index');

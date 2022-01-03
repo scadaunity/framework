@@ -11,6 +11,7 @@ require_once dirname(__FILE__,2).'../../app/config/database.php';
 require_once dirname(__FILE__,2).'../../app/config/logger.php';
 require_once dirname(__FILE__,2).'../../app/config/mail.php';
 require_once dirname(__FILE__,2).'../../app/config/middlewares.php';
+require_once dirname(__FILE__,2).'../../app/config/view.php';
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';
