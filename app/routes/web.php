@@ -32,4 +32,4 @@ Router::resources([
 Router::get('/admin','AdminController@users');
 
 
-Router::get('/component','Component@index');
+Router::get('/layout','LayoutController@index');

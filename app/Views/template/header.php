@@ -28,4 +28,4 @@
         </script>
     </head>
 
-    <body>
+    <body class="antialiased text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-900">

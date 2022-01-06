@@ -25,6 +25,7 @@ class AuthController
       ];
 
       view('template/header',$data);
+      view('components/Navbar',$data);
       view('pages/auth/login',$data);
       view('template/footer',$data);
   }

@@ -9,6 +9,7 @@ use ScadaUnity\Framework\View\TemplateEngine;
  */
 class View extends TemplateEngine
 {
+  private static $contentView;
   /**
    * Armazena os dados que serão compartilhados pelas views
    * @var array
@@ -40,7 +41,7 @@ class View extends TemplateEngine
    * Construtor da classe
    */
   public function __construct(){
-
+    
   }
 
   /**
@@ -67,9 +68,8 @@ class View extends TemplateEngine
    * @param  array $params
    * @return string
    */
-  public static function render(string $view, array $params = []):string
+  public static function render(string $view, array $params = [])
   {
-
     // Pega o conteudo da view
     $contentView = self::getContentView($view);
 
@@ -94,7 +94,8 @@ class View extends TemplateEngine
     // Insere as variaveis ao conteudo da view
     $contentView = self::parseVariables($contentView, $vars, $keys);
 
-    return $contentView;
+    echo $contentView;
+
 
   }
 
@@ -143,14 +144,15 @@ class View extends TemplateEngine
     // Armazena as chaves
     $keys = $matches[0];
     $components = $matches[1];
+    d($components);
 
     $vars = [];
     foreach ($components as $component) {
 
       array_push($vars,file_get_contents(COMPONENTS_PATH.$component.'.php'));
     }
-
     return str_replace($keys,array_values($vars),$contentView);
+
   }
 
   /**

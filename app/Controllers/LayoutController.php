@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Http\Request;
+use ScadaUnity\Framework\Http\Request;
+use ScadaUnity\Framework\View\View;
 
-class Component
+class LayoutController
 {
   /**
    * Metodo responsavel por listar todos os registros.
@@ -13,9 +14,7 @@ class Component
    */
   public function index()
   {
-    view('template/header');
-    view('pages/error/offline');
-    view('template/footer');
+    View::render('/layouts/main', ['teste'=>'doug']);
   }
 
   /**
