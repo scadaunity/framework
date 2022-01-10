@@ -6,8 +6,6 @@
  */
 function user(){
   if (isset($_SESSION[LOGGED])) {
-    // remove o password
-    unset($_SESSION[LOGGED]->password);
     //retorna o usuario logado
     return $_SESSION[LOGGED];
   }

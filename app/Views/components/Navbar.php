@@ -1,10 +1,17 @@
-<nav class="bg-white dark:bg-gray-900">
-    <div class="relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-lg py-4 pr-4 pl-4">
+<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-md py-4 pr-4 pl-4 dark:shadow-blue-500/20">
+
         <!-- Navbar brand -->
         <a href="<?php route('/') ?>" class="flex items-center">
             <?php component('ApplicationMark') ?>
-            <p class="text-xl text-gray-500 dark:text-white">Scada<strong>Unity</strong></p>
+            <p class="text-xl text-gray-500 dark:text-white ">Scada<strong>Unity</strong></p>
         </a>
+        <ul class="hidden flex items-center justify-content-center mx-auto pl-20">
+          <li><a href="<?php route('/account') ?>" class="block text-sm px-2 py-4">Contas</a></li>
+          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Services</a></li>
+          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">About</a></li>
+          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Contact Us</a></li>
+        </ul>
+
 
         <!-- Mobile menu button -->
         <div class="md:hidden">
@@ -17,17 +24,8 @@
             </button>
         </div>
 
-        <div class="absolute top-20 hidden  rounded bg-gray-800 w-full rounded-full shadown-lg mx-auto h-96 mobile-menu">
-          <ul class="">
-            <li class="active"><a href="<?php route('/users') ?>" class="block text-sm px-2 py-4 text-white font-semibold">Usuarios</a></li>
-            <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Services</a></li>
-            <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">About</a></li>
-            <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Contact Us</a></li>
-          </ul>
-        </div>
-
         <!-- Right Navbar items -->
-        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 md:space-x-5">
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 md:space-x-3 ">
           <?php component('ThemeToggle') ?>
           <?php if(user()) : ?>
             <?php component('DropdownNotification') ?>
@@ -37,9 +35,20 @@
             <a href="<?php route('/register') ?>" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Inscrever-se</a>
           <?php endif; ?>
         </div>
-    </div>
-
 </nav>
+
+<div class="hidden dark:bg-gray-900 dark:border rounded-md shadow-md mobile-menu transition duration-300 w-full h-screen">
+  <ul class="px-2">
+    <li><a href="<?php route('/home') ?>" class="block text-sm px-2 py-4 transition duration-300">Inicio</a></li>
+    <li><a href="<?php route('/account') ?>" class="block text-sm px-2 py-4">Contas</a></li>
+    <li class="border-t">
+        <div class="flex justify-between items-center w-full px-4">
+            <a href="<?php route('/login') ?>" class="block text-sm px-6 py-2 m-2 rounded border">Entrar</a>
+            <a href="<?php route('/logout') ?>" class="block text-sm px-8 py-2 m-2 rounded border bg-indigo-600 text-gray-200">Sair</a>
+        </div>
+    </li>
+  </ul>
+</div>
 
 
 <script>

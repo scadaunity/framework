@@ -7,7 +7,7 @@ use ScadaUnity\Framework\Http\Router;
   */
 function redirect($url)
 {
-  return header('location:'.$url);
+  return header('location:'.URL.$url);
 }
 
 /** Metodo responsavel por redirecionar com flash message
@@ -18,13 +18,14 @@ function redirect($url)
 function redirectWithFlash($url,$bag,$message)
 {
   setFlash($bag,$message);
-  return header('location:'.$url);
+  return header('location:'.URL.$url);
 }
 
+/**
+ * Metodo responsavel por imprimir a rota no html
+ * @param  string $route
+ * @return string
+ */
 function route($route){
     echo URL.$route;
-}
-
-function to(string $url){
-  return header('location:'.URL.$url);
 }

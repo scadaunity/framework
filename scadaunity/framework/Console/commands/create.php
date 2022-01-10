@@ -18,14 +18,14 @@ if ($argv[1] == 'create:controller') {
 
   fwrite($arquivo, '<?php'.PHP_EOL.PHP_EOL);
   fwrite($arquivo, 'namespace App\Controllers;'.PHP_EOL.PHP_EOL);
-  fwrite($arquivo, 'use ScadaUnity\Http\Request;'.PHP_EOL.PHP_EOL);
+  fwrite($arquivo, 'use ScadaUnity\Framework\Http\Request;'.PHP_EOL.PHP_EOL);
   fwrite($arquivo, "class {$argv[2]}".PHP_EOL);
   fwrite($arquivo, "{".PHP_EOL);
   /** Cria o metodo index */
   fwrite($arquivo, "  /**".PHP_EOL);
   fwrite($arquivo, "   * Metodo responsavel por listar todos os registros.".PHP_EOL);
   fwrite($arquivo, "   *".PHP_EOL);
-  fwrite($arquivo, "   * @return \ScadaUnity\Http\Response".PHP_EOL);
+  fwrite($arquivo, "   * @return \ScadaUnity\Framework\Http\Response".PHP_EOL);
   fwrite($arquivo, "   */".PHP_EOL);
   fwrite($arquivo, "  public function index()".PHP_EOL);
   fwrite($arquivo, "  {".PHP_EOL);

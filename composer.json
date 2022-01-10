@@ -13,7 +13,8 @@
     "require": {
       "php": ">=8.0.7",
         "psr/log": "3.x-dev",
-        "phpmailer/phpmailer": "dev-master"
+        "phpmailer/phpmailer": "dev-master",
+        "psr/container": "2.0.x-dev"
     },
     "autoload":{
       "psr-4":{

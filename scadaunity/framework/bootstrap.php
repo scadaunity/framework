@@ -36,6 +36,8 @@ require dirname(__FILE__,2).'../../app/routes/web.php';
 require dirname(__FILE__,2).'../../app/routes/console.php';
 
 if (ENVIRONMENT == 'development') {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 'On');
   require 'routes/api.php';
   require 'routes/web.php';
   require 'routes/console.php';

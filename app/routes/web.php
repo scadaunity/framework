@@ -23,8 +23,7 @@ Router::post('/password/reset','AuthController@sendResetPasswordByEmail');  // E
 
 Router::resources([
   'users' => 'UserController',
-  'account' => 'AccountController',
-  'teste' => 'TesteController'
+  'account' => 'MoneyAccountController',  
 ]);
 
 
