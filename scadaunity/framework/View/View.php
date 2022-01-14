@@ -41,7 +41,7 @@ class View extends TemplateEngine
    * Construtor da classe
    */
   public function __construct(){
-    
+
   }
 
   /**
@@ -54,8 +54,15 @@ class View extends TemplateEngine
   {
     // Criar as variaveis para a view
     extract($params);
+
     // Adiciona o caminho completo do arquivo da view
     $file = VIEWS.$view.'.php';
+
+    /** verifica se foi passado o namespace da view */
+    if (str_contains($view,'@')) {
+      $file = dirname(__FILE__,2).'/pages/'.explode('@',$view)[1].'.php';
+    }
+
     // Verifica se o arquivo existe
     if (!file_exists($file)) { throw new \Exception("Arquivo não encontrado ".$file, 500);}
       // Carrega a view
