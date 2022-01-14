@@ -5,7 +5,7 @@
 
 ### Indice
 1. Instalação
-  - Via composer (Recomendado).
+  - composer require scadaunity/framework
   - Download zip.
     - Definindo permissoes de arquivos e pastas;
       - sudo chmod -R 755 framework-main/
