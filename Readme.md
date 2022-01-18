@@ -1,6 +1,10 @@
 # Scada Unity PHP framework
 <h1 align="center">Nome do Projeto</h1>
 
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/60576219/149859798-3a9b04e2-b56a-4e19-bf50-284b7f267477.png" width="300px" />
+</div>
+
 ### Scada unity PHP Framework, é um projeto desenvovido e mantido pela empresa de desenvovimento web Scada unity.
 
 ### Indice

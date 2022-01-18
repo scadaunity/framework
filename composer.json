@@ -24,5 +24,8 @@
       "files":[
 
       ]
+    },
+    "require-dev": {
+        "php-webdriver/webdriver": "dev-main"
     }
 }
