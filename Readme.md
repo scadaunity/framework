@@ -1,9 +1,15 @@
-# Scada Unity PHP framework
-<h1 align="center">Nome do Projeto</h1>
-
 <div align="center">
-    <img src="https://user-images.githubusercontent.com/60576219/149859798-3a9b04e2-b56a-4e19-bf50-284b7f267477.png" width="300px" />
+    <img src="https://user-images.githubusercontent.com/60576219/149859798-3a9b04e2-b56a-4e19-bf50-284b7f267477.png" width="100px" />
+    <h1>Scada Unity </h1>
+    <h2 style="color:rgb(79 70 229)">PHP Framework</h2>
 </div>
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
 ### Scada unity PHP Framework, é um projeto desenvovido e mantido pela empresa de desenvovimento web Scada unity.
 
@@ -21,44 +27,3 @@
   - Configurando o banco de dados
   - Criar um Model
 3. Definindo variaveis de ambiente
-
-## OWASP
-
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-
-##XSS (Cross Site Scripting)
-1. limpar a entrada
-2. escapar a saida
-
-## HELPERS
-### JS
-1.Ajuda a carregar ativos javascript
-  - js('arquivo');
-
-# TODO
-## Criar uma gui para gerenciar o projeto
-1. Criar controller [create:controller]
-2. Criar model [create:model]
-3. Criar resource (Model, Controller, Rotas)
-
-# Htaccess
-## Flags
-### NC - No Case [permite maiusculas e minusculas];
-### R - Redirecionar
-#### [R=301] - redirect permanente
-#### [R=302] - redirect temporario
-### QSA - Query String Params [ permite passar parametros na barra]
-
-
-# REGEX PATTERNS
-
-## <a[^>]+href=\"(.*?)\"[^>]*>(.*?)</a>
