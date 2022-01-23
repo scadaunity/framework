@@ -1,17 +1,10 @@
-<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-md py-4 pr-4 pl-4 dark:shadow-blue-500/20">
+<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-green-500/20">
 
         <!-- Navbar brand -->
         <a href="<?php route('/') ?>" class="flex items-center">
             <?php component('ApplicationMark') ?>
             <p class="text-xl text-gray-500 dark:text-white ">Scada<strong>Unity</strong></p>
         </a>
-        <ul class="hidden flex items-center justify-content-center mx-auto pl-20">
-          <li><a href="<?php route('/account') ?>" class="block text-sm px-2 py-4">Contas</a></li>
-          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Services</a></li>
-          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">About</a></li>
-          <li><a href="#" class="block text-sm px-2 py-4 transition duration-300">Contact Us</a></li>
-        </ul>
-
 
         <!-- Mobile menu button -->
         <div class="md:hidden">

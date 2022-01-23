@@ -36,4 +36,4 @@ define("ENVIRONMENT",'development');
  * modos a implementar (bulma, bootstrap)
  * @var [type]
  */
-define('STACK','bootstrap');
+define('STACK','tailwind');

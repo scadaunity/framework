@@ -7,6 +7,9 @@ use ScadaUnity\Framework\Suport\Auth;
 
 class MoneyAccountController
 {
+    public function __construct(){
+        return Auth::check() === false ? redirectWithFlash('/login','notLogged','Area restrita faça o login') : '';
+    }
 
   /**
    * Metodo responsavel por listar todos os registros.
@@ -15,12 +18,10 @@ class MoneyAccountController
    */
   public function index()
   {
-    if (Auth::check() === true) {
-        return view('pages/money/accounts');
-    } else {
-        redirectWithFlash('/login','notLogged','Area restrita faça o login');
-    }
-
+      $props = [
+          'title'=>'Contas',
+      ];
+      view('pages/money/accounts',$props);
   }
 
   /**
