@@ -7,11 +7,13 @@ require __DIR__.'/vendor/autoload.php';
 /** Carrega o autoload do composer */
 require __DIR__.'/scadaunity/framework/bootstrap.php';
 
+if (!isset($argv[1])) {
+    $argv[1] = 'list';
+    require __DIR__.'/scadaunity/framework/Console/commands/list.php';
+    die();
+}
 
-echo "Bem vindo ao assitente do scada unity framework". PHP_EOL;
-
-/** Carrega o autoload do composer */
 require __DIR__.'/scadaunity/framework/Console/commands/routes.php';
 require __DIR__.'/scadaunity/framework/Console/commands/list.php';
 require __DIR__.'/scadaunity/framework/Console/commands/middleware.php';
-require __DIR__.'/scadaunity/framework/Console/commands/create.php';
+require __DIR__.'/scadaunity/framework/Console/commands/controller.php';

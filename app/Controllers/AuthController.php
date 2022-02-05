@@ -101,7 +101,7 @@ class AuthController
     )->send(APP_TITLE,'scadaunity@gmail.com');
 
     if(!$email->error()){
-      to('/login');
+      redirect('/login');
     }else{
       echo $email->error()->getMessage();
     }

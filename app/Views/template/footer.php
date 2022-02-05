@@ -1,4 +1,4 @@
         </div> <!-- end #app -->
-        <script src="app.js.php" charset="utf-8"></script>
+        <script src="serviceWorker.js"></script>
     </body>
 </html>

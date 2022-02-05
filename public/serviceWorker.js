@@ -1,6 +1,6 @@
 
 /**
- * Defini a prioridade do cache
+ * Define a prioridade do cache
  * options:[network,cache,none]
  * @type {String}
  */
