@@ -9,7 +9,7 @@
     "categories": "Framework",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "http://192.168.15.7/framework/public",
+    "start_url": "/",
     "orientation": "any",
     "icons": [
     {

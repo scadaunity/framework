@@ -8,11 +8,13 @@ if ($argv[1] == 'create:controller') {
     die('Não foi passado o nome do controller no segundo parametro.'.PHP_EOL);
   }
 
-  // Verifica se foi passado o nome do controller
+  // Recupera o nome do controller
   $name = explode('Controller',$argv[2])[0];
 
+  // Cria o arquivo
   $arquivo = fopen(ROOT.'/app/Controllers/'.$argv[2].'.php','w');
 
+  // Verifica se o arquivo foi criado
   if ($arquivo == false) die('Não foi possível criar o arquivo.');
 
 

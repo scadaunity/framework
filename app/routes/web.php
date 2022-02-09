@@ -23,7 +23,7 @@ Router::post('/password/reset','AuthController@sendResetPasswordByEmail');  // E
 
 Router::resources([
   'users' => 'UserController',
-  'account' => 'MoneyAccountController',  
+  'account' => 'MoneyAccountController',
 ]);
 
 
@@ -31,4 +31,6 @@ Router::resources([
 Router::get('/admin','AdminController@users');
 
 
-Router::get('/layout','LayoutController@index');
+Router::get('/migrations','MigrationsController@index');
+Router::get('/migrations/up','MigrationsController@up');
+Router::get('/migrations/down','MigrationsController@down');
