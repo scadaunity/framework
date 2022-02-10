@@ -25,7 +25,7 @@ class MigrationsController
     $forge = new Forge();
     $forge->table('atempt');
     $forge->id();
-    $forge->string('name',35);
+    $forge->string('name',70);
     $forge->string('email',50);
     $forge->create();
 
