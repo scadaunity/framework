@@ -1,29 +1,24 @@
 
 /**
- * Define a prioridade do cache
- * options:[network,cache,none]
- * @type {String}
- */
-const firstRender = 'network'
-
-/**
  * Define um nome ao cache
  * @type {String}
  */
 const cacheName = "ScadaUnity"
 
 /**
- * [precacheFiles description]
+ * Define os arquivos que serão carregados ao cache
  * @type {Array}
  */
 const precacheFiles = [
 
 ];
 
+/** Instala o cache */
 self.addEventListener("install", function (event) {
     event.waitUntil(
         caches.open(cacheName).then(function (cache) {
             return cache.addAll(precacheFiles);
+            console.log("[PWA Builder] PWA Instalado com sucesso");
         })
     )
     return self.skipWaiting()
@@ -34,10 +29,10 @@ self.addEventListener("activate", function (event) {
   self.clients.claim()
 });
 
-// If any fetch fails, it will look for the request in the cache and serve it from there first
+// Se alguma requisição falhar, ele procurará a solicitação no cache e a servirá primeiro
 self.addEventListener("fetch", function (event) {
-  const request = event.request
-  const url = new URL(request.url)
+    console.log('Metodo: '+event.request.method)
+    console.log('Metodo: '+event.request)
 
   if (event.request.method !== "GET") return;
 
