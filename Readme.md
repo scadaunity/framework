@@ -28,4 +28,4 @@
   - Criar um Model
 3. Definindo variaveis de ambiente
 4. Compilar seus ativos css taiwind
-  - npx tailwindcss -i ./app/Views/css/tailwind.css -o ./public/app.css --watch
+  - npx tailwindcss -i ./app/Views/css/tailwind.css -o ./public/app.css --watch 
