@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> <?= APP_TITLE; ?> </title>
         <link href="<?= baseUrl('/app.css') ?>" rel="stylesheet">
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <script>
             // It's best to inline this in `head` to avoid FOUC (flash of unstyled content) when changing pages or themes
@@ -28,6 +27,4 @@
     </head>
 
     <body class="select-none antialiased text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900">
-        <div class="" id="app">
-
         

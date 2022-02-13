@@ -19,8 +19,6 @@ Router::post('/create/account','AuthController@createAccount');             // C
 Router::post('/password/reset','AuthController@sendResetPasswordByEmail');  // ENVIA O EMAIL PARA RECUPERAÇÃO DA SENHA
 /** ----------------------- AUTH RESOURCE ------------------------- */
 
-
-
 Router::resources([
   'users' => 'UserController',
   'account' => 'MoneyAccountController',

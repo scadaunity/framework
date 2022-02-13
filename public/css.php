@@ -2095,31 +2095,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.dark .dark\:shadow-indigo-600\/50 {
-  --tw-shadow-color: rgb(79 70 229 / 0.5);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.dark .dark\:shadow-indigo-600\/40 {
-  --tw-shadow-color: rgb(79 70 229 / 0.4);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.dark .dark\:shadow-indigo-600\/30 {
-  --tw-shadow-color: rgb(79 70 229 / 0.3);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.dark .dark\:shadow-indigo-600\/20 {
-  --tw-shadow-color: rgb(79 70 229 / 0.2);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.dark .dark\:shadow-indigo-600\/10 {
-  --tw-shadow-color: rgb(79 70 229 / 0.1);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
 .dark .dark\:ring-1 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
