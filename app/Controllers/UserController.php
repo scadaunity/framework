@@ -12,14 +12,14 @@ use App\Models\UserModel;
  */
 class UserController
 {
-  protected $userModel;
+  protected $user;
 
   function __construct()
   {
     /** VERIFICA SE O USUARIO ESTA LOGADO */
     if (!logged()) { return redirectWithFlash('/login','message','Conteudo apenas para usuarios logados;');}
 
-    $this->userModel = new UserModel();
+    $this->user = new UserModel();
   }
 
   /**
@@ -34,7 +34,7 @@ class UserController
   {
     $data = [
       'title' => 'Usuarios',
-      'users' => $this->userModel->all()
+      'users' => $this->user->all()
     ];
     return view('/user/users',$data,'navbar');
   }
@@ -83,7 +83,7 @@ class UserController
 
     $data = [
       'title' => 'Usuarios',
-      'user' => $this->userModel->find($params['users']),
+      'user' => $this->user->find($params['users']),
     ];
 
     if ($data['user'] == null) {

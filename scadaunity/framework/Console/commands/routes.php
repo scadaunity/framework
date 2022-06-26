@@ -7,6 +7,7 @@ if (isset($argv[1]))
 {
     if ($argv[1] == 'routes')
     {
+        // Variavel responsavel por armazenar os resultados
         $data = [];
 
         // Busca as rotas
@@ -40,11 +41,14 @@ if (isset($argv[1]))
           }
         }
 
+        sort($data);
+
+        // Verifica se existe alguma rota
         if (!empty($data)) {
           // Cria a tabela
           $table = new CliTable;
-          $table->setTableColor('blue');
-          $table->setHeaderColor('cyan');
+          $table->setTableColor('green');
+          $table->setHeaderColor('gray');
           $table->addField('URI', 'uri', false, 'white');
           $table->addField('METHOD', 'method', false, 'white');
           $table->addField('ACTION', 'action', false, 'white');
@@ -55,4 +59,22 @@ if (isset($argv[1]))
 
         echo "Nenhuma rota encontrada";
     }
+}
+
+function consoleRoutesPrint($data){
+    // Verifica se existe alguma rota
+    if (!empty($data)) {
+      // Cria a tabela
+      $table = new CliTable;
+      $table->setTableColor('green');
+      $table->setHeaderColor('gray');
+      $table->addField('URI', 'uri', false, 'white');
+      $table->addField('METHOD', 'method', false, 'white');
+      $table->addField('ACTION', 'action', false, 'white');
+      $table->addField('NAME', 'name', true, 'white');
+      $table->injectData($data);
+      $table->display();
+    }
+
+    echo "Nenhuma rota encontrada";
 }
