@@ -4,7 +4,12 @@
  * [PT_BR] Define a url completa do projeto.
  * @var string
  */
+<<<<<<< HEAD
 define('URL','http://localhost:5000');
+=======
+//define('URL','http://localhost:8000');
+define('URL','https://scadaunityframework.herokuapp.com');
+>>>>>>> 66f7e5debfd031f316c8897c002a60c5da1d1e73
 
 /**
  * [PT_BR] Define o namespace do diretorio padrao para a pasta controllers;
