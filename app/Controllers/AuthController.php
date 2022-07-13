@@ -181,6 +181,7 @@ class AuthController
     /** BUSCA OS USUARIOS NO BANCO */
     $model = new UserModel();
     $users = $model->all();
+    d(count($users));
 
     $validUser = null;
 

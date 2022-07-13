@@ -9,7 +9,7 @@
     "categories": "Framework",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "http://localhost:8000",
+    "start_url": "http://localhost:5000",
     "orientation": "any",
     "icons": [
     {

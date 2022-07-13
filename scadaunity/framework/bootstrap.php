@@ -4,6 +4,11 @@ use ScadaUnity\Framework\Env;
 /** Carrega as variaveis de ambiente do projeto */
 Env::load(dirname(__FILE__,3));
 
+/** inicia uma sessão vazia */
+//session_save_path ('../storage/sessions');
+session_save_path( sys_get_temp_dir());
+session_start();
+
 /** Carrega as configurações */
 require_once dirname(__FILE__,2).'../../app/config/app.php';
 require_once dirname(__FILE__,2).'../../app/config/paths.php';
@@ -42,3 +47,5 @@ if (ENVIRONMENT == 'development') {
   require 'routes/web.php';
   require 'routes/console.php';
 }
+
+setToken();
