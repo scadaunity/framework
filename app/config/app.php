@@ -29,11 +29,3 @@ define("CHARSET",'UTF-8');
  * @var string
  */
 define("ENVIRONMENT",'development');
-
-/**
- * Define o modo de parse das views
- * modos disponiveis (php)
- * modos a implementar (bulma, bootstrap)
- * @var [type]
- */
-define('STACK','tailwind');
