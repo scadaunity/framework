@@ -1,6 +1,6 @@
 <?php
 
-namespace ScadaUnity\Framework\;
+namespace ScadaUnity\Framework;
 
 /**
  *
@@ -13,20 +13,23 @@ class App
    */
   public $version = '1.0.0';
 
-  public function __construct(){
+  public $config = '';
 
+  public function __construct(){
+      $this->config();
   }
 
   /**
    * Metodo responsavel por montar a aplicação
    * @return [type]
    */
-  private function mount(){
+  public function mount(){
     $this->config['app'] = include('../app/config/app.php');
   }
 
   private function config(){
-      $this->config['app'] = include('../app/config/app.php');
+      echo 'carregando configuração'.PHP_EOL;
+      echo ''.PHP_EOL;
   }
 
 }

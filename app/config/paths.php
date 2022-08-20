@@ -4,6 +4,7 @@
  * [PT_BR] Define a url completa do projeto.
  * @var string
  */
+//define('URL','http://localhost/framework');
 define('URL','http://localhost:8000');
 
 /**
@@ -13,7 +14,7 @@ define('URL','http://localhost:8000');
 define('CONTROLLERS_PATH','\App\\Controllers\\');
 
 /**
- * [PT_BR] Define o caminho diretorio raiz do projeto
+ * [PT_BR] Define o caminho do diretorio raiz do projeto
  * @var string
  */
 define('ROOT',dirname(__FILE__,3));
@@ -25,7 +26,7 @@ define('ROOT',dirname(__FILE__,3));
 define('VIEWS',ROOT.'/app/Views/');
 
 /**
- * [PT_BR] Define o diretorio padrão de assets do framework
+ * [PT_BR] Define o diretorio padrão de assets
  * @var [type]
  */
 define('ASSETS_PATH',URL.'/assets');
@@ -65,7 +66,5 @@ define('TEMPLATES_PATH',VIEWS.'template/');
  * @var string
  */
 define('LOGS_PATH',ROOT.'/storage/logs/');
-
-
 
 define('LOGGED','LOGGED');

@@ -288,8 +288,8 @@ class Router
           if(!empty($match)){
             return (new Middleware([],$match,$this->params))->next($this->request);
           }
-
-          throw new \Exception("Não foi possivel resolver a rota {$this->request->uri()}",500);
+          view('pages/error/404');
+          
         } catch (\Exception $e) {
           dd($e->getMessage());
         }

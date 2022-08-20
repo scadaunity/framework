@@ -1,8 +1,19 @@
 <?php
 use ScadaUnity\Framework\Env;
+use ScadaUnity\Framework\App;
 
+spl_autoload_register(
+    function($class){
+        require "$classe.php";
+    }
+);
+
+$teste = new App();
+
+
+die();
 /** Carrega as variaveis de ambiente do projeto */
-Env::load(dirname(__FILE__,3));
+Env::load(dirname(__FILE__,1));
 
 /** inicia uma sessão vazia */
 //session_save_path ('../storage/sessions');
@@ -10,13 +21,14 @@ session_save_path( sys_get_temp_dir());
 session_start();
 
 /** Carrega as configurações */
-require_once dirname(__FILE__,2).'../../app/config/app.php';
-require_once dirname(__FILE__,2).'../../app/config/paths.php';
-require_once dirname(__FILE__,2).'../../app/config/database.php';
-require_once dirname(__FILE__,2).'../../app/config/logger.php';
-require_once dirname(__FILE__,2).'../../app/config/mail.php';
-require_once dirname(__FILE__,2).'../../app/config/middlewares.php';
-require_once dirname(__FILE__,2).'../../app/config/view.php';
+require_once 'app/config/app.php';
+require_once 'app/config/paths.php';
+require_once 'app/config/database.php';
+require_once 'app/config/logger.php';
+require_once 'app/config/mail.php';
+require_once 'app/config/middlewares.php';
+require_once 'app/config/view.php';
+
 
 /** carrega os helpers */
 require_once 'helpers/environment.php';
