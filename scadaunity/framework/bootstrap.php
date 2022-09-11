@@ -32,8 +32,6 @@ require_once 'helpers/helperView.php';
 /** carrega libs do core */
 require_once 'controller.php';
 
-
-
 /** Carrega os arquivos de rotas */
 require dirname(__FILE__,2).'../../app/routes/api.php';
 require dirname(__FILE__,2).'../../app/routes/web.php';

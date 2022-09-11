@@ -2,6 +2,7 @@
 
 use ScadaUnity\Framework\Console\CliTable;
 
+
 $data = [
   ['command'=>'list', 'description'=>'List all avaliables commands for cli.', 'options'=>''],
   ['command'=>'routes', 'description'=>'View any routes created for application.', 'options'=>''],
@@ -10,8 +11,9 @@ $data = [
 ];
 
 if ($argv[1] == 'list') {
+    logo();
 
-  echo PHP_EOL."LISTA DE COMANDOS DISPONIVEIS NO CLI". PHP_EOL. PHP_EOL;
+  echo PHP_EOL."Available commands". PHP_EOL. PHP_EOL;
 
   // Cria a tabela
   $table = new CliTable;

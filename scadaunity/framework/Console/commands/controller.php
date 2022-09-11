@@ -1,10 +1,12 @@
 <?php
 
 if ($argv[1] == 'create:controller') {
-  echo "# Criando controller #".PHP_EOL;
+    logo();
+  echo "    # Criando controller #".PHP_EOL;
 
   // Verifica se foi passado o nome do controller
   if (!isset($argv[2])) {
+    echo "Informe o nome do controller".PHP_EOL;
     die('Não foi passado o nome do controller no segundo parametro.'.PHP_EOL);
   }
 

@@ -255,12 +255,6 @@ class Router
     public function run(){
         try {
 
-
-          /** Gera o token se o metodo for do tipo GET*/
-          /*if ($this->request->method() == 'get') {
-            setToken();
-          }*/
-
           /** Procura a rota **/
           $match = self::match($this->getUri(), self::$routes[$this->method]);
 
@@ -289,7 +283,7 @@ class Router
             return (new Middleware([],$match,$this->params))->next($this->request);
           }
           view('pages/error/404');
-          
+
         } catch (\Exception $e) {
           dd($e->getMessage());
         }

@@ -7,11 +7,14 @@ require __DIR__.'/vendor/autoload.php';
 /** Carrega o autoload do composer */
 require __DIR__.'/scadaunity/framework/bootstrap.php';
 
+require __DIR__.'/scadaunity/framework/Console/helper.php';
+
 if (!isset($argv[1])) {
     $argv[1] = 'list';
     require __DIR__.'/scadaunity/framework/Console/commands/list.php';
     die();
 }
+
 
 require __DIR__.'/scadaunity/framework/Console/commands/routes.php';
 require __DIR__.'/scadaunity/framework/Console/commands/list.php';

@@ -16,7 +16,7 @@ class App
   public $config = '';
 
   public function __construct(){
-      $this->config();
+      //$this->config();
   }
 
   /**
