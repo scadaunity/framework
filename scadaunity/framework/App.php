@@ -16,7 +16,7 @@ class App
   public $config = '';
 
   public function __construct(){
-      //$this->config();
+      $this->config();
   }
 
   /**
@@ -28,8 +28,7 @@ class App
   }
 
   private function config(){
-      echo 'carregando configuração'.PHP_EOL;
-      echo ''.PHP_EOL;
+
   }
 
 }

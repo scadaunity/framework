@@ -14,7 +14,7 @@ class Env
    */
   public static function load($dir)
   {
-    
+
     // VERIFICA SE O ARQUIVO EXISTE
     if (!file_exists($dir.'/.env')) {
       return false;
@@ -34,7 +34,5 @@ class Env
         putenv($arrayLine[0].'='.trim($arrayLine[1]));
       }
     }
-
-
   }
 }
