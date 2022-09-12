@@ -36,7 +36,7 @@ class UserController
       'title' => 'Usuarios',
       'users' => $this->user->all()
     ];
-    return view('/user/users',$data,'navbar');
+    return view('pages/user/users',$data,'navbar');
   }
 
   /**

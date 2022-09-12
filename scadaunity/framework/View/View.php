@@ -64,7 +64,24 @@ class View extends TemplateEngine
     }
 
     // Verifica se o arquivo existe
-    if (!file_exists($file)) { throw new \Exception("Arquivo não encontrado ".$file, 500);}
+    if (!file_exists($file)) {
+
+        //return view('pages/error/404');
+        switch(ENVIRONMENT)
+         {
+            case 'production':
+              return view('pages/error/404');
+              break;
+            case 'testing':
+              throw new \Exception("Arquivo não encontrado ".$file, 500);
+              break;
+            case 'development':
+              throw new \Exception("Arquivo não encontrado ".$file, 500);
+              break;
+            default:
+              return view('pages/error/404');
+         }
+    }
       // Carrega a view
     require $file;
   }

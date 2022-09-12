@@ -5,7 +5,6 @@
  * @var string
  */
 define('URL','http://localhost/framework');
-//define('URL','http://localhost:8000');
 
 /**
  * [PT_BR] Define o namespace do diretorio padrao para a pasta controllers;
