@@ -53,4 +53,4 @@ if (ENVIRONMENT == 'development') {
     ini_set('display_errors', 'On');
 }
 
-//setToken();
+setToken();
