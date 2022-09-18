@@ -17,6 +17,10 @@ Env::load(dirname(__FILE__,1));
 session_save_path( sys_get_temp_dir());
 session_start();
 
+
+
+
+/die();
 /** Carrega as configurações */
 require_once 'app/config/app.php';
 require_once 'app/config/paths.php';
@@ -44,9 +48,18 @@ require_once 'scadaunity/framework/controller.php';
 
 
 /** Carrega os arquivos de rotas */
-require_once 'app/routes/api.php';
-require_once 'app/routes/web.php';
-require_once 'app/routes/console.php';
+//require_once 'app/routes/api.php';
+//require_once 'app/routes/web.php';
+//require_once 'app/routes/console.php';
+
+$routesDir = scandir(dirname(__FILE__,1).'/app/routes');
+
+foreach ($routesDir as $file) {
+    $routeFile = dirname(__FILE__,1)."/app/routes/{$file}";
+    if(is_file($routeFile) && pathinfo($routeFile)["extension"] == 'php'){
+        require_once $routeFile;
+    }
+}
 
 if (ENVIRONMENT == 'development') {
     error_reporting(E_ALL);
