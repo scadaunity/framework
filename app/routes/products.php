@@ -2,4 +2,4 @@
 
 use ScadaUnity\Framework\Http\Router;
 
-Route::get('/products','ProductsController@index');
+Router::get('/products','ProductsController@index');
