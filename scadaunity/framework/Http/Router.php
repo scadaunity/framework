@@ -15,10 +15,16 @@ use \Closure;
 class Router
 {
   /**
+    * Mapeamento das rotas
+    * @var array
+    */
+  public static $map = [];
+
+  /**
     * Variavel responsavel por armazenar o indice das rotas
     * @var array
     */
-  public static $routes;
+  public static $routes = [];
 
   /**
     * URL completa do projeto (raiz)
@@ -66,7 +72,7 @@ class Router
     * Construtor da classe
     * @param string $url
     */
-  public function __construct($url)
+  public function __construct(string $url)
 {
       $this->response = new Response(200,'scada unity');
       $this->request = new Request();
@@ -75,6 +81,30 @@ class Router
       $this->url = $url;
       $this->setPrefix();
       $this->segments = explode('/',ltrim($this->getUri(),'/'));
+      self::loadRoutes();
+  }
+
+  /**
+   * Metodo responsavel por carregar os arquivos de rotas
+   * @return [type]
+   */
+  public static function loadRoutes(){
+      foreach (self::$map as $file) {
+          require_once $file;
+      }
+     // dd(self::$routes);
+  }
+
+  public static function all(){
+      return self::$routes;
+  }
+
+  /**
+   * Metodo responsavel por definir o mapeamento das rotas
+   * @param array $map
+   */
+  public static function setMap($map){
+    self::$map = $map;
   }
 
   private function getUri(){

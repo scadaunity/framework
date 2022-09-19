@@ -22,6 +22,7 @@ require_once 'app/config/logger.php';
 require_once 'app/config/mail.php';
 require_once 'app/config/middlewares.php';
 require_once 'app/config/view.php';
+require_once 'app/config/routes.php';
 
 
 /** carrega os helpers */
@@ -37,25 +38,6 @@ require_once 'scadaunity/framework/helpers/helperView.php';
 
 /** carrega libs do core */
 require_once 'scadaunity/framework/controller.php';
-
-
-
-/** Carrega os arquivos de rotas */
-require_once 'app/routes/api.php';
-require_once 'app/routes/web.php';
-require_once 'app/routes/console.php';
-
-
-$routesDir = scandir(dirname(__FILE__,1).'/app/routes');
-
-foreach ($routesDir as $file) {
-    $routeFile = dirname(__FILE__,1)."/app/routes/{$file}";
-    if(is_file($routeFile) && pathinfo($routeFile)["extension"] == 'php'){
-        require_once 'app/routes/'.$file;
-
-    }
-}
-
 
 if (ENVIRONMENT == 'development') {
     error_reporting(E_ALL);

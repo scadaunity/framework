@@ -10,8 +10,11 @@ if (isset($argv[1]))
         // Variavel responsavel por armazenar os resultados
         $data = [];
 
+
+
         // Busca as rotas
-        $routes = Router::$routes;
+        Router::loadRoutes();
+        $routes = Router::all();
 
         // Recupera as rotas get
         if (isset($routes['get'])) {
@@ -56,8 +59,6 @@ if (isset($argv[1]))
           $table->injectData($data);
           $table->display();
         }
-
-        echo "Nenhuma rota encontrada";
     }
 }
 

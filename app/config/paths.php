@@ -19,7 +19,7 @@ define('CONTROLLERS_PATH','\App\\Controllers\\');
 define('ROOT',dirname(__FILE__,3));
 
 /**
- * [PT_BR] Define o caminho diretorio padrão da views
+ * [PT_BR] Define o caminho do diretorio padrão da views
  * @var string
  */
 define('VIEWS',ROOT.'/app/Views/');
