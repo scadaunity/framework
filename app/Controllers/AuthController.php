@@ -157,6 +157,15 @@ class AuthController
    */
   public function autenticate(){
 
+      $validate = validate([
+        'email' => 'email',
+        'password' => 'required',
+      ]);
+
+      if (!$validate) {
+        return redirect('/login');
+      }
+
     /** ARMAZENA OS PARAMETROS DA REQUISIÇÃO*/
     $request = new Request();
     $email = $request->post()['email'];

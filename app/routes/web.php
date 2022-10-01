@@ -23,3 +23,5 @@ Router::resources([
   'users' => 'UserController',
   'account' => 'MoneyAccountController',
 ]);
+
+Router::resource('/user','DougController');
