@@ -6,7 +6,7 @@ use ScadaUnity\Framework\Database\QueryBuilder;
 use PDO;
 
 /**
- * Classe responsavel po manipular o banco de dados
+ * Classe responsavel por manipular o banco de dados
  */
 class Database
 {
@@ -51,6 +51,8 @@ class Database
     $this->dbname   = getenv('DB_NAME')     == false ? $this->dbname = DB_NAME : 'true';
     $this->user     = getenv('DB_USER')     == false ? $this->user = DB_USER : 'true';
     $this->password = getenv('DB_PASSWORD') == false ? $this->ássword = DB_PASSWORD : 'true';
+
+    dd($this);
   }
 
   /**
