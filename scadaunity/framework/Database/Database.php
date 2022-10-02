@@ -45,14 +45,14 @@ class Database
    */
   function __construct()
   {
+      //dd(getenv());
+    $this->driver   = getenv('DB_DRIVER');
+    $this->host     = getenv('DB_HOST');
+    $this->dbname   = getenv('DB_NAME');
+    $this->user     = getenv('DB_USER');
+    $this->password = getenv('DB_PASSWORD');
 
-    $this->driver   = getenv('DB_DRIVER')   == false ? $this->driver = DB_DRIVER : 'true';
-    $this->host     = getenv('DB_HOST')     == false ? $this->host = DB_HOST : 'true';
-    $this->dbname   = getenv('DB_NAME')     == false ? $this->dbname = DB_NAME : 'true';
-    $this->user     = getenv('DB_USER')     == false ? $this->user = DB_USER : 'true';
-    $this->password = getenv('DB_PASSWORD') == false ? $this->ássword = DB_PASSWORD : 'true';
-
-    dd($this);
+    //dd($this);
   }
 
   /**
