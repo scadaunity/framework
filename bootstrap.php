@@ -17,7 +17,6 @@ session_start();
 /** Carrega as configurações */
 require_once 'app/config/app.php';
 require_once 'app/config/paths.php';
-//require_once 'app/config/database.php';
 require_once 'app/config/logger.php';
 require_once 'app/config/mail.php';
 require_once 'app/config/middlewares.php';
