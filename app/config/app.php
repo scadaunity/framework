@@ -28,4 +28,4 @@ define("CHARSET",'UTF-8');
  * tipos disponiveis (development,testing,production)
  * @var string
  */
-define("ENVIRONMENT",'production');
+define("ENVIRONMENT",'development');
