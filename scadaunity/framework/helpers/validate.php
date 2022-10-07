@@ -57,7 +57,7 @@ function required($field){
     return false;
   }
 
-  return filter_input(INPUT_POST,$field,FILTER_SANITIZE_STRING);
+  return strip_tags($field);
 }
 
 /**
@@ -73,7 +73,7 @@ function email($field){
     return false;
   }
 
-  return filter_input(INPUT_POST,$field,FILTER_SANITIZE_STRING);
+  return strip_tags($field);
 }
 
 /**
