@@ -6,7 +6,7 @@
             <h2 class="mb-4 text-xl font-semibold tracking-widest text-black uppercase title-font dark:text-gray-200">  Bem vindo! </h2>
             <p class="mb-4 text-lg text-blueGray-600 "> Agora começa nossa experiencia, Scada unity é um poderoso framework PHP com sintaxe elegante e moderno </p>
             <div class="flex flex-col justify-center lg:flex-row">
-                <a href="http://localhost/docs/docs-page.php" target="_blank" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Documentação </a>
+                <a href="http://scadaunity.com.br" target="_blank" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"> Documentação </a>
             </div>
         </div>
         <div class="w-1/2 lg:w-1/3 lg:max-w-lg md:w-1/2">
@@ -17,7 +17,6 @@
 
 <footer class="bg-white dark:bg-gray-900 absolute bottom-0 left-0 w-full">
     <div class="container px-6 pb-4 mx-auto">
-
 
         <hr class="my-10 border-gray-200 dark:border-gray-700" />
 

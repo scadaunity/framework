@@ -46,7 +46,7 @@ function validate($validations){
 }
 
 /**
- * Metodo verificar um campo obrigatorio
+ * Metodo responsavel por verificar um campo obrigatorio
  * @param  string $field
  * @return string $field
  */
