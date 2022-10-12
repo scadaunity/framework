@@ -14,37 +14,17 @@ if ($argv[1] == 'create:migration') {
 
   //Cria o nome do arquivo
   $name = date('Y_m_d_his', time()).'_'.$argv[2].PHP_EOL;
-  echo $name.PHP_EOL;
+  
 
   //Adiciona o caminho completo do arquivo
   $file = ROOT.'/app/Database/Migrations/'.$name.'.php';
-  echo $file.PHP_EOL;
+  
 
   // Verifica se o arquivo existe
   if (is_file($file)) {
-    echo 'O arquivo jaexiste'.PHP_EOL;
-  } else {
-    echo "Arquivo não existe".PHP_EOL;
+    echo 'O arquivo ja existe'.PHP_EOL;
   }
 
-  // Ignora nomes que não são da tabela
-  $ignoredNames = [
-    'create','table','add','field','to'
-  ];
-
-  // Recupera os nomes passados
-  $avaliableNames = explode('_',$argv[2]);
-
-  foreach ($avaliableNames as $name) {
-    echo $name.PHP_EOL;
-  }
-  
-  $tableName = '';
-
-  
-  var_dump($tableName);
-
-  die();
   // Cria o arquivo
   $arquivo = fopen($file,'w');
 
