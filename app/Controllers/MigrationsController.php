@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Database\Forge;
+use ScadaUnity\Framework\Database\Schema;
 
 class MigrationsController
 {
@@ -16,13 +16,13 @@ class MigrationsController
     echo "<h1>Migrations</h1><br>";
     echo "<a href='http://localhost/framework/public/migrations/up'>Up</a><br>";
     echo "<a href='http://localhost/framework/public/migrations/down'>Down</a><br>";
-    Forge::all();
+    Schema::all();
 
   }
 
   public function up()
   {
-    $forge = new Forge();
+    $forge = new Schema();
     $forge->table('atempt');
     $forge->id();
     $forge->string('name',70);
@@ -35,7 +35,7 @@ class MigrationsController
 
   public function down()
   {
-    Forge::dropIfExists('atempt');
+    Schema::dropIfExists('atempt');
     redirect('/migrations');
 
   }

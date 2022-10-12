@@ -7,7 +7,7 @@ use ScadaUnity\Framework\Database\Types;
 use PDO;
 
 
-class Forge extends Types
+class Schema extends Types
 {
     /**
      * Instancia de database
