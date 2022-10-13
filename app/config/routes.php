@@ -7,6 +7,7 @@ use ScadaUnity\Framework\Http\Router;
  * @var array
  */
 Router::setMap([
-    'web'       => ROOT.'/app/routes/web.php',
+    'web'        => ROOT.'/app/routes/web.php',
     'auth'       => ROOT.'/app/routes/auth.php',
+    'migration'  => ROOT.'/app/routes/migration.php',
 ]);
