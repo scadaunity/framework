@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use ScadaUnity\Framework\Database\Schema;
+use ScadaUnity\Framework\Database\Types as table;
 
 class MigrationsController
 {
@@ -14,29 +15,30 @@ class MigrationsController
   public function index()
   {
     echo "<h1>Migrations</h1><br>";
-    echo "<a href='http://localhost/framework/public/migrations/up'>Up</a><br>";
-    echo "<a href='http://localhost/framework/public/migrations/down'>Down</a><br>";
+    echo '<a href="migration/up">Up</a><br>';
+    echo "<a href='migration/down'>Down</a><br>";
     Schema::all();
 
   }
 
   public function up()
   {
-    $forge = new Schema();
-    $forge->table('atempt');
-    $forge->id();
-    $forge->string('name',70);
-    $forge->string('email',50);
-    $forge->create();
 
-    redirect('/migrations');
+    Schema::create('teste',function(){
+      table::id();
+      table::string('name',10);
+    });
+
+    redirect('/migration');
 
   }
 
   public function down()
   {
+    Schema::dropIfExists('teste');
+    Schema::dropIfExists('users');
     Schema::dropIfExists('atempt');
-    redirect('/migrations');
+    redirect('/migration');
 
   }
 

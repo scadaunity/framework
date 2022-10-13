@@ -20,7 +20,7 @@
     - Definindo permissoes de arquivos e pastas;
       - sudo chmod -R 755 framework-main/
 2. Router
-  2.1 As rotas são definidas na pasta app/routes, porem não são carregadas automaticamente, por padrão apenas o arquivo web.php, para carregar seu arquivo de rotas va em app/config/routes.php, ou então utilize a função Router::setMap();
+  - As rotas são definidas na pasta app/routes, porem não são carregadas automaticamente, por padrão apenas o arquivo web.php, para carregar seu arquivo de rotas va em app/config/routes.php, ou então utilize a função Router::setMap();
   - Router::get('uri','calback');
   - Criar um template master
   - Chamar uma view

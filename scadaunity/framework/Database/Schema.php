@@ -48,16 +48,19 @@ class Schema extends Types
 
     /**
      * Metodo responsavel por criar uma tabela no banco de dados
+     * @param string $table
      * @return [type]
      */
-    public function create()
+    public static function create(string $table = '',$teste)
     {
-        $total = count($this->fields);
+        $param = call_user_func($teste);
+        //dd(self::$fields);
+        $total = count(self::$fields);
         $i = 0;
         try {
-          $query = "CREATE TABLE IF NOT EXISTS {$this->table}"." (";
-          if(!empty($this->fields)){
-              foreach ($this->fields as $field) {
+          $query = "CREATE TABLE IF NOT EXISTS {$table}"." (";
+          if(!empty(self::$fields)){
+              foreach (self::$fields as $field) {
                   $query .= $field;
                   $i++;
                   if($i<$total){
@@ -66,10 +69,13 @@ class Schema extends Types
               }
           }
           $query .=");";
-          $execute = $this->db->connect()->query($query);
+          
+          
+          $db = new Database();
+          $execute = $db->connect()->query($query);
 
         } catch (PDOException $e) {
-          dd($e->getMessage());
+          dd($e);
         }
     }
 
@@ -113,6 +119,33 @@ class Schema extends Types
             $execute = $db->connect()->query($query);
 
             dd($execute->fetchAll(PDO::FETCH_COLUMN));
+
+        } catch (PDOException $e) {
+          dd($e->getMessage());
+        }
+    }
+
+    /**
+     * Metodo responsavel por criar uma tabela no banco de dados
+     * @return [type]
+     */
+    public function create_bkp()
+    {
+        $total = count($this->fields);
+        $i = 0;
+        try {
+          $query = "CREATE TABLE IF NOT EXISTS {$this->table}"." (";
+          if(!empty($this->fields)){
+              foreach ($this->fields as $field) {
+                  $query .= $field;
+                  $i++;
+                  if($i<$total){
+                      $query.=',';
+                  }
+              }
+          }
+          $query .=");";
+          $execute = $this->db->connect()->query($query);
 
         } catch (PDOException $e) {
           dd($e->getMessage());

@@ -8,18 +8,19 @@ class Types
      * Colunas da tabela
      * @var array
      */
-    public $fields = [];
+    public static $fields = [];
 
-    public function id()
+    public static function id()
     {
-        array_push($this->fields,'id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY');
-        return $this;
+        array_push(self::$fields,'id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY');
+        return self::$fields;
     }
 
-    public function string(string $name, int $length = 255)
+    public static function string(string $name, int $length = 255)
     {
-        array_push($this->fields,"{$name} VARCHAR({$length})");
-        return $this;
+        array_push(self::$fields,"{$name} VARCHAR({$length})");
+        return self::$fields;
     }
+    
 
 }
