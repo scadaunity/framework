@@ -2,9 +2,10 @@
 
 namespace ScadaUnity\Framework\Database;
 
-use ScadaUnity\Framework\Database\Database;
-use ScadaUnity\Framework\Database\Types;
 use PDO;
+use PDOException;
+use ScadaUnity\Framework\Database\Types;
+use ScadaUnity\Framework\Database\Database;
 
 
 class Schema extends Types
