@@ -9,9 +9,7 @@ if (isset($argv[1]))
     {
         // Variavel responsavel por armazenar os resultados
         $data = [];
-
-
-
+        
         // Busca as rotas
         Router::loadRoutes();
         $routes = Router::all();

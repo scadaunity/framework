@@ -59,7 +59,6 @@ class Middleware
     // Verifica o Mapeamento
     if (!isset(self::$map[$middleware])) {
       throw new \Exception("Middleware não encontrado", 500);
-
     }
 
     // Gerencia a Fila

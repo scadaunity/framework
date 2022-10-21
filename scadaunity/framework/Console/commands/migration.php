@@ -1,6 +1,7 @@
 <?php
 
-use ScadaUnity\Framework\Database\Forge;
+use ScadaUnity\Framework\Database\Schema;
+use ScadaUnity\Framework\Database\Migration;
 
 if ($argv[1] == 'create:migration') {
     logo();
@@ -62,4 +63,10 @@ if ($argv[1] == 'create:migration') {
   fwrite($arquivo, "}".PHP_EOL);
   /** Fecha o arquivo */
   fclose($arquivo);
+}
+
+if ($argv[1] == 'migrate') {
+  echo "Iniciando a migração".PHP_EOL;
+  $migrate = new Migration();
+  $migrate->up();
 }

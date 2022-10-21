@@ -4,7 +4,7 @@
 /** Carrega o autoload do composer */
 require __DIR__.'/vendor/autoload.php';
 
-/** Carrega o autoload do composer */
+/** Carrega o bootstrap */
 require __DIR__.'/bootstrap.php';
 
 require __DIR__.'/scadaunity/framework/Console/helper.php';

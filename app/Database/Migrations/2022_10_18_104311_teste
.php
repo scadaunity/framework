@@ -13,7 +13,7 @@ return new class
    */
   public function up()
   {
-    //
+    echo "Migratio teste UP";
   }
 
   /**
@@ -23,7 +23,7 @@ return new class
    */
   public function down()
   {
-    //
+    echo "Migratio teste DOWN";
   }
 
 }
