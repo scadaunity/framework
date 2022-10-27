@@ -72,3 +72,10 @@ if ($argv[1] == 'migrate') {
   $migrator = new Migration();
   $migrator->migrate();
 }
+
+if ($argv[1] == 'migrate:rollback') {
+  logo();
+  echo "#  Migrando banco de dados  #".PHP_EOL.PHP_EOL;
+  $migrator = new Migration();
+  $migrator->rollback();
+}

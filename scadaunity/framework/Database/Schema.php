@@ -121,6 +121,7 @@ class Schema extends Table
             $db = new Database();
             $query = "DROP TABLE IF EXISTS {$table}";
             $execute = $db->connect()->query($query);
+            echo "\e[92mSuccess: \e[33mRollback \e[33m{$table} table".PHP_EOL.PHP_EOL;
 
         } catch (PDOException $e) {
           dd($e->getMessage());

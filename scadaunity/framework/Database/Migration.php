@@ -2,9 +2,6 @@
 
 namespace ScadaUnity\Framework\Database;
 
-use ReflectionClass;
-use ScadaUnity\Framework\Database\Schema;
-
 /**
  *  Classe responsavel por realizar a migrações no bancode dados
  */
@@ -28,14 +25,14 @@ class Migration
     public function __construct()
     {
         $this->path = ROOT.'/app/Database/Migrations/';
+        $this->setMap();
     }
 
     /**
      * Metodo responsavel por mapear os arquivos de migração na pasta app/Database/Migrations.
      */
     public function setMap(){
-        
-
+    
         //VERIFICA SE EXISTE O DIRETÓRIO
         if(!is_dir($this->path)){
             return false;
@@ -54,7 +51,7 @@ class Migration
     }
 
     public function migrate(){
-        $this->setMap();
+        
 
         // VERIFICA SE A FILA ESTA VAZIA
         if (empty($this->map)) return false;
@@ -63,6 +60,18 @@ class Migration
         foreach ($this->map as $migration) {
             $file = require $migration;
             $file->up();
+        }
+    }
+
+    public function rollback(){
+
+        // VERIFICA SE A FILA ESTA VAZIA
+        if (empty($this->map)) return false;
+
+        // EXECUTA AS MIGRAÇÕES
+        foreach ($this->map as $migration) {
+            $file = require $migration;
+            $file->down();
         }
     }
 

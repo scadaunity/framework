@@ -15,7 +15,6 @@ return new class
   public function up()
   {
     Schema::create('users',function(){
-      
       Table::id();
       Table::string('name');
     });

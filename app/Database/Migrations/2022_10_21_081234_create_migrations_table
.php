@@ -28,7 +28,7 @@ return new class
    */
   public function down()
   {
-    //
+    Schema::dropIfExists('migrations');
   }
 
 };
