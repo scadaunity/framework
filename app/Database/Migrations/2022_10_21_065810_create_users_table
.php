@@ -2,7 +2,8 @@
 
 namespace App\Database\Migrations;
 
-use ScadaUnity\Framework\Database\Forge;
+use ScadaUnity\Framework\Database\Schema;
+use ScadaUnity\Framework\Database\Table;
 
 return new class
 {
@@ -13,7 +14,11 @@ return new class
    */
   public function up()
   {
-    echo "Migratio teste UP";
+    Schema::create('users',function(){
+      
+      Table::id();
+      Table::string('name');
+    });
   }
 
   /**
@@ -23,7 +28,7 @@ return new class
    */
   public function down()
   {
-    echo "Migratio teste DOWN";
+    Schema::dropIfExists('users');
   }
 
-}
+};

@@ -2,7 +2,7 @@
 
 namespace ScadaUnity\Framework\Database;
 
-use FilesystemIterator;
+use ReflectionClass;
 use ScadaUnity\Framework\Database\Schema;
 
 /**
@@ -17,43 +17,52 @@ class Migration
     private $map = [];
 
     /**
+     * Diretório contendo os arquivos das migrações.
+     * @var string
+     */
+    private $path;
+
+    /**
      * Construtor da classe
      */
     public function __construct()
     {
-        $this->loadMigrations();
-        //var_dump($this->map);
+        $this->path = ROOT.'/app/Database/Migrations/';
     }
 
     /**
-     * Metodo responsavel por verificar os arquivos de migração na pasta app/Database/Migrations.
+     * Metodo responsavel por mapear os arquivos de migração na pasta app/Database/Migrations.
      */
-    public function loadMigrations(){
-        //CAMINHO DAS MIGRAÇÕES
-        $path = ROOT.'/app/Database/Migrations';
+    public function setMap(){
+        
 
         //VERIFICA SE EXISTE O DIRETÓRIO
-        if(!is_dir($path)){
+        if(!is_dir($this->path)){
             return false;
         }
 
         //PROCURA OS ARQUIVOS DENTRO DO DIRETORIO
         $migrations = array_diff(
-            scandir($path),
+            scandir($this->path),
             ['.', '..']
         );
 
-        //DEFINE O MAPA DAS MIGRAÇÕES
+        //DEFINE O MAPA DAS MIGRAÇÕES COM O CAMINHO ABSOLUTO
         foreach ($migrations as $migration) {
-            array_push($this->map,$migration);
+            array_push($this->map,$this->path.$migration);
         }
     }
 
-    public function up(){
+    public function migrate(){
+        $this->setMap();
+
+        // VERIFICA SE A FILA ESTA VAZIA
+        if (empty($this->map)) return false;
+
+        // EXECUTA AS MIGRAÇÕES
         foreach ($this->map as $migration) {
-            var_dump($migration);
-            // Executa a migração
-            return (new $this->map[$migration])->up();
+            $file = require $migration;
+            $file->up();
         }
     }
 

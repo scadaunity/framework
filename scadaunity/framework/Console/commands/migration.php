@@ -34,7 +34,8 @@ if ($argv[1] == 'create:migration') {
 
   fwrite($arquivo, '<?php'.PHP_EOL.PHP_EOL);
   fwrite($arquivo, 'namespace App\Database\Migrations;'.PHP_EOL.PHP_EOL);
-  fwrite($arquivo, 'use ScadaUnity\Framework\Database\Forge;'.PHP_EOL.PHP_EOL);
+  fwrite($arquivo, 'use ScadaUnity\Framework\Database\Schema;'.PHP_EOL.PHP_EOL);
+  fwrite($arquivo, 'use ScadaUnity\Framework\Database\Table;'.PHP_EOL.PHP_EOL);
   fwrite($arquivo, "return new class".PHP_EOL);
   fwrite($arquivo, "{".PHP_EOL);
     
@@ -60,13 +61,14 @@ if ($argv[1] == 'create:migration') {
   fwrite($arquivo, "  }".PHP_EOL.PHP_EOL);
   
   /** Fim da classe */
-  fwrite($arquivo, "}".PHP_EOL);
+  fwrite($arquivo, "};".PHP_EOL);
   /** Fecha o arquivo */
   fclose($arquivo);
 }
 
 if ($argv[1] == 'migrate') {
-  echo "Iniciando a migração".PHP_EOL;
-  $migrate = new Migration();
-  $migrate->up();
+  logo();
+  echo "#  Migrando banco de dados  #".PHP_EOL.PHP_EOL;
+  $migrator = new Migration();
+  $migrator->migrate();
 }

@@ -13,7 +13,7 @@ define('URL','http://localhost:8000');
 define('CONTROLLERS_PATH','\App\\Controllers\\');
 
 /**
- * [PT_BR] Define o caminho do diretorio raiz do projeto
+ * [PT_BR] Define o caminho absoluto do diretorio raiz do projeto
  * @var string
  */
 define('ROOT',dirname(__FILE__,3));
@@ -61,9 +61,10 @@ define('COMPONENTS_PATH',VIEWS.'components/');
 define('TEMPLATES_PATH',VIEWS.'template/');
 
 /**
- * [PT_BR] Define o caminho diretorio padrão da views
+ * [PT_BR] Define o caminho absoluto do diretorio padrão do log.
  * @var string
  */
 define('LOGS_PATH',ROOT.'/storage/logs/');
+
 
 define('LOGGED','LOGGED');

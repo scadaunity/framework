@@ -4,11 +4,14 @@ namespace ScadaUnity\Framework\Database;
 
 use PDO;
 use PDOException;
-use ScadaUnity\Framework\Database\Types;
-use ScadaUnity\Framework\Database\Database;
 
+//use ScadaUnity\Framework\Database\Database;
 
-class Schema extends Types
+/**
+ * Classe responsavel por manipular tabelas no banco de dados.
+ * Criar, alterar ou excluir.
+ */
+class Schema extends Table
 {
     /**
      * Instancia de database
@@ -26,7 +29,7 @@ class Schema extends Types
      * Armazena a query
      * @var string
      */
-    private $query;
+    public $query = [];
 
     /**
      * Construtor da classe
@@ -49,35 +52,47 @@ class Schema extends Types
 
     /**
      * Metodo responsavel por criar uma tabela no banco de dados
-     * @param string $table
+     * @param string $table Nome da tabela
      * @return [type]
      */
-    public static function create(string $table = '',$teste)
+    public static function create($table,$callback)
     {
-        $param = call_user_func($teste);
-        //dd(self::$fields);
-        $total = count(self::$fields);
-        $i = 0;
-        try {
-          $query = "CREATE TABLE IF NOT EXISTS {$table}"." (";
-          if(!empty(self::$fields)){
-              foreach (self::$fields as $field) {
-                  $query .= $field;
-                  $i++;
-                  if($i<$total){
-                      $query.=',';
-                  }
+      
+      // VERIFICA SE É UMA CLOSURE E EXECUTA A FUNÇÃO ANONIMA
+      if(is_callable($callback)){
+        $teste = call_user_func($callback);
+      }
+
+      // VERIFICA SE EXISTE AS QUERIES DE TIPOS.
+      if(empty(self::$fields)){
+        return false;
+      }
+
+      // MONTA A QUERY do schema
+      $total = count(self::$fields);
+      $i = 0;
+      $query = "CREATE TABLE IF NOT EXISTS {$table}"." (";
+      if(!empty(self::$fields)){
+          foreach (self::$fields as $field) {
+              $query .= $field;
+              $i++;
+              if($i<$total){
+                  $query.=',';
               }
           }
-          $query .=");";
-          
-          
-          $db = new Database();
-          $execute = $db->connect()->query($query);
+      }
+      $query .=");";
 
-        } catch (PDOException $e) {
-          dd($e);
-        }
+      // LIMPA AS QUERIES DE TIPOS
+      self::$fields = [];
+      
+      try {
+        $db = new Database();
+        $db->execute($query);
+        echo "\e[92mSuccess: \e[33mcreate \e[33m{$table} table".PHP_EOL.PHP_EOL;
+      } catch (PDOException $e) {
+        dd($e);
+      }
     }
 
     /**
@@ -112,44 +127,25 @@ class Schema extends Types
         }
     }
 
+    /**
+     * Metodo responsavel por retornar todas as tabelas
+     * @return array All tables of database
+     */
     public static function all()
     {
-        try {
-            $db = new Database();
-            $query = "SHOW TABLES";
-            $execute = $db->connect()->query($query);
-
-            dd($execute->fetchAll(PDO::FETCH_COLUMN));
-
-        } catch (PDOException $e) {
-          dd($e->getMessage());
-        }
+      try {
+        $db = new Database();
+        $query = "SHOW TABLES";
+        return $db->connect()->query($query)->fetchAll(PDO::FETCH_COLUMN);
+      } catch (PDOException $e) {
+        dd($e->getMessage());
+      }
     }
 
     /**
-     * Metodo responsavel por criar uma tabela no banco de dados
-     * @return [type]
+     * 
      */
-    public function create_bkp()
-    {
-        $total = count($this->fields);
-        $i = 0;
-        try {
-          $query = "CREATE TABLE IF NOT EXISTS {$this->table}"." (";
-          if(!empty($this->fields)){
-              foreach ($this->fields as $field) {
-                  $query .= $field;
-                  $i++;
-                  if($i<$total){
-                      $query.=',';
-                  }
-              }
-          }
-          $query .=");";
-          $execute = $this->db->connect()->query($query);
+    private function execute(){
 
-        } catch (PDOException $e) {
-          dd($e->getMessage());
-        }
     }
 }

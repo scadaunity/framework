@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use ScadaUnity\Framework\Database\Schema;
-use ScadaUnity\Framework\Database\Types as table;
+use ScadaUnity\Framework\Database\Table;
 
 class MigrationsController
 {
@@ -13,11 +13,19 @@ class MigrationsController
    * @return \ScadaUnity\Http\Response
    */
   public function index()
-  {
+  { 
+    
+    $data = [
+      'tables'=> Schema::all(),
+    ];
+    
+    view('template/header',$data);
+    view('components/Navbar',$data);
+    view('migration',$data);
     echo "<h1>Migrations</h1><br>";
     echo '<a href="migration/up">Up</a><br>';
     echo "<a href='migration/down'>Down</a><br>";
-    Schema::all();
+    //Schema::all();
 
   }
 
@@ -25,8 +33,8 @@ class MigrationsController
   {
 
     Schema::create('teste',function(){
-      table::id();
-      table::string('name',10);
+      Table::id();
+      Table::string('name',10);
     });
 
     redirect('/migration');
