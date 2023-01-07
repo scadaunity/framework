@@ -10,4 +10,5 @@ Router::setMap([
     'web'        => ROOT.'/app/routes/web.php',
     'auth'       => ROOT.'/app/routes/auth.php',
     'migration'  => ROOT.'/app/routes/migration.php',
+    'components' => ROOT.'/app/routes/components.php',
 ]);

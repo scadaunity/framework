@@ -26,5 +26,5 @@
         </script>
     </head>
 
-    <body class="select-none antialiased text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-900">
+    <body class="select-none antialiased text-gray-500 dark:text-gray-400  dark:bg-gray-900">
         
