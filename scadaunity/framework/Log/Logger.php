@@ -3,74 +3,94 @@
 namespace ScadaUnity\Framework\Log;
 
 /**
- *
+ * Classe responsavel pelos eventos de log
  */
+
 class Logger
 {
   /**
-   * Mapeamento dos loggers
+   * Define os niveis de log
    * @var array
    */
-  private static $map = [];
+  public static $levels = [
+    'DEBUG'     => 100,
+    'INFO'      => 200,
+    'NOTICE'    => 300,
+    'WARNING'   => 400,
+    'ERROR'     => 500,
+    'CRITICAL'  => 600,
+    'ALERT'     => 700,
+    'EMERGENCY' => 800,
+  ];
 
   /**
-   * Mapeamento de loggers que serão carregados em todas as rotas
+   * Armazena os canais de envio
+   * @var [type]
+   */
+  public static $channels = [];
+
+  /**
+   * Armazena os logs
    * @var array
    */
-  private static $default = [];
+  public static $logs = [];
 
-  /**
-   * Fila de loggers
-   * @var array
-   */
-  private $loggers = [];
+  public function debug(string|\Stringable $message, array $context = []): void
+  {
 
-  public function __construct(){
-    //dd(self::$map);
+  }
+  public function info(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function notice(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function warning(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function error(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function critical(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function alert(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function emergency(string|\Stringable $message, array $context = []): void
+  {
+
+  }
+  public function log($level, string|\Stringable $message, array $context = []): void{
+
+  }
+
+  public static function addLevel($level,$value){
+    self::$levels[$level] = $value;
   }
 
   /**
-   * Metodo responsavel por executar o proximo nivel da fila de loggers
-   * @param  Request  $request
-   * @return Response
+   * Metodo responsavel por mapear os canais de envio
+   * @param string $channel Nome do canal
    */
-  public function next($request){
-
-    // Verifica se a fila esta vazia
-    if (empty($this->loggers)) return ;
-
-    // Pega o logger e remove do array de mapeamento
-    $logger = array_shift($this->loggers);
-
-    // Verifica o Mapeamento
-    if (!isset(self::$map[$logger])) {
-      throw new \Exception('Logger não encontrado', 500);
-
-    }
-
-    // Gerencia a Fila
-    $queue = $this;
-    $next = function($request) use($queue){
-      return $queue->next($request);
-    };
-
-    // Executa o logger
-    return (new self::$map[$logger])->handle($request,$next);
+  public static function addChannel($channel,$handler){
+    self::$channels[$channel] = $handler;
   }
 
   /**
-   * Metodo responsavel por definir o mapeamento de loggers padrão
-   * @param [type] $default
+   * Adiciona um registro no log
    */
-  public static function setDefault($default){
-    self::$default = $default;
+  public static function addLog(string $message, string $level)
+  {
+    $data = [
+      
+    ];
   }
 
-  /**
-   * Metodo responsavel por definir o mapeamento de loggers
-   * @param array $map
-   */
-  public static function setMap($map){
-    self::$map = $map;
-  }
 }

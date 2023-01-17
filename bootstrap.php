@@ -11,9 +11,6 @@ session_save_path( sys_get_temp_dir());
 session_start();
 
 
-
-
-
 /** Carrega as configurações */
 require_once 'app/config/app.php';
 require_once 'app/config/paths.php';
@@ -44,3 +41,5 @@ if (ENVIRONMENT == 'development') {
 }
 
 setToken();
+
+

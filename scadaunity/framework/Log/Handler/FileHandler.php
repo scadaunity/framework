@@ -1,18 +1,16 @@
 <?php
 
-namespace ScadaUnity\Framework\Log\Handlers;
+namespace ScadaUnity\Framework\Log\Handler;
 
 class FileHandler{
-
-  /**
-   * Metodo responsavel por executar o middleware
-   * @param  Request $request
-   * @param  Closure $next
-   * @return Response
-   */
-  public function handle($next){
-
-    d($next);
-    return $next();
-  }
+    /**
+     * Construtor da classe
+     * 
+     * @param string $filename Caminho completo e nome do arquivo
+     * @param string $level
+     */
+    public function __construct(string $filename, string $level)
+    {
+        
+    }
 }

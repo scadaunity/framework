@@ -87,7 +87,7 @@ class AuthController
 
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
-      setFlash('message',$errorMessage);
+      setFlash('message','teste');
       return redirect('/login');
     }
 
@@ -161,6 +161,8 @@ class AuthController
         'email' => 'email',
         'password' => 'required',
       ]);
+
+      dd($validate);
 
       if (!$validate) {
         return redirect('/login');

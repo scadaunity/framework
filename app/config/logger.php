@@ -1,8 +1,11 @@
 <?php
 
+use ScadaUnity\Framework\Log\Handler\FileHandler;
 use ScadaUnity\Framework\Log\Logger;
 
-// Registra um logger no mapeamento.
-Logger::setMap([
-  'file' => \ScadaUnity\Framework\Log\FileHandler::class,
-]);
+$log = new Logger();
+
+// Adiciona um Canal de Envio
+$log::addChannel('web',new FileHandler('/Storage/Log/web.txt','DEBUG'));
+
+

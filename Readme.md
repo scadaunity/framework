@@ -30,10 +30,21 @@
 4. Compilar seus ativos css taiwind
   - npx tailwindcss -i ./app/Views/css/tailwind.css -o ./public/app.css --watch
 
-## validate
-### required
-### email
-### unique
-### maxlength
-### minlength
-### boolean
+5. validate
+  - required
+  - email
+  - unique
+  - maxlength
+  - minlength
+  - boolean
+
+ 6. Log
+  - Levels 
+    - EMERGENCY
+    - ALERT
+    - CRITICAL
+    - ERROR
+    - WARNING
+    - NOTICE
+    - INFO
+    - DEBUG

@@ -17,6 +17,8 @@ return new class
     Schema::create('users',function(){
       Table::id();
       Table::string('name');
+      Table::string('email');
+      Table::string('password');
     });
   }
 
