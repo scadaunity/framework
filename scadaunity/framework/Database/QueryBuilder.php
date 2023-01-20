@@ -3,6 +3,7 @@
 namespace ScadaUnity\Framework\Database;
 
 use ScadaUnity\Framework\Database\Database;
+use PDOException;
 
 /**
  *

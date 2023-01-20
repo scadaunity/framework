@@ -83,7 +83,7 @@ function email($field){
  * @return string $field
  */
 function unique($field,$param){
-  $value = filter_input(INPUT_POST,$field,FILTER_SANITIZE_STRING);
+  $value = $field;
   $db = new QueryBuilder();
   $result = $db->findBy($param, $field, $value);
 

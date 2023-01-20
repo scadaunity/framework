@@ -131,7 +131,7 @@ class AuthController
     $data = [
       'name'      => $request->post()['name'],
       'email'     => $request->post()['email'],
-      'password'  => $request->post()['password']
+      'password'  => password_hash($request->post()['password'],PASSWORD_DEFAULT) 
     ];
 
     $user = $userModel->save($data);
@@ -162,8 +162,6 @@ class AuthController
         'password' => 'required',
       ]);
 
-      dd($validate);
-
       if (!$validate) {
         return redirect('/login');
       }
@@ -192,18 +190,28 @@ class AuthController
     /** BUSCA OS USUARIOS NO BANCO */
     $model = new UserModel();
     $users = $model->all();
+    
 
     $validUser = null;
 
     foreach ($users as $user) {
-      /** VERIFICA SE EMAIL E SENHA CONFEREM */
-      if ($user->email == $email && $user->password == $password) {
-          $validUser = $user;
-      }
+      /** VERIFICA SE EMAIL CONFEREM */
+      if ($user->email == $email) {
+        $validUser = $user;
+      }      
     }
 
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
+      setFlash('invalidLogin',$errorMessage);
+      return redirect('/login');
+    }
+
+    // VERIFICA A SENHA
+
+    
+
+    if(!password_verify($password,$validUser->password)){
       setFlash('invalidLogin',$errorMessage);
       return redirect('/login');
     }

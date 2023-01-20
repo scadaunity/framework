@@ -4,7 +4,6 @@
   use ScadaUnity\Framework\Database\Database;
   use ScadaUnity\Framework\Database\QueryBuilder;
 
-
   class Model
   {
 
@@ -13,6 +12,11 @@
      * @var string
      */
     protected $table;
+
+    /**
+     * Chave primaria
+     */
+    protected $primaryKey = 'id';
 
     /**
      * Instancia de Database
@@ -35,12 +39,28 @@
       $this->queryBuilder = new QueryBuilder();
     }
 
-    public function all(){
+    /**
+     * Metodo responsavel por retornar todos os registros
+     */
+    public function all()
+    {
       return $this->queryBuilder->all($this->table);
     }
 
-    public function find($id){
+    /**
+     * Metodo responsavel por retornar um id especifico
+     */
+    public function find($id)
+    {
       return $this->queryBuilder->findById($this->table,$id);
+    }
+
+    /**
+     * Metodo responsavel por retornar um id especifico
+     */
+    public function where($field, $value)
+    {
+      return $this->queryBuilder->findBy($this->table,$field,$value);
     }
 
     public function save($values){
