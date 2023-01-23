@@ -69,6 +69,11 @@ class Router
   public $response;
 
   /**
+   * Segments
+   */
+  public $segments;
+
+  /**
     * Construtor da classe
     * @param string $url
     */
@@ -284,7 +289,7 @@ class Router
      */
     public function run(){
         try {
-
+          //dd($this->request);
           /** Procura a rota **/
           $match = self::match($this->getUri(), self::$routes[$this->method]);
 

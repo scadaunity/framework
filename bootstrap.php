@@ -1,6 +1,5 @@
 <?php
 use ScadaUnity\Framework\Env;
-use ScadaUnity\Framework\App;
 
 /** Carrega as variaveis de ambiente do projeto */
 Env::load(dirname(__FILE__,1));

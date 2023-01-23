@@ -1,4 +1,4 @@
-<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-indigo-600/20">
+<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
     <!-- Navbar brand -->
     <a href="<?php route('/') ?>" class="flex items-center">
         <?php component('ApplicationMark') ?>
@@ -16,7 +16,7 @@
         </button>
     </div>
 
-    <!-- Right Navbar items -->
+    <!-- Right Navbar items tt-->
     <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0 md:space-x-3 ">
       <?php component('ThemeToggle') ?>
       <?php if(user()) : ?>

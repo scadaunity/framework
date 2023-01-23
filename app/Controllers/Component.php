@@ -13,9 +13,10 @@ class Component
    */
   public function index()
   {
+    
     view('template/header');
-    view('components/Navbar');
-    view('components/buttons/AppStore');
+    //view('components/Navbar');
+    view('components/buttons/AppStore',['link'=>'http://google.com','text'=>'Disponivel na']);
     view('components/buttons/PlayStore');
     view('template/footer');
   }
@@ -82,5 +83,9 @@ class Component
   public function destroy(Component $component)
   {
     //
+  }
+
+  public function template(){
+    return view('layouts/main');
   }
 }
