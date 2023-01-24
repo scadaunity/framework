@@ -24,7 +24,7 @@ class AuthController
              'title' => 'Login'
          ];
          view('template/header',$data);
-         //view('components/Navbar',$data);
+         view('components/Navbar',$data);
          view('pages/auth/login',$data);
          view('template/footer',$data);
   }
@@ -221,7 +221,7 @@ class AuthController
     $_SESSION[LOGGED] = $validUser;
 
     /** REDIRECIONA PARA A HOME */
-     return view('/home');
+     return redirect('/home');
 
   }
 

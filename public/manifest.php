@@ -17,7 +17,5 @@
       "sizes": "173x173",
       "type": "image\/png"
     }
-
   ]
-
 }

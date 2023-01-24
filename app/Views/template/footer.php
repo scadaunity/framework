@@ -3,7 +3,7 @@
         -->
         </div>
         <script>
-            // Define  as variaveis
+            /* Define  as variaveis
             const app = document.getElementById('app')
             const reactForm = document.querySelector('form')
             reactForm.addEventListener('submit',function(e){
@@ -23,7 +23,7 @@
                     .catch(error => {
                         console.log(error)
                     })
-            });
+            });*/
             
         </script>
     </body>
