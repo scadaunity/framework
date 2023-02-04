@@ -1,0 +1,9 @@
+/* Define custom styles to forms elements */
+.form-input{
+    @apply rounded-lg w-full border-gray-300 shadow-sm focus:border-teal-500 focus:ring-teal-500 dark:bg-gray-900 dark:border-gray-800;
+}
+
+.form-label{
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-400;
+}
+

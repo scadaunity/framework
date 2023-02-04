@@ -50,6 +50,7 @@ class QueryBuilder
   public function findById($table,$id){
     try {
       $query = "SELECT * FROM {$table} WHERE `id`='{$id}'";
+      dd($query);
 
       return $this->db->connect()->query($query)->fetch();
 

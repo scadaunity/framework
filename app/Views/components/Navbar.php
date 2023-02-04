@@ -1,4 +1,4 @@
-<nav class="z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
+<nav class="sticky top-0 z-50 bg-slate-100 dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
     <!-- Navbar brand -->
     <a href="<?php route('/') ?>" class="flex items-center">
         <?php component('ApplicationMark') ?>
@@ -22,8 +22,8 @@
       <?php if(user()) : ?>
         <?php component('DropdownUserAccount') ?>
       <?php else : ?>
-        <a href="<?php route('/login') ?>" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5">Entrar</a>
-        <a href="<?php route('/register') ?>" class="whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Inscrever-se</a>
+        <a href="<?php route('/login') ?>" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-800 hover:bg-slate-200 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5">Entrar</a>
+        <a href="<?php route('/register') ?>" class="px-4 py-2  rounded-md shadow-sm font-medium text-white bg-slate-800 hover:bg-slate-700">Inscrever-se</a>
       <?php endif; ?>
     </div>
 </nav>

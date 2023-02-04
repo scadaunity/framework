@@ -15,13 +15,13 @@
     </div>
 </section>
 
-<footer class="bg-white dark:bg-gray-900 absolute bottom-0 left-0 w-full">
+<footer class=" dark:bg-gray-900 absolute bottom-0 left-0 w-full">
     <div class="container px-6 pb-4 mx-auto">
 
         <hr class="my-10 border-gray-200 dark:border-gray-700" />
 
         <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-        <p class="text-sm text-gray-500">© Copyright 2022. All Rights Reserved.</p>
+        <p class="text-sm text-gray-500">© Copyright 2023. All Rights Reserved.</p>
 
         <div class="flex mt-3 -mx-2 sm:mt-0">
             <a href="#" class="mx-2 text-sm hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300" aria-label="Reddit"> Teams </a>

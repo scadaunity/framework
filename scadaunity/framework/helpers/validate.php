@@ -86,6 +86,7 @@ function unique($field,$param){
   $value = $field;
   $db = new QueryBuilder();
   $result = $db->findBy($param, $field, $value);
+  
 
   if ($result) {
     setFlash($field,"O {$field} ja existe.");

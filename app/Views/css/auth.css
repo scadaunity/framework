@@ -1,0 +1,23 @@
+.auth-container {
+    @apply flex items-center justify-center h-screen  bg-slate-50 dark:bg-gray-900 -mt-20
+}
+
+.auth-card {
+    @apply block p-6 rounded-lg shadow-lg bg-white max-w-sm dark:backdrop-blur-sm dark:bg-white/10
+}
+
+.auth-container .item {
+    @apply w-full flex justify-center items-center
+}
+
+.authFormTitle {
+    @apply text-gray-500 font-bold text-2xl p-6 dark:text-white
+}
+
+.authFormGroup {
+    @apply flex items-center border dark:border-gray-800 py-4 px-3 rounded-full mb-6
+}
+
+.btn {
+    @apply px-20 block whitespace-nowrap inline-flex items-center justify-center py-2 border border-transparent rounded-lg text-base font-medium text-slate-50 bg-teal-800 hover:bg-teal-700
+}

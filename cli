@@ -22,4 +22,4 @@ require __DIR__.'/scadaunity/framework/Console/commands/middleware.php';
 require __DIR__.'/scadaunity/framework/Console/commands/controller.php';
 require __DIR__.'/scadaunity/framework/Console/commands/serve.php';
 require __DIR__.'/scadaunity/framework/Console/commands/migration.php';
-require __DIR__.'/scadaunity/framework/Console/commands/build.php';
+require __DIR__.'/scadaunity/framework/Console/commands/compile.php';

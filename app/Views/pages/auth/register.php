@@ -1,35 +1,37 @@
 <!-- component -->
-
-  <div class="mx-auto shadow-lg rounded-2xl p-4 bg-white dark:bg-gray-800 w-full md:w-96 mt-10">
-    <div class="w-full flex justify-center items-center">
+<div class="auth-container">
+  <form class="" method="post" action="<?php route('/create/account') ?>">
+    <?php csrf() ?>
+  
+    <div class="authFormItem">
         <?php component('ApplicationLogo') ?>
     </div>
-    <div class="w-full flex justify-center items-center">
+    <div class="authFormItem">
         <h1 class="text-gray-800 font-bold text-2xl p-6 dark:text-white"><?= $title ?></h1>
     </div>
 
-    <div class="w-full flex justify-center items-center mb-4">
+    <div class="authFormItem">
         <?php getFlash('invalidLogin') ?>
         <?php getFlash('notLogged') ?>
     </div>
 
 
-    <form class="" method="post" action="<?php route('/create/account') ?>">
-      <?php csrf() ?>
+    
+      
       <div class="w-full flex justify-center items-center">
         <?php getFlash('email') ?>
       </div>
-      <div class="flex items-center border-2 dark:border-gray-700 py-2 px-3 rounded-md mb-4">
+      <div class="authFormInput">
         <input class="w-full w-full outline-none text-gray-500 dark:bg-gray-800" type="text" name="name" id="" placeholder="Nome" />
       </div>
 
-      <div class="flex items-center border-2 dark:border-gray-700 py-2 px-3 rounded-md mb-4">
+      <div class="authFormInput">
         <input class="w-full w-full outline-none text-gray-500 dark:bg-gray-800" type="email" name="email" id="" placeholder="Email" />
       </div>
 
 
       <?php getFlash('password') ?>
-      <div class="flex items-center border-2 dark:border-gray-700 py-2 px-3 rounded-md mb-4">
+      <div class="authFormInput">
         <input class="w-full rounded-full outline-none text-gray-500 dark:bg-gray-800" type="text" name="password" id="" placeholder="Senha" />
       </div>
 
@@ -45,7 +47,8 @@
 
 
       </div>
-
+    
 
     </form>
-  </div>
+  
+</div>

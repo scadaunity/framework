@@ -156,10 +156,9 @@ class AuthController
    * @return [type]
    */
   public function autenticate(){
-    
-
+  
       $validate = validate([
-        'email' => 'email',
+        'email' => 'required',
         'password' => 'required',
       ]);
 

@@ -24,8 +24,8 @@
     </script>
   </head>
 
-    <body class="antialiased select-none text-gray-500 dark:text-gray-400  dark:bg-gray-900">
-      <div id="app">
+    <body class="antialiased select-none text-gray-500 dark:text-gray-400  dark:bg-gray-900 bg-white">
+      <div id="app" class="">
 
       
         
