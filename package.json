@@ -4,5 +4,7 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3"
-  }
+  },
+  "main": "./public/app.js",
+  "type": "module"
 }

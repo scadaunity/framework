@@ -13,12 +13,14 @@ const precacheFiles = [
 
 ];
 
+console.log(navigator);
+
 /** Instala o cache */
 self.addEventListener("install", function (event) {
     event.waitUntil(
         caches.open(cacheName).then(function (cache) {
-            return cache.addAll(precacheFiles);
             console.log("[PWA Builder] PWA Instalado com sucesso");
+            return cache.addAll(precacheFiles);
         })
     )
     return self.skipWaiting()
