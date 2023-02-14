@@ -1,13 +1,12 @@
 <!-- component -->
 <div class="auth-container">
-<div class="">
 	<form method="post" action="<?php route('/autenticate') ?>">
 		<?php csrf() ?>	
 	
-		<div class="item">
+		<div class="center">
 			<?php component('ApplicationLogo') ?>
 		</div>
-		<div class="item">
+		<div class="center">
 			<h1 class="authFormTitle"><?= $title ?></h1>
 		</div>
 
@@ -15,7 +14,6 @@
 		<?php getFlash('notLogged') ?>		
 	
 		<div class="mt-2">
-			
 			<label class="form-label" for="email">Email</label>
 			<div class="mt-1">
 				<input class="form-input" type="email" name="email" id=""/>
@@ -23,9 +21,7 @@
 			<?php getFlash('email') ?>
 		</div>
 			
-		
 		<div class="mt-2">
-			
 			<label class="form-label" for="password">Senha</label>
 			<div class="mt-1">
 				<input class="form-input" type="password" name="password" id="" />
@@ -33,13 +29,11 @@
 			<?php getFlash('password') ?>
 		</div>
 			
-		<button type="submit" class="btn w-full flex justify-center mt-6">Entrar</button>
+		<button type="submit" class="form-submit">Entrar</button>
 		
-		<a href="<?php route('/forgot') ?>" class="mt-6 w-full flex justify-center text-sm ml-2 hover:text-emerald-700 dark:text-slate-500 dark:hover:text-teal-500 cursor-pointer">Não lembro a senha? </a>
+		<a class="form-link" href="<?php route('/forgot') ?>" >Não lembro a senha? </a>
 		
 	</form>
-</div>
-	
 </div>
 
 

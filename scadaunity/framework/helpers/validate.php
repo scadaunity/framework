@@ -1,6 +1,7 @@
 <?php
 
 use ScadaUnity\Framework\Database\QueryBuilder;
+use ScadaUnity\Framework\Http\Request;
 
 /**
  * Metodo responsavel por realizar ar validações
@@ -12,6 +13,7 @@ function validate($validations){
   $result = [];
   $param = '';
   foreach ($validations as $field => $validate) {
+    
     /** Verifica se é uma validação simples */
     if (!str_contains($validate, '|')) {
       /** Verifica se possui parametros */
@@ -83,7 +85,9 @@ function email($field){
  * @return string $field
  */
 function unique($field,$param){
-  $value = $field;
+  $request = new Request();
+  
+  $value = $request->post()[$field];
   $db = new QueryBuilder();
   $result = $db->findBy($param, $field, $value);
   

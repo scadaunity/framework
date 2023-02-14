@@ -7,3 +7,10 @@
     @apply block text-sm font-medium text-gray-700 dark:text-gray-400;
 }
 
+.form-submit {
+    @apply w-full flex items-center justify-center mt-6 py-2 border border-transparent rounded-lg text-base font-medium text-slate-50 bg-teal-800 hover:bg-teal-700
+}
+
+.form-link {
+    @apply mt-6 w-full flex justify-center text-sm ml-2 hover:text-emerald-700 dark:text-slate-500 dark:hover:text-teal-500 cursor-pointer
+}

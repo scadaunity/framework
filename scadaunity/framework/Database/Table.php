@@ -47,6 +47,16 @@ class Table
     {
         array_push(self::$fields,"{$name} INT({$length})");
     }
+
+    /**
+     * Metodo responsavel por adicionar a tabela tres campos [created_at, updated_at, deleted_at].
+     */
+    public static function timestamps()
+    {
+        array_push(self::$fields,"created_at TIMESTAMP");
+        array_push(self::$fields,"updated_at TIMESTAMP");
+        array_push(self::$fields,"deleted_at TIMESTAMP");
+    }
     
 
 }

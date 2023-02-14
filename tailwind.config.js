@@ -4,11 +4,11 @@ module.exports = {
   content: ["./app/Views/**/*.{php,html,js}"],
   theme: {
     extend: {
-
+      
     },
   },
   plugins: [
     require('@tailwindcss/forms')
   ],
-  darkMode: 'class',
+  darkMode: 'class'
 }

@@ -19,6 +19,7 @@ return new class
       Table::string('name');
       Table::string('email');
       Table::string('password');
+      Table::timestamps();
     });
   }
 

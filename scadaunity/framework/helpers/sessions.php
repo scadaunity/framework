@@ -25,7 +25,7 @@ function logged()
  */
 function csrf()
 {
-  echo "<input type='hidden' name='_csrf' value='".$_SESSION['token']."'>";
+  echo "<input type='hidden' name='_csrf' value='".$_SESSION['token']."'>".PHP_EOL;
 }
 /**
  * Metodo responsavel por retornar o token de sessão

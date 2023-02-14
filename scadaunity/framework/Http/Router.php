@@ -301,7 +301,7 @@ class Router
 
             /** verifica se foi passado o csrf token*/
             if (!isset($this->request->post()['_csrf'])) {
-              throw new \Exception("Pagina expirada",419);
+              throw new \Exception("Token não informado",419);
             }
 
             /** verifica se o token é valido */
