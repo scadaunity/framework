@@ -148,3 +148,19 @@ function bool($field){
         return false;
     }
 }
+
+/**
+ * Metodo responsavel por validar se o ip é valido
+ * @param  string $field
+ * @return string $field
+ */
+function ip($field){
+  $validate = filter_input(INPUT_POST,$field,FILTER_VALIDATE_IP);
+
+  if(!$validate){
+    setFlash($field,"O campo {$field} não é um ip valido");
+    return false;
+  }
+
+  return strip_tags($field);
+}

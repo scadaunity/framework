@@ -9,16 +9,14 @@ Env::load(dirname(__FILE__,1));
 session_save_path( sys_get_temp_dir());
 session_start();
 
-
 /** Carrega as configurações */
 require_once 'app/config/app.php';
 require_once 'app/config/paths.php';
-require_once 'app/config/logger.php';
+require_once 'app/config/log.php';
 require_once 'app/config/mail.php';
 require_once 'app/config/middlewares.php';
 require_once 'app/config/view.php';
 require_once 'app/config/routes.php';
-
 
 /** carrega os helpers */
 require_once 'scadaunity/framework/helpers/environment.php';

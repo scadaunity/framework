@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use ScadaUnity\Framework\Http\Request;
+use ScadaUnity\Framework\Log\Log;
 
 class RequestController
 {
@@ -13,13 +14,12 @@ class RequestController
    */
   public function index()
   {
-    view('pages/request/form');
+    $log = new Log();
+    dd($log);
   }
 
   public function save(){
-    //Cria a instancia do objeto
-    $request = new Request();
-    dd($request->csrf);
+    dd(Request::input('pass'));
   }
 
   

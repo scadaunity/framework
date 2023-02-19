@@ -6,7 +6,7 @@ namespace ScadaUnity\Framework\Log;
  * Classe responsavel pelos eventos de log
  */
 
-class Logger
+class Log
 {
   /**
    * Define os niveis de log
@@ -34,6 +34,11 @@ class Logger
    * @var array
    */
   public static $logs = [];
+
+  public function __construct()
+  {
+    
+  }
 
   public function debug(string|\Stringable $message, array $context = []): void
   {
