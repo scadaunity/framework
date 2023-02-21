@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
+use ScadaUnity\Http\Request;
 
 class Component
 {

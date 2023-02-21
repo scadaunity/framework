@@ -12,9 +12,6 @@ class WelcomeController
       $data =[
         'name' => 'teste',
       ];
-      view('template/header');
-      view('components/Navbar');
-      view('welcome',$data);
-      view('template/footer');
+      layout('pages/welcome',$data,'main');
   }
 }

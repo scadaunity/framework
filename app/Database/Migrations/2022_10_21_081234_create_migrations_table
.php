@@ -2,8 +2,8 @@
 
 namespace App\Database\Migrations;
 
-use ScadaUnity\Framework\Database\Schema;
-use ScadaUnity\Framework\Database\Table;
+use ScadaUnity\Database\Schema;
+use ScadaUnity\Database\Table;
 
 return new class
 {

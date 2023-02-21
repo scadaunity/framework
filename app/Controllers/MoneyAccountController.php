@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
-use ScadaUnity\Framework\Suport\Auth;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Suport\Auth;
 
 class MoneyAccountController
 {

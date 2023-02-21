@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Framework\Http\Router;
+use ScadaUnity\Http\Router;
 
 /** Carrega o autoload do composer */
 require_once '../vendor/autoload.php';

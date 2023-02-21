@@ -22,7 +22,9 @@
       <?php if(user()) : ?>
         <?php component('DropdownUserAccount') ?>
       <?php else : ?>
+        <?php if(!isRoute('login')):?>
         <a href="<?php route('/login') ?>" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-800 hover:bg-slate-200 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5">Entrar</a>
+        <?php endif;?>
         <a href="<?php route('/register') ?>" class="px-4 py-2  rounded-md shadow-sm font-medium text-white bg-slate-800 hover:bg-slate-700">Inscrever-se</a>
       <?php endif; ?>
     </div>

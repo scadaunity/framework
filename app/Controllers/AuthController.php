@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
-use ScadaUnity\Framework\View\View;
-use ScadaUnity\Framework\Notification\Email;
+use ScadaUnity\Http\Request;
+use ScadaUnity\View\View;
+use ScadaUnity\Notification\Email;
 
 use App\Models\UserModel;
 
@@ -19,15 +19,15 @@ class AuthController
      * Metodo responsavel por retornar a tela de login
      * @return string
      */
-     public function login(){
-         $data = [
-             'title' => 'Login'
-         ];
-         view('template/header',$data);
-         view('components/Navbar',$data);
-         view('pages/auth/login',$data);
-         view('template/footer',$data);
-  }
+    public function login(){
+        $data = [
+            'title' => 'Login'
+        ];
+        view('template/header',$data);
+        view('components/Navbar',$data);
+        view('pages/auth/login',$data);
+        view('template/footer',$data);
+    }
 
   /**
    * Metodo responsavel por retornar a tela de registro
@@ -66,16 +66,15 @@ class AuthController
    */
   public function sendResetPasswordByEmail(){
 
-    // RECUPERA OS PARAMETROS DO POST
-    $request = new Request();
-
     $data = [
-      'email'     => $request->post()['email'],
+      'email' => Request::input('email'),
     ];
 
     /** BUSCA OS USUARIOS NO BANCO */
     $model = new UserModel();
     $users = $model->all();
+    $teste = $model->find('2');
+    dd($teste);
     $validUser = null;
 
     foreach ($users as $user) {

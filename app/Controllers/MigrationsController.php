@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Database\Schema;
-use ScadaUnity\Framework\Database\Table;
+use ScadaUnity\Database\Schema;
+use ScadaUnity\Database\Table;
 
 class MigrationsController
 {

@@ -1,7 +1,7 @@
 <?php
 
-use ScadaUnity\Framework\Log\Handler\FileHandler;
-use ScadaUnity\Framework\Log\Log;
+use ScadaUnity\Log\Handler\FileHandler;
+use ScadaUnity\Log\Log;
 
 $log = new Log();
 

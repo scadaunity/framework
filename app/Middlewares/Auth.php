@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Middlewares;
-use ScadaUnity\Framework\Http\Request;
+use ScadaUnity\Http\Request;
 
 /**
  * Classe responsavel por verificar os dados do usuarios autenticado

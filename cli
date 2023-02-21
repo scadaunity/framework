@@ -7,19 +7,19 @@ require __DIR__.'/vendor/autoload.php';
 /** Carrega o bootstrap */
 require __DIR__.'/bootstrap.php';
 
-require __DIR__.'/scadaunity/framework/Console/helper.php';
+require __DIR__.'/scadaunity/Console/helper.php';
 
 if (!isset($argv[1])) {
     $argv[1] = 'list';
-    require __DIR__.'/scadaunity/framework/Console/commands/list.php';
+    require __DIR__.'/scadaunity/Console/commands/list.php';
     die();
 }
 
 
-require __DIR__.'/scadaunity/framework/Console/commands/routes.php';
-require __DIR__.'/scadaunity/framework/Console/commands/list.php';
-require __DIR__.'/scadaunity/framework/Console/commands/middleware.php';
-require __DIR__.'/scadaunity/framework/Console/commands/controller.php';
-require __DIR__.'/scadaunity/framework/Console/commands/serve.php';
-require __DIR__.'/scadaunity/framework/Console/commands/migration.php';
-require __DIR__.'/scadaunity/framework/Console/commands/compile.php';
+require __DIR__.'/scadaunity/Console/commands/routes.php';
+require __DIR__.'/scadaunity/Console/commands/list.php';
+require __DIR__.'/scadaunity/Console/commands/middleware.php';
+require __DIR__.'/scadaunity/Console/commands/controller.php';
+require __DIR__.'/scadaunity/Console/commands/serve.php';
+require __DIR__.'/scadaunity/Console/commands/migration.php';
+require __DIR__.'/scadaunity/Console/commands/compile.php';

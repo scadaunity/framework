@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Framework\Http\Router;
+use ScadaUnity\Http\Router;
 
 /** -------------------- DEFAULT CONTROLLER ----------------------- */
 Router::get('/components', 'Component@index');

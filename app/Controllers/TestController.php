@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
-use ScadaUnity\Framework\View\View;
+use ScadaUnity\Http\Request;
+use ScadaUnity\View\View;
 
 class TestController
 {

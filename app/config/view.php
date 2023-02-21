@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Framework\View\View;
+use ScadaUnity\View\View;
 
 /** Dados compartilhados entre as views*/
 View::share([

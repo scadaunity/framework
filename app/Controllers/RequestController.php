@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use ScadaUnity\Framework\Http\Request;
-use ScadaUnity\Framework\Log\Log;
+use ScadaUnity\Http\Request;
+use ScadaUnity\Log\Log;
 
 class RequestController
 {

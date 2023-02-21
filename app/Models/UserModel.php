@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-use ScadaUnity\Framework\Database\Model;
+use ScadaUnity\Database\Model;
 
 class UserModel extends Model
 {

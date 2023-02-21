@@ -1,5 +1,6 @@
 <?php
 
 view('/template/header');
-  echo"Main";
+view('components/Navbar');
+view($page);
 view('/template/footer');

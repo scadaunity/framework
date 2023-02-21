@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Framework\Http\Middleware;
+use ScadaUnity\Http\Middleware;
 
 // Registra um middleware no mapeamento.
 Middleware::setMap([

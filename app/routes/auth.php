@@ -1,6 +1,6 @@
 <?php
 
-use ScadaUnity\Framework\Http\Router;
+use ScadaUnity\Http\Router;
 
 /** ----------------------- AUTH RESOURCE ------------------------- */
 Router::get('/login','AuthController@login');                               // EXIBE A TELA DE LOGIN

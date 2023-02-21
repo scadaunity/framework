@@ -1,6 +1,9 @@
         
         </div>
-        <script type="module" src="app.js"></script>
+        <script src="dist/app.js"></script>
     
     </body>
 </html>
+
+
+
