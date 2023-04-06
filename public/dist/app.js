@@ -15,7 +15,7 @@
   \********************************************************/
 /***/ (() => {
 
-eval("\nif ('serviceWorker' in navigator) {\n    window.addEventListener('load', () => {\n        console.log('Pagina carregada')\n        navigator.serviceWorker.register('./sw.js',{ scope: '/' }).then(registration => {\n        console.log('SW registered: ', registration);\n        }).catch(registrationError => {\n        console.log('SW registration failed: ', registrationError);\n        });\n    });\n}\n\n\n\n\n\n\n//# sourceURL=webpack:///./app/Views/js/components/registerServiceWork.js?");
+eval("\nif ('serviceWorker' in navigator) {\n    window.addEventListener('load', () => {\n        console.log('Pagina carregada')\n        navigator.serviceWorker.register('./sw.js').then(registration => {\n        console.log('SW registered: ', registration);\n        }).catch(registrationError => {\n        console.log('SW registration failed: ', registrationError);\n        });\n    });\n}\n\n\n\n\n\n\n//# sourceURL=webpack:///./app/Views/js/components/registerServiceWork.js?");
 
 /***/ }),
 

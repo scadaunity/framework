@@ -3,7 +3,7 @@
 use ScadaUnity\Http\Router;
 
 /**
- * Metodo responsavel por carregar arquivos de rotas
+ * Define os arquivos que contem as rotas
  * @var array
  */
 Router::setMap([
@@ -12,4 +12,5 @@ Router::setMap([
     'migration' => ROOT.'/app/routes/migration.php',
     'components'=> ROOT.'/app/routes/components.php',
     'request'   => ROOT.'/app/routes/request.php',
+    'curl'      => ROOT.'/app/routes/curl.php',
 ]);

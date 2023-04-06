@@ -3,37 +3,32 @@
 use ScadaUnity\Console\CliTable;
 
 function compileHelper(){
-  echo "Utilize uma das opções abaixo:".PHP_EOL.PHP_EOL;
-  
-  echo "php cli compile tailwind".PHP_EOL;
-  echo "php cli compile webpack".PHP_EOL.PHP_EOL;
+    echo "Utilize uma das opções abaixo:".PHP_EOL.PHP_EOL; 
+    echo "php cli compile tailwind".PHP_EOL;
+    echo "php cli compile webpack".PHP_EOL.PHP_EOL;
 }
 
 if ($argv[1] == 'compile') {
   logo();
 
-  if(!isset($argv[2])){
-    compileHelper();
-  }
+    // Se não existir o segundo parametro chama o helper
+    if(!isset($argv[2])){
+        compileHelper();
+    }
 
-  if(isset($argv[2])) {
-    switch($argv[2])
-         {
+    if(isset($argv[2])) {
+        switch($argv[2])
+        {
             case 'tailwind':
-              exec('npx tailwindcss -i ./app/Views/css/main.css -o ./public/app.css');
-              break;
+                exec('npx tailwindcss -i ./app/Views/css/main.css -o ./public/app.css');
+                break;
             case 'webpack':
-              exec('npx webpack');
-              break;
+                exec('npx webpack');
+                break;
             default:
-            echo "# Compilador não encontrado".PHP_EOL.PHP_EOL;
-            compileHelper();
+                echo "# Compilador não encontrado".PHP_EOL.PHP_EOL;
+                compileHelper();
             break;
-         }    
-  }
-
-  
-
-  
-  
+        }    
+    }
 }

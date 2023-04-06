@@ -73,8 +73,7 @@ class AuthController
     /** BUSCA OS USUARIOS NO BANCO */
     $model = new UserModel();
     $users = $model->all();
-    $teste = $model->find('2');
-    dd($teste);
+    
     $validUser = null;
 
     foreach ($users as $user) {

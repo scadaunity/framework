@@ -78,26 +78,26 @@ class Router
     * @param string $url
     */
   public function __construct(string $url)
-{
-      $this->response = new Response(200,'scada unity');
-      $this->request = new Request();
-      $this->uri = $this->request->uri();
-      $this->method = $this->request->method();
-      $this->url = $url;
-      $this->setPrefix();
-      $this->segments = explode('/',ltrim($this->getUri(),'/'));
-      self::loadRoutes();
+  {
+    $this->response = new Response(200,'scada unity');
+    $this->request = new Request();
+    $this->uri = $this->request->uri();
+    $this->method = $this->request->method();
+    $this->url = $url;
+    $this->setPrefix();
+    $this->segments = explode('/',ltrim($this->getUri(),'/'));
+    self::loadRoutes();
   }
 
   /**
    * Metodo responsavel por carregar os arquivos de rotas
    * @return [type]
    */
-  public static function loadRoutes(){
-      foreach (self::$map as $file) {
-          require_once $file;
-      }
-     // dd(self::$routes);
+  public static function loadRoutes()
+  {
+    foreach (self::$map as $file) {
+      require_once $file;
+    }
   }
 
   public static function all(){
