@@ -6,6 +6,12 @@
  */
 
 /**
+ * [PT_BR] Define a url completa do projeto.
+ * @var string
+ */
+define('URL','http://localhost:8000');
+
+/**
  * [PT_BR] Define o titulo da aplicação na barra do navegador, Remetente de e-mail e manifest.
  * @var string
  */

@@ -89,6 +89,8 @@ class AuthController
       return redirect('/login');
     }
 
+    
+
     $email = new Email();
 
     $email->add(

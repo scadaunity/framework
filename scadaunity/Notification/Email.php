@@ -24,16 +24,13 @@ class Email
   {
     $this->mail = new PHPMailer(true);
     $this->data = new stdClass();
-
     $this->mail->isSMTP();
     $this->mail->isHTML();
     $this->mail->setLanguage("br");
-
     $this->mail->SMTPAuth = true;
     $this->mail->SMTPSecure = "tls";
     $this->mail->CharSet = "UTF-8";
     $this->mail->Encoding = 'base64';
-
     $this->mail->Host = getenv('MAIL_HOST');
     $this->mail->Port = getenv('MAIL_PORT');
     $this->mail->Username = getenv('MAIL_USERNAME');
@@ -49,7 +46,7 @@ class Email
    * @param  string $recipient_email
    * @return Email
    */
-  public function add(string $subject, string $body, string $recipient_name, string $recipient_email) : Email
+  public function add(string $subject, string $body, string $recipient_name = null, string $recipient_email) : Email
   {
     $this->data->subject = $subject;
     $this->data->body = $body;
