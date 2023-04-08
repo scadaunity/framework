@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: './app/Views/js/index.js',
-    mode: 'development',
+    mode: 'production',
     output: {
         filename: 'app.js',
         path: path.resolve(__dirname,'./public/dist')

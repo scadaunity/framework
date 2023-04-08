@@ -10,10 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> <?= APP_TITLE; ?> </title>
         <link href="<?= baseUrl('/app.css') ?>" rel="stylesheet">
+        <base href="<?= URL ?>" target="_self">
     </head>
 
     <body class="antialiased select-none text-gray-500 dark:text-gray-400  dark:bg-gray-900 bg-white">
         <div id="app" class="">
+            <a href="account">Usuarios</a>
 
       
         

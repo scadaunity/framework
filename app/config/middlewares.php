@@ -2,14 +2,20 @@
 
 use ScadaUnity\Http\Middleware;
 
-// Registra um middleware no mapeamento.
+/**
+ * Registra um middleware no mapeamento.
+ */
 Middleware::setMap([
   'maintenance' => \App\Middlewares\Maintenance::class,
-  'auth' => \App\Middlewares\Auth::class,
+  'auth'        => \App\Middlewares\Auth::class,
+  'cache'       => \App\Middlewares\Cache::class
 ]);
 
-// Define os middlewares padroes (Executados em todas as rotas)
+/**
+ * Define os middlewares que serão executados em todas as rotas
+ */
 Middleware::setDefault([
   'maintenance',
-  'auth'
+  'auth',
+  'cache'
 ]);

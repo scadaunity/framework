@@ -6,7 +6,7 @@ Options -Indexes
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    #RewriteCond %{REQUEST_URI} !^public
+    #RewriteCond %{REQUEST_URI} !/public
     #RewriteRule ^(.*)$ public/$1 [L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d

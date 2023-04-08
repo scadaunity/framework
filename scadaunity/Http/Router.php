@@ -100,6 +100,9 @@ class Router
     }
   }
 
+  /**
+   * Retorna todas as rotas
+   */
   public static function all(){
       return self::$routes;
   }
@@ -120,7 +123,7 @@ class Router
     $xUri = strlen($this->prefix) ? explode($this->prefix,$uri) : [$uri];
 
     // retorna a ultima posição do array da rota atual sem o prefixo
-    return end($xUri);
+    return rtrim(end($xUri),'/');
 
   }
 
@@ -289,7 +292,9 @@ class Router
      */
     public function run(){
         try {
-          //dd($this->request);
+          
+          
+          
           /** Procura a rota **/
           $match = self::match($this->getUri(), self::$routes[$this->method]);
 
@@ -306,7 +311,7 @@ class Router
 
             /** verifica se o token é valido */
             if (!$this->request->post()['_csrf'] == getToken()) {
-              //throw new \Exception("Pagina expirada",419);
+              throw new \Exception("Pagina expirada",419);
             }
 
             /** cria os parametros do post*/
