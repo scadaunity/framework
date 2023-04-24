@@ -23,6 +23,7 @@ class AuthController
         $data = [
             'title' => 'Login'
         ];
+        
         view('template/header',$data);
         view('components/Navbar',$data);
         view('pages/auth/login',$data);
@@ -56,9 +57,26 @@ class AuthController
     ];
 
     view('template/header',$data);
+    view('components/Navbar');
     view('pages/auth/forgot',$data);
     view('template/footer',$data);
   }
+
+  /**
+   * Exibe a tela para inserir o codigo de verificação
+   */
+  public function emailVerify(){
+    $data = [
+      'title' => 'Verificar conta'
+    ];
+
+    view('template/header',$data);
+    view('components/Navbar');
+    view('pages/auth/email-verification',$data);
+    view('template/footer',$data);
+
+  }
+
 
   /**
    * Metodo responsavel por enviar o e-mail de recuperação de senha
@@ -85,21 +103,23 @@ class AuthController
 
     /** USUARIO NÃO ENCONTRADO RETORNA PRA LOGIN E EXIBE UMA MENSSAGEM*/
     if (!$validUser) {
-      setFlash('message','teste');
-      return redirect('/login');
+      setFlash('email','Erro, tente novamente mais tarde.');
+      return redirect('/forgot');
     }
-
-    
 
     $email = new Email();
 
+    $body = file_get_contents(VIEWS.'pages/auth/mail/forgot.php');
+
     $email->add(
         'Recuperação de senha',
-        '<h1>Olá, '.$validUser->name.'</h1><br><h3>Voce solicitou a recuperação da sua senha de acesso ao '.APP_TITLE.'</h3><br><br><a href="#">Recuperar minhs senha</a>',
-        $validUser->name,
+        //'<h3>Recuperação da sua conta '.APP_TITLE.'</h3><br><br><a href="#">Continuar a recuparação da conta</a>',
+       $body,
+        'teste',
         $validUser->email
     )->send(APP_TITLE,'scadaunity@gmail.com');
 
+    //dd($email);
     if(!$email->error()){
       redirect('/login');
     }else{
@@ -230,7 +250,7 @@ class AuthController
    */
   public function therms(){
     view('template/header');
-    view('auth/therms');
+    view('pages/auth/therms');
     view('template/footer');
   }
 
@@ -240,7 +260,17 @@ class AuthController
    */
   public function privacy(){
     view('template/header');
-    view('auth/privacy');
+    view('pages/auth/privacy');
+    view('template/footer');
+  }
+
+  /**.
+   * Metodo responsavel das configurações da conta
+   */
+  public function settings(){
+    view('template/header');
+    view('components/Navbar');
+    view('pages/auth/settings');
     view('template/footer');
   }
 }

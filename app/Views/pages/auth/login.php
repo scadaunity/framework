@@ -14,8 +14,9 @@
 		<?php getFlash('notLogged') ?>		
 	
 		<div class="mt-2">
-			<label class="form-label" for="email">Email</label>
+			
 			<div class="mt-1">
+				<label class="form-label" for="email">Email</label>
 				<input class="form-input" type="email" name="email" id=""/>
 			</div>
 			<?php getFlash('email') ?>

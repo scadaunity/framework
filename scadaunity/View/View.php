@@ -2,12 +2,11 @@
 
 namespace ScadaUnity\View;
 
-use ScadaUnity\View\TemplateEngine;
 
 /**
  * Classe responsavel por exibir o html formatado ao navegador
  */
-class View extends TemplateEngine
+class View
 {
   //private static $contentView;
   /**

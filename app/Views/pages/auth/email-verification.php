@@ -12,14 +12,12 @@
 			<h1 class="authFormTitle"><?= $title ?></h1>
 		</div>
 
-    <div class="w-full flex justify-center items-center">
-        <p class="text-sm font-normal text-gray-600 mb-7">Por favor, informe seu email de cadastro.</p>
-      </div>
-
-
+        <div class="w-full flex justify-center items-center">
+            <p class="text-sm font-normal text-gray-600 mb-7">Por favor, digite o codigo de recuperação,</p>
+        </div>
 	
 		<div class="mt-2">
-			<label class="form-label" for="email">Email</label>
+			<label class="form-label" for="email">Codigo</label>
 			<div class="mt-1">
 				<input class="form-input" type="email" name="email" id=""/>
 			</div>

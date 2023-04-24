@@ -4,11 +4,26 @@
  * Metodo responsavel por retornar os dados do usuario logado
  * @return Object
  */
-function user()
+function user(string $field = null)
 {
-  if (isset($_SESSION[LOGGED])) {
-    return $_SESSION[LOGGED];
+  // Verifica se existe um usuario logado
+  if(!isset($_SESSION[LOGGED])){
+    return null;
   }
+
+  $user = $_SESSION[LOGGED];
+
+  // Retorna o campo do usuario se foi passado o field
+  if(!$field == null){
+    foreach ($user as $key => $value) {
+      if($key == $field){
+        echo $value;
+      }
+    }
+  }
+
+  return $user;
+
 }
 
 /**

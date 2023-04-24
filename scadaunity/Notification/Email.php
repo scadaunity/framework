@@ -89,7 +89,7 @@ class Email
           $this->mail->addAttachment($path, $name);
         }
       }
-
+      //dd($this);
       $this->mail->send();
       return true;
 

@@ -10,23 +10,19 @@
       </button>
     </span>
     <!-- Content -->
-    <div class="opacity-0 invisible dropdown-user transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
+    <div class="dropdown-user opacity-0 invisible transition-all duration-300 transform origin-top-right -translate-y-2 scale-95">
       <div class="absolute right-0 w-56 mt-8 origin-top-right bg-white border-t rounded-md shadow-lg outline-none">
         <!-- User details -->
         <div class="px-4 py-3">
-          <p class="text-sm dark:text-black"><?php echo user()->name ?></p>
-          <p class="text-sm font-medium leading-5 text-gray-900  truncate"><?php echo user()->email ?></p>
+          <p class="text-sm dark:text-black"><?php user('email') ?></p>
+          <p class="text-sm font-medium leading-5 text-gray-900  truncate"></p>
         </div>
 
         <div class="">
-            <a href="" tabindex="0" class="text-gray-700 flex w-full px-4 py-2 text-sm leading-5 text-left hover:bg-gray-400"  role="menuitem" >Perfil</a>
-            <a href="" tabindex="1" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Configurações</a>
-
+            <a href="" tabindex="0" class="text-gray-700 flex w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Perfil</a>
+            <a href="<?php route('/settings') ?>" tabindex="1" class="text-gray-700 flex justify-between w-full px-4 py-2 text-sm leading-5 text-left"  role="menuitem" >Configurações</a>
             <a href="<?php route('/logout') ?>" tabindex="3" class="text-gray-700 flex w-full p-4 text-sm leading-5 text-left hover:bg-gray-100 rounded-br-md rounded-bl-md"  role="menuitem" >Sair</a></div>
-
         </div>
-
-
 
     </div>
   </div>

@@ -1,16 +1,16 @@
-<nav class="sticky top-0 z-50 bg-slate-100 dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
+<nav class="sticky top-0 z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
     <!-- Navbar brand -->
     <a href="<?php route('/') ?>" class="flex items-center">
         <?php component('ApplicationMark') ?>
-        <p class="text-xl text-gray-500 dark:text-white ">Scada<strong>Unity</strong></p>
+        <p class="hidden md:flex text-xl text-gray-500 dark:text-white ">Scada<strong>Unity</strong></p>
     </a>
 
     <!-- Mobile menu button -->
     <div class="md:hidden">
-        <button type="button" class="shadown-lg text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 rounded p-2 focus:ring-2 mobile-menu-button" aria-expanded="false">
+        <button type="button" class=" text-gray-600 dark:text-gray-400 rounded p-2 focus:ring-2 mobile-menu-button" aria-expanded="false">
             <span class="sr-only">Open menu</span>
             <!-- Heroicon name: outline/menu -->
-            <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
@@ -22,7 +22,7 @@
       <?php if(user()) : ?>
         <?php component('DropdownUserAccount') ?>
       <?php else : ?>
-        <?php if(!isRoute('login')):?>
+        <?php if(!isRoute('/login')):?>
         <a href="<?php route('/login') ?>" class="px-4 py-2 font-medium text-gray-500 hover:text-gray-800 hover:bg-slate-200 dark:text-white dark:hover:bg-gray-700 rounded-lg p-2.5">Entrar</a>
         <?php endif;?>
         <a href="<?php route('/register') ?>" class="px-4 py-2  rounded-md shadow-sm font-medium text-white bg-slate-800 hover:bg-slate-700">Inscrever-se</a>

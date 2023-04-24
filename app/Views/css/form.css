@@ -14,3 +14,8 @@
 .form-link {
     @apply mt-6 w-full flex justify-center text-sm ml-2 hover:text-emerald-700 dark:text-slate-500 dark:hover:text-teal-500 cursor-pointer
 }
+
+.input-text{
+
+}
+

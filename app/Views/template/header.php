@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?= LANG ?>" class="dark">
+<html lang="<?= LANG ?>" class="h-full">
     <head>
         <!-- PWA - INICIO -->
         <meta name="theme-color" content="green">
@@ -13,9 +13,9 @@
         <base href="<?= URL ?>" target="_self">
     </head>
 
-    <body class="antialiased select-none text-gray-500 dark:text-gray-400  dark:bg-gray-900 bg-white">
-        <div id="app" class="">
-            <a href="account">Usuarios</a>
+    <body class="h-full antialiased text-gray-500 dark:text-gray-400  dark:bg-gray-900 bg-white">
+        <div id="app" class="h-full">
+            
 
       
         

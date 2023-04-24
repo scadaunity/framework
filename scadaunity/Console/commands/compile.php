@@ -20,7 +20,7 @@ if ($argv[1] == 'compile') {
         switch($argv[2])
         {
             case 'tailwind':
-                exec('npx tailwindcss -i ./app/Views/css/main.css -o ./public/app.css');
+                exec('npx tailwindcss -i ./app/Views/css/main.css -o ./public/app.css --watch');
                 break;
             case 'webpack':
                 exec('npx webpack');
