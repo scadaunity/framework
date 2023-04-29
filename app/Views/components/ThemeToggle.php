@@ -1,4 +1,12 @@
 
+
+<style>
+.dropdown:focus-within .dropdown-theme {
+  opacity:1;
+  visibility: visible;
+}
+</style>
+
 <div class="flex items-center border-r border-gray-200 pr-3 dark:border-gray-800">
     <button id="theme-toggle" data-tooltip-target="tooltip-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
@@ -8,8 +16,9 @@
 
 <script type="text/javascript">
 
-var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+var themeToggleDarkIcon     = document.getElementById('theme-toggle-dark-icon');
+var themeToggleLightIcon    = document.getElementById('theme-toggle-light-icon');
+
 
 // Change the icons inside the button based on previous settings
 if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
