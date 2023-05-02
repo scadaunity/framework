@@ -96,7 +96,9 @@ class Router
   public static function loadRoutes()
   {
     foreach (self::$map as $file) {
-      require_once $file;
+      if (file_exists($file)) {
+        require_once $file;
+      }
     }
   }
 

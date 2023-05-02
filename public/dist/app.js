@@ -1,1 +1,1 @@
-console.log("teste"),console.info("ola doug");
+(()=>{"use strict";null===localStorage.getItem("theme")&&(localStorage.theme="system"),console.log(localStorage.getItem("theme"))})();

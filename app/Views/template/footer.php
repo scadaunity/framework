@@ -1,6 +1,6 @@
         
         </div>
-        <script src="dist/app.js"></script>
+        <script type="module" src="<?= baseUrl('/dist/app.js') ?>"></script>
     
     </body>
 </html>

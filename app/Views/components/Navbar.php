@@ -1,4 +1,4 @@
-<nav class="sticky top-0 z-50 bg-white dark:bg-gray-900 relative flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
+<nav class="sticky top-0 z-50 bg-white dark:bg-gray-900 flex justify-between items-center w-full md:justify-start md:space-x-10 shadow-sm py-4 pr-4 pl-4 dark:shadow-gray-600/10">
     <!-- Navbar brand -->
     <a href="<?php route('/') ?>" class="flex items-center">
         <?php component('ApplicationMark') ?>

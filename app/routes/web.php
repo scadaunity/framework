@@ -7,6 +7,7 @@ use ScadaUnity\Http\Router;
 Router::get('/', 'WelcomeController@index');
 Router::get('/home', 'WelcomeController@home');
 Router::get('/dashboard','WelcomeController@dashboard');
+Router::get('/template','WelcomeController@template');
 
 Router::resources([
   'users' => 'UserController',
