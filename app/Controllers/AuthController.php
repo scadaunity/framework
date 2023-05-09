@@ -96,7 +96,7 @@ class AuthController
 
     foreach ($users as $user) {
       /** VERIFICA SE EXISTE EMAIL CADASTRO */
-      if ($user->email == $data['email']) {
+      if ($user->email === $data['email']) {
           $validUser = $user;
       }
     }
@@ -216,7 +216,7 @@ class AuthController
 
     foreach ($users as $user) {
       /** VERIFICA SE EMAIL CONFEREM */
-      if ($user->email == $email) {
+      if ($user->email === $email) {
         $validUser = $user;
       }      
     }

@@ -2,7 +2,6 @@
 
 namespace ScadaUnity\View;
 
-
 /**
  * Classe responsavel por exibir o html formatado ao navegador
  */

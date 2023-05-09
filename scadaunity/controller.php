@@ -3,7 +3,16 @@
 use ScadaUnity\Http\Request;
 
 function controller($matchedUri, $params){
-
+  //dd(is_callable($matchedUri['/template']));
+  if(is_array($matchedUri)){
+    foreach ($matchedUri as $key => $value) {
+      if(is_callable($value)){
+        return call_user_func($value);
+      }
+    }
+  }
+  
+  
   /** Cria uma lista com o controller e o metodo*/
   [$controller,$method] = explode('@', array_values($matchedUri)[0]);
 

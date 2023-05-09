@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+use ScadaUnity\View\Template;
 
 /**
  *
@@ -20,7 +21,7 @@ class WelcomeController
       'name' => 'teste',
     ];
     //layout('pages/home',$data,'main');
-    layout('pages/auth/mail/verification',$data,'main');
+    layout('pages/home',$data,'main');
   }
 
   public function dashboard(){
@@ -33,8 +34,10 @@ class WelcomeController
   public function template(){
     $data =[
       'name' => 'teste',
+      'user'=>'doug',
     ];
-    layout('pages/dashboard',$data,'main');
+    
+    Template::render('render',$data);
   }
 
 }
