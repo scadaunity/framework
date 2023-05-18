@@ -9,9 +9,7 @@
  * [PT_BR] Define a url completa do projeto.
  * @var string
  */
-//define('URL','http://localhost:8000');
-//define('URL','http://localhost/framework/public');
-define('URL','http://192.168.15.7/framework/public');
+define('URL','http://localhost:8000');
 
 /**
  * [PT_BR] Define o titulo da aplicação na barra do navegador, Remetente de e-mail e manifest.

@@ -22,7 +22,7 @@ export const updateTheme = () => {
 
 updateTheme();
 
-console.log(localStorage.getItem("theme"));
+
     /*  
     if (
         localStorage.getItem('color-theme') === 'dark' ||

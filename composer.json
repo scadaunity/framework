@@ -12,7 +12,8 @@
     "minimum-stability": "stable",
     "require": {
       "php": ">=8.0.7",
-      "phpmailer/phpmailer": "dev-master"
+      "phpmailer/phpmailer": "dev-master",
+        "league/oauth2-google": "^4.0"
     },
     "autoload":{
       "psr-4":{
