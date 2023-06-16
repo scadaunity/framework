@@ -9,7 +9,4 @@ class Command {
    * @var array
    */
   public static $commands = [];
-
-
-
 }

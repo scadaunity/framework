@@ -38,7 +38,7 @@
   - minlength
   - boolean
 
- 6. Log
+6. Log
   - Levels 
     - EMERGENCY
     - ALERT
@@ -48,3 +48,4 @@
     - NOTICE
     - INFO
     - DEBUG
+7.  Funções definidas

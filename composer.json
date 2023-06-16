@@ -6,14 +6,15 @@
     "authors": [
         {
             "name": "scadaunity",
-            "email": "scadaunity@gmail.com"
+            "email": "scadaunity@gmail.com",
+            "homepage": "http://scadaunity.com.br",
+            "role": "Developer"
         }
     ],
     "minimum-stability": "stable",
     "require": {
       "php": ">=8.0.7",
-      "phpmailer/phpmailer": "dev-master",
-        "league/oauth2-google": "^4.0"
+      "phpmailer/phpmailer": "dev-master"
     },
     "autoload":{
       "psr-4":{
@@ -25,6 +26,7 @@
       ]
     },
     "require-dev": {
-        "php-webdriver/webdriver": "dev-main"
+        "php-webdriver/webdriver": "dev-main",
+        "spatie/lighthouse-php" : "1.0.5"
     }
 }

@@ -4,7 +4,7 @@
         <!-- PWA - INICIO -->
         <meta name="theme-color" content="green">
         <meta name="description" content="Scada Unity - PHP Framework">
-        <link rel="apple-touch-icon" href="assets/img/Logo.png">
+        <link rel="apple-touch-icon" href="assets/img/logo.png">
         <link rel="manifest" href="<?= baseUrl('/manifest.php') ?>">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

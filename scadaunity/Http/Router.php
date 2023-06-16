@@ -295,8 +295,6 @@ class Router
     public function run(){
         try {
           
-          
-          
           /** Procura a rota **/
           $match = self::match($this->getUri(), self::$routes[$this->method]);
 

@@ -19,3 +19,7 @@ Router::resources([
   'users' => 'UserController',
   'account' => 'MoneyAccountController',
 ]);
+
+Router::get('/flash',function(){
+  Router::redirect('accounts');
+});

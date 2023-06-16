@@ -15,7 +15,6 @@ if (!isset($argv[1])) {
     die();
 }
 
-
 require __DIR__.'/scadaunity/Console/commands/routes.php';
 require __DIR__.'/scadaunity/Console/commands/list.php';
 require __DIR__.'/scadaunity/Console/commands/middleware.php';

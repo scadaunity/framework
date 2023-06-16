@@ -12,7 +12,7 @@ function setFlash($index, $message){
 /**
  * Metodo responsavel por retornar uma flash message
  */
-function getFlash($index, $class = "text-red-500 text-xs italic w-full flex justify-center items-center py-2"){
+function getFlash($index, $class = "text-red-500 text-xs italic w-full flex justify-end  py-2"){
   if (isset($_SESSION['flash'][$index])) {
     $flash = $_SESSION['flash'][$index];
     unset($_SESSION['flash'][$index]);
