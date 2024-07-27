@@ -24,7 +24,7 @@
 			<?php getFlash('email') ?>
 		</div>
 			
-		<button type="submit" class="form-submit">Avançar</button>
+		<button type="submit" class="form-submit">Verificar</button>
 		
 	</form>
 </div>

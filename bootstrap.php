@@ -13,7 +13,6 @@ session_start();
 require_once 'app/config/app.php';
 require_once 'app/config/paths.php';
 require_once 'app/config/log.php';
-require_once 'app/config/mail.php';
 require_once 'app/config/middlewares.php';
 require_once 'app/config/view.php';
 require_once 'app/config/routes.php';

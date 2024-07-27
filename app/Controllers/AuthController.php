@@ -121,7 +121,7 @@ class AuthController
 
     //dd($email);
     if(!$email->error()){
-      redirect('/login');
+      redirect('/email-verify');
     }else{
       echo $email->error()->getMessage();
     }

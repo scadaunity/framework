@@ -108,5 +108,4 @@ class Email
   {
     return $this->error;
   }
-
 }
