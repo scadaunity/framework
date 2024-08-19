@@ -2,13 +2,15 @@
 
 namespace ScadaUnity\Database;
 
+use ScadaUnity\Database\Database;
+
 /**
- *  Classe responsavel por realizar a migrações no bancode dados
+ *  Classe responsavel por realizar a migrações no banco de dados
  */
 class Migration
 {
     /**
-    * Mapeamento das migrações
+    * Mapeamento dos arquivos de migrações dentro do diretorio.
     * @var array
     */
     private $map = [];
@@ -52,7 +54,6 @@ class Migration
 
     public function migrate(){
         
-
         // VERIFICA SE A FILA ESTA VAZIA
         if (empty($this->map)) return false;
 

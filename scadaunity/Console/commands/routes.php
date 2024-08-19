@@ -11,8 +11,8 @@ if (isset($argv[1]))
         $data = [];
         
         // Busca as rotas
-        Router::loadRoutes();
-        $routes = Router::all();
+        Router::loadRoutes(); //inicia os arquivos de rotas
+        $routes = Router::all(); // pega todas as rotas
 
         // Recupera as rotas get
         if (isset($routes['get'])) {
@@ -43,7 +43,16 @@ if (isset($argv[1]))
         }
 
         sort($data);
-
+        
+        // Transforma as closures em string para exibir na tabela 12/08/2024 - Paulo Cesar
+        foreach($data as $key => $value){
+          if (isset($value['action'])) {
+            if(is_callable($value['action'])){
+              $data[$key]['action'] = 'Closure';
+            }
+          } 
+        }
+       
         // Verifica se existe alguma rota
         if (!empty($data)) {
           // Cria a tabela
